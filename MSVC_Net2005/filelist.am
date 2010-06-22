@@ -1,0 +1,10 @@
+## This file is part of atkmm.
+
+msvc_net2005_data =		\
+	blank.cpp		\
+	atkmm.sln		\
+	gendef/gendef.vcproj	\
+	gendef/gendef.cc	\
+	atkmm/atkmm.rc		\
+	atkmm/atkmm.vcproj	\
+	atkmm/atkmmconfig.h
