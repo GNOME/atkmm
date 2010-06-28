@@ -1,3 +1,11 @@
+2010-06-28  Murray Cumming  <murrayc@murrayc.com>
+
+	Documentation: Added main page.
+
+	* atk/atkmm.h: Added text based on pangomm.h from pangomm.
+
+2.21.1
+
 2010-06-23  Murray Cumming  <murrayc@murrayc.com>
 
 	Reduce version to 2.21, because atkmm has not broken ABI (yet?)

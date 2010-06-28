@@ -22,6 +22,38 @@
 #ifndef _ATKMM_H
 #define _ATKMM_H
 
+
+/** @mainpage atkmm Reference Manual
+ *
+ * @section description Description
+ *
+ * atkmm is the official C++ interface for the <a href="http://library.gnome.org/devel/atk/stable/">ATK</a> accessibility toolkit library. It may be used, for instance, by user interfaces implemented with gtkmm.
+ *
+ * @section basics Basic usage
+ *
+ * Include the atkmm header:
+ * @code
+ * #include <atkmm.h>
+ * @endcode
+ * This includes every header installed by atkmm, so can slow down
+ * compilation, but suffices for this simple example. Assuming that your
+ * program source file is @c program.cc, compile it with:
+ * @code
+ * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-1.6`
+ * @endcode
+ * Alternatively, if using autoconf, use the following in @c configure.ac:
+ * @code
+ * PKG_CHECK_MODULES([ATKMM], [atkmm-1.6])
+ * @endcode
+ * Then use the generated @c ATKMM_CFLAGS and @c ATKMM_LIBS variables in
+ * the project @c Makefile.am files. For example:
+ * @code
+ * program_CPPFLAGS = $(ATKMM_CFLAGS)
+ * program_LDADD = $(ATKMM_LIBS)
+ * @endcode
+ */
+
+
 #include <atkmm/action.h>
 #include <atkmm/component.h>
 #include <atkmm/document.h>
@@ -39,4 +71,3 @@
 #include <atkmm/value.h>
 
 #endif /* _ATKMM_H */
-
