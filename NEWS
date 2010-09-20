@@ -1,3 +1,8 @@
+atkmm 2.21.2 (unstable)
+
+* Documentation: Added text for the main page.
+  (Murray Cumming)
+
 atkmm 2.21.1 (unstable)
 
 First release as a separate module. This was previously part of the gtkmm module.
