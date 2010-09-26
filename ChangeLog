@@ -1,3 +1,10 @@
+2010-09-26  Armin Burgmeier  <armin@arbur.net>
+
+	Fix MSVC project files.
+
+	* MSVC_Net2005/atkmm.sln:
+	* MSVC_Net2008/atkmm.sln:
+
 2.21.2:
 
 2010-06-28  Murray Cumming  <murrayc@murrayc.com>
