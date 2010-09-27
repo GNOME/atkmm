@@ -1,3 +1,7 @@
+atkmm 2.22.0 (stable)
+
+* Just increased version to show that it's an API/ABI-stable release.
+
 atkmm 2.21.2 (unstable)
 
 * Documentation: Added text for the main page.
