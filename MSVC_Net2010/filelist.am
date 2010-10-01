@@ -1,0 +1,11 @@
+## This file is part of atkmm.
+
+msvc_net2010_data =			\
+	atkmm.sln			\
+	gendef/gendef.vcxproj		\
+	gendef/gendef.vcxproj.filters	\
+	gendef/gendef.cc		\
+	atkmm/atkmm.rc			\
+	atkmm/atkmm.vcxproj		\
+	atkmm/atkmm.vcxproj.filters	\
+	atkmm/atkmmconfig.h
