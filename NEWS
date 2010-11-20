@@ -1,3 +1,9 @@
+atkmm 2.22.1 (stable):
+
+* Distribute the GPL in the tarball, in addition to the LGPL, because the 
+  Windows build uses a GPL builder tool.
+  (Murray Cumming. Thanks to Krzysztof Klimonda)
+  
 atkmm 2.22.0 (stable)
 
 * Just increased version to show that it's an API/ABI-stable release.
