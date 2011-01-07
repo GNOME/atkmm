@@ -60,8 +60,8 @@ MM_ARG_WITH_TAGFILE_DOC([glibmm-2.4.tag], [glibmm-2.4])
 AC_LANG([C++])
 MM_ARG_ENABLE_WARNINGS([ATKMM_WXXFLAGS],
                        [-Wall],
-                       [-pedantic -Wall -Wextra -DGSEAL_ENABLE],
-                       [G ATK])
+                       [-pedantic -Wall -Wextra -Wno-long-long -DGSEAL_ENABLE],
+                       [G ATK GLIBMM])
 
 AC_CONFIG_FILES([Makefile
                  codegen/Makefile

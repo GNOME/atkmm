@@ -1,3 +1,10 @@
+2011-01-07  Murray Cumming  <murrayc@murrayc.com>
+
+	Fix the build with --enable-warnings=fatal.
+
+	* configure.ac: Add no-long-long to avoid a warning caused by a newer glib.
+	Also avoid use of deprecated GLIBMM API and make sure that GSEAL is defined.
+
 2.22.1:
 
 2010-11-20  Murray Cumming  <murrayc@murrayc.com>
