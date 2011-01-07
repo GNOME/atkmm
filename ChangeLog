@@ -1,5 +1,14 @@
 2011-01-07  Murray Cumming  <murrayc@murrayc.com>
 
+	Allow other modules to use the m4 files.
+
+	* codegen/Makefile.am: Install the m4 files, like gtkmm installs its files.
+	* atk/atkmm.pc.in: Add the gmmproc4mdir variable so that other modules such 
+	as gtkmm and cluttermm can get the path to the m4 file, to avoid 
+	duplicating its contents.
+	
+2011-01-07  Murray Cumming  <murrayc@murrayc.com>
+
 	Fix the build with --enable-warnings=fatal.
 
 	* configure.ac: Add no-long-long to avoid a warning caused by a newer glib.

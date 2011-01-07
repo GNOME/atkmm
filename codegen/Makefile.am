@@ -19,12 +19,13 @@ AUTOMAKE_OPTIONS = subdir-objects
 
 include $(srcdir)/m4/filelist.am
 
-# For now, gtkmm ships with a copy of the atkmm conversion specifications,
-# thus the M4 files are not installed with atkmm.
-# In order to change that, all depending packages will have to be modified
-# as well, since for M4 files we do not have a mechanism like pkg-config for
-# resolving module dependencies and building an include path automatically.
-dist_noinst_DATA = $(addprefix m4/,$(files_codegen_m4))
+# Install m4 files for reuse by other *mm projects, when building from git:
+# TODO: All these Perl scripts and M4 files are architecture-independent
+# and should probably go somewhere below $(pkgdatadir) instead.
+gmmproc_bindir = $(libdir)/$(ATKMM_MODULE_NAME)/proc
+gmmproc_m4dir  = $(gmmproc_bindir)/m4
+dist_gmmproc_m4_DATA = $(files_codegen_m4:%=m4/%)
+
 noinst_PROGRAMS  = extradefs/generate_extra_defs
 
 extradefs_generate_extra_defs_SOURCES = extradefs/generate_extra_defs_atk.cc
