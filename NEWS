@@ -1,3 +1,7 @@
+atkmm 2.22.2 (stable):
+
+* Install m4 files needed by recent versions of gtkmm when building from git.
+
 atkmm 2.22.1 (stable):
 
 * Distribute the GPL in the tarball, in addition to the LGPL, because the 
