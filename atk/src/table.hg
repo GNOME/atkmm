@@ -20,6 +20,8 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(atk/atkobject.h)
 
+#include <vector>
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 extern "C"
 {
@@ -86,8 +88,8 @@ public:
   _WRAP_METHOD(void set_summary(const Glib::RefPtr<Atk::Object>& accessible), atk_table_set_summary)
 
   _IGNORE(atk_table_get_selected_columns, atk_table_get_selected_rows)
-  Glib::ArrayHandle<int> get_selected_columns() const;
-  Glib::ArrayHandle<int> get_selected_rows() const;
+  std::vector<int> get_selected_columns() const;
+  std::vector<int> get_selected_rows() const;
 
   _WRAP_METHOD(bool is_column_selected(int column) const, atk_table_is_column_selected)
   _WRAP_METHOD(bool is_row_selected(int row) const, atk_table_is_row_selected)

@@ -19,6 +19,8 @@
 
 _DEFS(atkmm,atk)
 
+#include <vector>
+
 #include <atkmm/text.h>
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
@@ -45,7 +47,8 @@ class EditableText : public Glib::Interface
   _CLASS_INTERFACE(EditableText, AtkEditableText, ATK_EDITABLE_TEXT, AtkEditableTextIface)
 
 public:
-  _WRAP_METHOD(bool set_run_attributes(const AttributeSet& attrib_set, int start_offset, int end_offset), atk_editable_text_set_run_attributes)
+#m4 _CONVERSION(`const std::vector<Attribute>&',`AtkAttributeSet*',`Glib::SListHandler<Attribute, AttributeTraits>::vector_to_slist ($3).data ()')
+  _WRAP_METHOD(bool set_run_attributes(const std::vector<Attribute>& attrib_set, int start_offset, int end_offset), atk_editable_text_set_run_attributes)
   _WRAP_METHOD(void set_text_contents(const Glib::ustring& string), atk_editable_text_set_text_contents)
   _WRAP_METHOD(void insert_text(const Glib::ustring& string, int length, int& position), atk_editable_text_insert_text)
   _WRAP_METHOD(void copy_text(int start_pos, int end_pos), atk_editable_text_copy_text)

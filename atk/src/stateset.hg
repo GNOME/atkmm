@@ -20,6 +20,7 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
+#include <vector>
 
 namespace Atk
 {
@@ -44,11 +45,11 @@ public:
 
   //Note that we use Atk::StateType instead of StateType, because there is a Gtk::StateType too, and Doxygen gets confused.
   _WRAP_METHOD(bool add_state(Atk::StateType type), atk_state_set_add_state)
-  void add_states(const Glib::ArrayHandle<Atk::StateType>& types);
+  void add_states(const std::vector<Atk::StateType>& types);
   _IGNORE(atk_state_set_add_states)
   _WRAP_METHOD(void clear_states(),atk_state_set_clear_states)
   _WRAP_METHOD(bool contains_state(Atk::StateType type), atk_state_set_contains_state)
-   bool contains_states(const Glib::ArrayHandle<Atk::StateType>& types) const;
+   bool contains_states(const std::vector<Atk::StateType>& types) const;
   _IGNORE(atk_state_set_contains_states)
   _WRAP_METHOD(bool remove_state(Atk::StateType type), atk_state_set_remove_state)
   _WRAP_METHOD(Glib::RefPtr<StateSet> and_sets(const Glib::RefPtr<StateSet>& compare_set), atk_state_set_and_sets)
