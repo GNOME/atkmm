@@ -1,3 +1,7 @@
+2.22.3:
+
+Just a tarball regeneration due to a changed m4 macro in mm-common.
+
 2.22.2:
 
 2011-01-07  Murray Cumming  <murrayc@murrayc.com>
@@ -5,10 +9,10 @@
 	Allow other modules to use the m4 files.
 
 	* codegen/Makefile.am: Install the m4 files, like gtkmm installs its files.
-	* atk/atkmm.pc.in: Add the gmmproc4mdir variable so that other modules such 
-	as gtkmm and cluttermm can get the path to the m4 file, to avoid 
+	* atk/atkmm.pc.in: Add the gmmproc4mdir variable so that other modules such
+	as gtkmm and cluttermm can get the path to the m4 file, to avoid
 	duplicating its contents.
-	
+
 2011-01-07  Murray Cumming  <murrayc@murrayc.com>
 
 	Fix the build with --enable-warnings=fatal.
@@ -22,10 +26,10 @@
 
 	Add and distribute COPYING.tools containing the GPL.
 
-	* COPYING.tools: This is necessary because the MSVC gendef.cc tool sources 
-	are under the GPL, not LGPL. They don't affect the licensing of the library 
+	* COPYING.tools: This is necessary because the MSVC gendef.cc tool sources
+	are under the GPL, not LGPL. They don't affect the licensing of the library
 	itself.
-	
+
 2010-10-01  Armin Burgmeier  <armin@arbur.net>
 
 	* MSVC_Net2005/atkmm.sln:

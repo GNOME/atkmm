@@ -1,13 +1,17 @@
+atkmm 2.22.3 (stable):
+
+Just a tarball regeneration due to a changed m4 macro in mm-common.
+
 atkmm 2.22.2 (stable):
 
 * Install m4 files needed by recent versions of gtkmm when building from git.
 
 atkmm 2.22.1 (stable):
 
-* Distribute the GPL in the tarball, in addition to the LGPL, because the 
+* Distribute the GPL in the tarball, in addition to the LGPL, because the
   Windows build uses a GPL builder tool.
   (Murray Cumming. Thanks to Krzysztof Klimonda)
-  
+
 atkmm 2.22.0 (stable)
 
 * Just increased version to show that it's an API/ABI-stable release.
