@@ -19,7 +19,7 @@ ACLOCAL_AMFLAGS = -I build ${ACLOCAL_FLAGS}
 DISTCHECK_CONFIGURE_FLAGS = --enable-warnings=fatal
 
 if MAINTAINER_MODE
-src_subdirs = codegen atk/src
+src_subdirs = atk/src
 else
 src_subdirs =
 endif
@@ -28,7 +28,7 @@ doc_subdirs = doc
 else
 doc_subdirs =
 endif
-SUBDIRS = $(src_subdirs) atk/atkmm $(doc_subdirs)
+SUBDIRS = codegen $(src_subdirs) atk/atkmm $(doc_subdirs)
 
 atkmm_includedir = $(includedir)/$(ATKMM_MODULE_NAME)
 atkmm_include_HEADERS = atk/atkmm.h
