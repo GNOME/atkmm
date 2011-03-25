@@ -24,3 +24,10 @@ book_name = $(ATKMM_MODULE_NAME)
 doc_input = $(top_srcdir)/atk/atkmm.h $(addprefix $(top_srcdir)/atk/atkmm/,$(atkmm_files_h))
 
 include $(top_srcdir)/build/doc-reference.am
+
+# These are copied here by mm-common:
+dist_noinst_DATA += \
+	doc-install.pl \
+	doc-postprocess.pl \
+	tagfile-to-devhelp2.xsl \
+	doxygen.css
