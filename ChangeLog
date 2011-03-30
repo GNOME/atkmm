@@ -1,3 +1,11 @@
+2011-03-25  Murray Cumming  <murrayc@murrayc.com>
+
+	Use the latest mm-common.
+
+	* configure.ac: Require the latest version.
+	* doc/Makefile.am: Don't specify the mm-common .pl files to distribute
+	because mm-common now does this automatically.
+
 2011-03-25  Kalev Lember  <kalev@smartlink.ee>
 
 	Install the m4 files without --enable-maintainer-mode
