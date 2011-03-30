@@ -1,3 +1,9 @@
+atkmm 2.22.5 (stable):
+
+* Install the m4 files even without --enable-maintainer-mode, as with
+  with other modules.
+  (Kalev Lember) Bug #645669
+
 atkmm 2.22.4 (stable):
 
 * Avoid a tarball dependency on mm-common.
