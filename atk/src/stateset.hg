@@ -20,6 +20,9 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
+#include <glibmm/object.h>
+#include <glibmm/value.h>
+#include <glibmm/arrayhandle.h>
 
 namespace Atk
 {

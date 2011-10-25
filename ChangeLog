@@ -1,3 +1,20 @@
+2011-10-25  Murray Cumming  <murrayc@murrayc.com>
+
+	Add #includes needed with the latest glibmm.
+
+	* atk/src/action.hg:
+	* atk/src/component.hg:
+	* atk/src/document.hg:
+	* atk/src/object.hg:
+	* atk/src/relation.hg:
+	* atk/src/selection.hg:
+	* atk/src/stateset.hg:
+	* atk/src/streamablecontent.hg:
+	* atk/src/table.hg:
+	* atk/src/text.hg:
+	* atk/src/value.hg: Add individual includes now that gmmproc does not 
+	add #include glibmm.h at the top of every generated header.
+
 2.22.5:
 
 2011-03-30  Murray Cumming  <murrayc@murrayc.com>

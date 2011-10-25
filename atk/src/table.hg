@@ -20,6 +20,9 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(atk/atkobject.h)
 
+#include <glibmm/interface.h>
+#include <glibmm/arrayhandle.h>
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 extern "C"
 {

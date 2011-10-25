@@ -19,6 +19,8 @@
 
 _DEFS(atkmm,atk)
 
+#include <glibmm/interface.h>
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 extern "C"
 {

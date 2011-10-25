@@ -20,6 +20,7 @@
 _DEFS(atkmm,atk)
 
 #include <atkmm/component.h> /* for Atk::CoordType */
+#include <glibmm/slisthandle.h>
 #include <atk/atktext.h>
 
 

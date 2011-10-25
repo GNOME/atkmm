@@ -20,6 +20,7 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
+#include <glibmm/object.h>
 #include <atkmm/component.h>
 #include <atkmm/relation.h>
 

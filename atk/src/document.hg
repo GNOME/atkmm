@@ -21,6 +21,8 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
+#include <glibmm/interface.h>
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 extern "C"
 {
