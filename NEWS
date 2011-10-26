@@ -1,3 +1,7 @@
+atkmm 2.22.6 (stable):
+
+* Add #includes needed with the latest glibmm.
+
 atkmm 2.22.5 (stable):
 
 * Install the m4 files even without --enable-maintainer-mode, as with

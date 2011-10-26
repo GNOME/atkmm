@@ -1,3 +1,5 @@
+2.22.6:
+
 2011-10-25  Murray Cumming  <murrayc@murrayc.com>
 
 	Add #includes needed with the latest glibmm.
