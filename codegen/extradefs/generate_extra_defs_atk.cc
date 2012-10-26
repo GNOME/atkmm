@@ -30,7 +30,9 @@
 
 int main(int, char**)
 {
-  g_type_init();
+  // g_type_init() is deprecated as of glib-2.36.
+  // g_type_init();
+
   void *const g_class_atk_no_op_object = g_type_class_ref(ATK_TYPE_NO_OP_OBJECT);
 
   std::cout << get_defs(ATK_TYPE_OBJECT)

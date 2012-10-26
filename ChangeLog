@@ -1,3 +1,11 @@
+2012-10-26  José Alburquerque  <jaalburquerque@gmail.com>
+
+	Remove the use of g_type_init() because it has been deprecated.
+
+	* codegen/extradefs/generate_extra_defs_atk.cc: The docs for the
+	function says that the GType system is initialized automatically now
+	as of glib-2.36.
+
 2.22.6:
 
 2011-10-25  Murray Cumming  <murrayc@murrayc.com>
