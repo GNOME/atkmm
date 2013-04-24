@@ -1,3 +1,8 @@
+atkmm 2.22.7 (stable):
+
+* Remove the use of g_type_init() because it has been deprecated.
+  (José Alburquerque)
+   
 atkmm 2.22.6 (stable):
 
 * Add #includes needed with the latest glibmm.

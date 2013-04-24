@@ -1,3 +1,5 @@
+2.22.7:
+
 2012-10-26  José Alburquerque  <jaalburquerque@gmail.com>
 
 	Remove the use of g_type_init() because it has been deprecated.
