@@ -19,6 +19,10 @@
 
 _DEFS(atkmm,atk)
 
+#m4 _PUSH(SECTION_CC_PRE_INCLUDES)
+#undef ATK_DISABLE_DEPRECATED
+#m4 _POP()
+
 #include <atkmm/component.h> /* for Atk::CoordType */
 #include <glibmm/slisthandle.h>
 #include <atk/atktext.h>
@@ -137,9 +141,9 @@ class Text : public Glib::Interface
 public:
   _WRAP_METHOD(Glib::ustring get_text(int start_offset, int end_offset) const, atk_text_get_text)
   _WRAP_METHOD(gunichar get_character_at_offset(int offset) const, atk_text_get_character_at_offset)
-  _WRAP_METHOD(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_after_offset)
+  _WRAP_METHOD(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_after_offset, deprecated "Use get_text_at_offset() instead.")
   _WRAP_METHOD(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_at_offset)
-  _WRAP_METHOD(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_before_offset)
+  _WRAP_METHOD(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_before_offset, deprecated "Use get_text_at_offset() instead.")
   _WRAP_METHOD(int get_caret_offset() const, atk_text_get_caret_offset)
   _WRAP_METHOD(void get_character_extents(int offset, int& x, int& y, int& width, int& height, CoordType coords) const, atk_text_get_character_extents)
   _WRAP_METHOD(AttributeSet get_run_attributes(int offset, int& start_offset, int& end_offset) const, atk_text_get_run_attributes)
@@ -172,9 +176,17 @@ protected:
 
   _WRAP_VFUNC(Glib::ustring get_text(int start_offset, int end_offset) const, get_text)
   _WRAP_VFUNC(gunichar get_character_at_offset(int offset) const, get_character_at_offset)
+
+  /** @deprecated This virtual function is deprecated and it should not be overridden.
+   */
   _WRAP_VFUNC(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_after_offset)
+
   _WRAP_VFUNC(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_at_offset)
+
+  /** @deprecated This virtual function is deprecated and it should not be overridden.
+   */
   _WRAP_VFUNC(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_before_offset)
+
   _WRAP_VFUNC(int get_caret_offset() const, get_caret_offset)
   _WRAP_VFUNC(void get_character_extents(int offset, int& x, int& y, int& width, int& height, CoordType coords) const, get_character_extents)
   _WRAP_VFUNC(AtkAttributeSet* get_run_attributes(int offset, int& start_offset, int& end_offset) const, get_run_attributes)

@@ -1,3 +1,13 @@
+2013-06-25  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
+
+	Atk::Text: Deprecate get_text_before_offset(), get_text_after_offset().
+
+	* configure.ac: Don't treat the deprecated-declarations warning as an error,
+	not even when --enable-warnings=fatal.
+	* atk/src/text.hg: Deprecate get_text_before_offset() and
+	get_text_after_offset() and the corresponding virtual functions. They have
+	been deprecated in atk. Bug #703027.
+
 2.22.7:
 
 2012-10-26  José Alburquerque  <jaalburquerque@gmail.com>
