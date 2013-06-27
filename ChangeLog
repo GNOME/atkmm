@@ -1,5 +1,12 @@
 2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
 
+	Update Doxyfile.in.
+
+	* doc/reference/Doxyfile.in: Update for doxygen 1.8.3. Make it more similar
+	to glibmm's and mm-common/skeletonmm's Doxyfile.in.
+
+2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
+
 	Update atk_docs.xml and most .defs files.
 
 	* codegen/extradefs/generate_extra_defs_atk.cc: Added get_defs() for new
