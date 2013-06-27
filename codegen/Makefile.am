@@ -26,6 +26,7 @@ gmmproc_bindir = $(libdir)/$(ATKMM_MODULE_NAME)/proc
 gmmproc_m4dir  = $(gmmproc_bindir)/m4
 dist_gmmproc_m4_DATA = $(files_codegen_m4:%=m4/%)
 
+dist_noinst_SCRIPTS = generate_defs_and_docs.sh
 noinst_PROGRAMS  = extradefs/generate_extra_defs
 
 extradefs_generate_extra_defs_SOURCES = extradefs/generate_extra_defs_atk.cc

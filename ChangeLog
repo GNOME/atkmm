@@ -1,3 +1,11 @@
+2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
+
+	Add the generate_defs_and_docs.sh script.
+
+	* codegen/generate_defs_and_docs.sh: New file. Script that generates
+	atk_docs.xml and most .defs files.
+	* codegen/Makefile.am: Distribute generate_defs_and_docs.sh.
+
 2013-06-25  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
 
 	Atk::Text: Deprecate get_text_before_offset(), get_text_after_offset().
