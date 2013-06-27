@@ -1,14 +1,128 @@
-;; From /home/murrayc/cvs/gnome210/atk/atk/atkhyperlink.h
+;; From atkhyperlink.h
+
+;; Original typedef:
+;; typedef enum 
+;; {
+;;   ATK_HYPERLINK_IS_INLINE = 1 << 0
+;; } AtkHyperlinkStateFlags;
 
 (define-flags-extended HyperlinkStateFlags
   (in-module "Atk")
   (c-name "AtkHyperlinkStateFlags")
   (values
-    '("e" "ATK_HYPERLINK_IS_INLINE" "1 << 0")
+    '("is-inline" "ATK_HYPERLINK_IS_INLINE" "1 << 0")
   )
 )
 
-;; From /home/murrayc/cvs/gnome210/atk/atk/atkobject.h
+;; From atkobject.h
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_ROLE_INVALID = 0, 
+;;   ATK_ROLE_ACCEL_LABEL,
+;;   ATK_ROLE_ALERT,
+;;   ATK_ROLE_ANIMATION,
+;;   ATK_ROLE_ARROW,
+;;   ATK_ROLE_CALENDAR,
+;;   ATK_ROLE_CANVAS,
+;;   ATK_ROLE_CHECK_BOX,
+;;   ATK_ROLE_CHECK_MENU_ITEM,
+;;   ATK_ROLE_COLOR_CHOOSER,
+;;   ATK_ROLE_COLUMN_HEADER,
+;;   ATK_ROLE_COMBO_BOX,
+;;   ATK_ROLE_DATE_EDITOR,
+;;   ATK_ROLE_DESKTOP_ICON,
+;;   ATK_ROLE_DESKTOP_FRAME,
+;;   ATK_ROLE_DIAL,
+;;   ATK_ROLE_DIALOG,
+;;   ATK_ROLE_DIRECTORY_PANE,
+;;   ATK_ROLE_DRAWING_AREA,
+;;   ATK_ROLE_FILE_CHOOSER,
+;;   ATK_ROLE_FILLER,
+;;   ATK_ROLE_FONT_CHOOSER,
+;;   ATK_ROLE_FRAME,
+;;   ATK_ROLE_GLASS_PANE,
+;;   ATK_ROLE_HTML_CONTAINER,
+;;   ATK_ROLE_ICON,
+;;   ATK_ROLE_IMAGE,
+;;   ATK_ROLE_INTERNAL_FRAME,
+;;   ATK_ROLE_LABEL,
+;;   ATK_ROLE_LAYERED_PANE,
+;;   ATK_ROLE_LIST,
+;;   ATK_ROLE_LIST_ITEM,
+;;   ATK_ROLE_MENU,
+;;   ATK_ROLE_MENU_BAR,
+;;   ATK_ROLE_MENU_ITEM,
+;;   ATK_ROLE_OPTION_PANE,
+;;   ATK_ROLE_PAGE_TAB,
+;;   ATK_ROLE_PAGE_TAB_LIST,
+;;   ATK_ROLE_PANEL,
+;;   ATK_ROLE_PASSWORD_TEXT,
+;;   ATK_ROLE_POPUP_MENU,
+;;   ATK_ROLE_PROGRESS_BAR,
+;;   ATK_ROLE_PUSH_BUTTON,
+;;   ATK_ROLE_RADIO_BUTTON,
+;;   ATK_ROLE_RADIO_MENU_ITEM,
+;;   ATK_ROLE_ROOT_PANE,
+;;   ATK_ROLE_ROW_HEADER,
+;;   ATK_ROLE_SCROLL_BAR,
+;;   ATK_ROLE_SCROLL_PANE,
+;;   ATK_ROLE_SEPARATOR,
+;;   ATK_ROLE_SLIDER,
+;;   ATK_ROLE_SPLIT_PANE,
+;;   ATK_ROLE_SPIN_BUTTON,
+;;   ATK_ROLE_STATUSBAR,
+;;   ATK_ROLE_TABLE,
+;;   ATK_ROLE_TABLE_CELL,
+;;   ATK_ROLE_TABLE_COLUMN_HEADER,
+;;   ATK_ROLE_TABLE_ROW_HEADER,
+;;   ATK_ROLE_TEAR_OFF_MENU_ITEM,
+;;   ATK_ROLE_TERMINAL,
+;;   ATK_ROLE_TEXT,
+;;   ATK_ROLE_TOGGLE_BUTTON,
+;;   ATK_ROLE_TOOL_BAR,
+;;   ATK_ROLE_TOOL_TIP,
+;;   ATK_ROLE_TREE,
+;;   ATK_ROLE_TREE_TABLE,
+;;   ATK_ROLE_UNKNOWN,
+;;   ATK_ROLE_VIEWPORT,
+;;   ATK_ROLE_WINDOW,
+;;   ATK_ROLE_HEADER,
+;;   ATK_ROLE_FOOTER,
+;;   ATK_ROLE_PARAGRAPH,
+;;   ATK_ROLE_RULER,
+;;   ATK_ROLE_APPLICATION,
+;;   ATK_ROLE_AUTOCOMPLETE,
+;;   ATK_ROLE_EDITBAR,
+;;   ATK_ROLE_EMBEDDED,
+;;   ATK_ROLE_ENTRY,
+;;   ATK_ROLE_CHART,
+;;   ATK_ROLE_CAPTION,
+;;   ATK_ROLE_DOCUMENT_FRAME,
+;;   ATK_ROLE_HEADING,
+;;   ATK_ROLE_PAGE,
+;;   ATK_ROLE_SECTION,
+;;   ATK_ROLE_REDUNDANT_OBJECT,
+;;   ATK_ROLE_FORM,
+;;   ATK_ROLE_LINK,
+;;   ATK_ROLE_INPUT_METHOD_WINDOW,
+;;   ATK_ROLE_TABLE_ROW,
+;;   ATK_ROLE_TREE_ITEM,
+;;   ATK_ROLE_DOCUMENT_SPREADSHEET,
+;;   ATK_ROLE_DOCUMENT_PRESENTATION,
+;;   ATK_ROLE_DOCUMENT_TEXT,
+;;   ATK_ROLE_DOCUMENT_WEB,
+;;   ATK_ROLE_DOCUMENT_EMAIL,
+;;   ATK_ROLE_COMMENT,
+;;   ATK_ROLE_LIST_BOX,
+;;   ATK_ROLE_GROUPING,
+;;   ATK_ROLE_IMAGE_MAP,
+;;   ATK_ROLE_NOTIFICATION,
+;;   ATK_ROLE_INFO_BAR,
+;;   ATK_ROLE_LEVEL_BAR,
+;;   ATK_ROLE_LAST_DEFINED
+;; } AtkRole;
 
 (define-enum-extended Role
   (in-module "Atk")
@@ -91,9 +205,47 @@
     '("autocomplete" "ATK_ROLE_AUTOCOMPLETE" "74")
     '("editbar" "ATK_ROLE_EDITBAR" "75")
     '("embedded" "ATK_ROLE_EMBEDDED" "76")
-    '("last-defined" "ATK_ROLE_LAST_DEFINED" "77")
+    '("entry" "ATK_ROLE_ENTRY" "77")
+    '("chart" "ATK_ROLE_CHART" "78")
+    '("caption" "ATK_ROLE_CAPTION" "79")
+    '("document-frame" "ATK_ROLE_DOCUMENT_FRAME" "80")
+    '("heading" "ATK_ROLE_HEADING" "81")
+    '("page" "ATK_ROLE_PAGE" "82")
+    '("section" "ATK_ROLE_SECTION" "83")
+    '("redundant-object" "ATK_ROLE_REDUNDANT_OBJECT" "84")
+    '("form" "ATK_ROLE_FORM" "85")
+    '("link" "ATK_ROLE_LINK" "86")
+    '("input-method-window" "ATK_ROLE_INPUT_METHOD_WINDOW" "87")
+    '("table-row" "ATK_ROLE_TABLE_ROW" "88")
+    '("tree-item" "ATK_ROLE_TREE_ITEM" "89")
+    '("document-spreadsheet" "ATK_ROLE_DOCUMENT_SPREADSHEET" "90")
+    '("document-presentation" "ATK_ROLE_DOCUMENT_PRESENTATION" "91")
+    '("document-text" "ATK_ROLE_DOCUMENT_TEXT" "92")
+    '("document-web" "ATK_ROLE_DOCUMENT_WEB" "93")
+    '("document-email" "ATK_ROLE_DOCUMENT_EMAIL" "94")
+    '("comment" "ATK_ROLE_COMMENT" "95")
+    '("list-box" "ATK_ROLE_LIST_BOX" "96")
+    '("grouping" "ATK_ROLE_GROUPING" "97")
+    '("image-map" "ATK_ROLE_IMAGE_MAP" "98")
+    '("notification" "ATK_ROLE_NOTIFICATION" "99")
+    '("info-bar" "ATK_ROLE_INFO_BAR" "100")
+    '("level-bar" "ATK_ROLE_LEVEL_BAR" "101")
+    '("last-defined" "ATK_ROLE_LAST_DEFINED" "102")
   )
 )
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_LAYER_INVALID,
+;;   ATK_LAYER_BACKGROUND,
+;;   ATK_LAYER_CANVAS,
+;;   ATK_LAYER_WIDGET,
+;;   ATK_LAYER_MDI,
+;;   ATK_LAYER_POPUP,
+;;   ATK_LAYER_OVERLAY,
+;;   ATK_LAYER_WINDOW
+;; } AtkLayer;
 
 (define-enum-extended Layer
   (in-module "Atk")
@@ -110,7 +262,30 @@
   )
 )
 
-;; From /home/murrayc/cvs/gnome210/atk/atk/atkrelationtype.h
+;; From atkrelationtype.h
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_RELATION_NULL = 0,
+;;   ATK_RELATION_CONTROLLED_BY,
+;;   ATK_RELATION_CONTROLLER_FOR,
+;;   ATK_RELATION_LABEL_FOR,
+;;   ATK_RELATION_LABELLED_BY,
+;;   ATK_RELATION_MEMBER_OF,
+;;   ATK_RELATION_NODE_CHILD_OF,
+;;   ATK_RELATION_FLOWS_TO,
+;;   ATK_RELATION_FLOWS_FROM,
+;;   ATK_RELATION_SUBWINDOW_OF, 
+;;   ATK_RELATION_EMBEDS, 
+;;   ATK_RELATION_EMBEDDED_BY, 
+;;   ATK_RELATION_POPUP_FOR, 
+;;   ATK_RELATION_PARENT_WINDOW_OF, 
+;;   ATK_RELATION_DESCRIBED_BY,
+;;   ATK_RELATION_DESCRIPTION_FOR,
+;;   ATK_RELATION_NODE_PARENT_OF,
+;;   ATK_RELATION_LAST_DEFINED
+;; } AtkRelationType;
 
 (define-enum-extended RelationType
   (in-module "Atk")
@@ -130,11 +305,60 @@
     '("embedded-by" "ATK_RELATION_EMBEDDED_BY" "11")
     '("popup-for" "ATK_RELATION_POPUP_FOR" "12")
     '("parent-window-of" "ATK_RELATION_PARENT_WINDOW_OF" "13")
-    '("last-defined" "ATK_RELATION_LAST_DEFINED" "14")
+    '("described-by" "ATK_RELATION_DESCRIBED_BY" "14")
+    '("description-for" "ATK_RELATION_DESCRIPTION_FOR" "15")
+    '("node-parent-of" "ATK_RELATION_NODE_PARENT_OF" "16")
+    '("last-defined" "ATK_RELATION_LAST_DEFINED" "17")
   )
 )
 
-;; From /home/murrayc/cvs/gnome210/atk/atk/atkstate.h
+;; From atkstate.h
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_STATE_INVALID,
+;;   ATK_STATE_ACTIVE,
+;;   ATK_STATE_ARMED,
+;;   ATK_STATE_BUSY,
+;;   ATK_STATE_CHECKED,
+;;   ATK_STATE_DEFUNCT,
+;;   ATK_STATE_EDITABLE,
+;;   ATK_STATE_ENABLED,
+;;   ATK_STATE_EXPANDABLE,
+;;   ATK_STATE_EXPANDED,
+;;   ATK_STATE_FOCUSABLE,
+;;   ATK_STATE_FOCUSED,
+;;   ATK_STATE_HORIZONTAL,
+;;   ATK_STATE_ICONIFIED,
+;;   ATK_STATE_MODAL,
+;;   ATK_STATE_MULTI_LINE,
+;;   ATK_STATE_MULTISELECTABLE,
+;;   ATK_STATE_OPAQUE,
+;;   ATK_STATE_PRESSED,
+;;   ATK_STATE_RESIZABLE,
+;;   ATK_STATE_SELECTABLE,
+;;   ATK_STATE_SELECTED,
+;;   ATK_STATE_SENSITIVE,
+;;   ATK_STATE_SHOWING,
+;;   ATK_STATE_SINGLE_LINE,
+;;   ATK_STATE_STALE,
+;;   ATK_STATE_TRANSIENT,
+;;   ATK_STATE_VERTICAL,
+;;   ATK_STATE_VISIBLE,
+;;   ATK_STATE_MANAGES_DESCENDANTS,
+;;   ATK_STATE_INDETERMINATE,
+;;   ATK_STATE_TRUNCATED,
+;;   ATK_STATE_REQUIRED,
+;;   ATK_STATE_INVALID_ENTRY,
+;;   ATK_STATE_SUPPORTS_AUTOCOMPLETION,
+;;   ATK_STATE_SELECTABLE_TEXT,
+;;   ATK_STATE_DEFAULT,
+;;   ATK_STATE_ANIMATED,
+;;   ATK_STATE_VISITED,
+;; 	
+;;   ATK_STATE_LAST_DEFINED
+;; } AtkStateType;
 
 (define-enum-extended StateType
   (in-module "Atk")
@@ -173,11 +397,51 @@
     '("indeterminate" "ATK_STATE_INDETERMINATE" "30")
     '("truncated" "ATK_STATE_TRUNCATED" "31")
     '("required" "ATK_STATE_REQUIRED" "32")
-    '("last-defined" "ATK_STATE_LAST_DEFINED" "33")
+    '("invalid-entry" "ATK_STATE_INVALID_ENTRY" "33")
+    '("supports-autocompletion" "ATK_STATE_SUPPORTS_AUTOCOMPLETION" "34")
+    '("selectable-text" "ATK_STATE_SELECTABLE_TEXT" "35")
+    '("default" "ATK_STATE_DEFAULT" "36")
+    '("animated" "ATK_STATE_ANIMATED" "37")
+    '("visited" "ATK_STATE_VISITED" "38")
+    '("last-defined" "ATK_STATE_LAST_DEFINED" "39")
   )
 )
 
-;; From /home/murrayc/cvs/gnome210/atk/atk/atktext.h
+;; From atktext.h
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_TEXT_ATTR_INVALID = 0,
+;;   ATK_TEXT_ATTR_LEFT_MARGIN,
+;;   ATK_TEXT_ATTR_RIGHT_MARGIN,
+;;   ATK_TEXT_ATTR_INDENT,
+;;   ATK_TEXT_ATTR_INVISIBLE,
+;;   ATK_TEXT_ATTR_EDITABLE,
+;;   ATK_TEXT_ATTR_PIXELS_ABOVE_LINES,
+;;   ATK_TEXT_ATTR_PIXELS_BELOW_LINES,
+;;   ATK_TEXT_ATTR_PIXELS_INSIDE_WRAP,
+;;   ATK_TEXT_ATTR_BG_FULL_HEIGHT,
+;;   ATK_TEXT_ATTR_RISE,
+;;   ATK_TEXT_ATTR_UNDERLINE,
+;;   ATK_TEXT_ATTR_STRIKETHROUGH,
+;;   ATK_TEXT_ATTR_SIZE,
+;;   ATK_TEXT_ATTR_SCALE,
+;;   ATK_TEXT_ATTR_WEIGHT,
+;;   ATK_TEXT_ATTR_LANGUAGE,
+;;   ATK_TEXT_ATTR_FAMILY_NAME,
+;;   ATK_TEXT_ATTR_BG_COLOR,
+;;   ATK_TEXT_ATTR_FG_COLOR,
+;;   ATK_TEXT_ATTR_BG_STIPPLE,
+;;   ATK_TEXT_ATTR_FG_STIPPLE,
+;;   ATK_TEXT_ATTR_WRAP_MODE,
+;;   ATK_TEXT_ATTR_DIRECTION,
+;;   ATK_TEXT_ATTR_JUSTIFICATION,
+;;   ATK_TEXT_ATTR_STRETCH,
+;;   ATK_TEXT_ATTR_VARIANT,
+;;   ATK_TEXT_ATTR_STYLE,
+;;   ATK_TEXT_ATTR_LAST_DEFINED
+;; } AtkTextAttribute;
 
 (define-enum-extended TextAttribute
   (in-module "Atk")
@@ -215,6 +479,17 @@
   )
 )
 
+;; Original typedef:
+;; typedef enum {
+;;   ATK_TEXT_BOUNDARY_CHAR,
+;;   ATK_TEXT_BOUNDARY_WORD_START,
+;;   ATK_TEXT_BOUNDARY_WORD_END,
+;;   ATK_TEXT_BOUNDARY_SENTENCE_START,
+;;   ATK_TEXT_BOUNDARY_SENTENCE_END,
+;;   ATK_TEXT_BOUNDARY_LINE_START,
+;;   ATK_TEXT_BOUNDARY_LINE_END
+;; } AtkTextBoundary;
+
 (define-enum-extended TextBoundary
   (in-module "Atk")
   (c-name "AtkTextBoundary")
@@ -229,6 +504,14 @@
   )
 )
 
+;; Original typedef:
+;; typedef enum {
+;;     ATK_TEXT_CLIP_NONE,
+;;     ATK_TEXT_CLIP_MIN,
+;;     ATK_TEXT_CLIP_MAX,
+;;     ATK_TEXT_CLIP_BOTH
+;; } AtkTextClipType;
+
 (define-enum-extended TextClipType
   (in-module "Atk")
   (c-name "AtkTextClipType")
@@ -240,7 +523,15 @@
   )
 )
 
-;; From /home/murrayc/cvs/gnome210/atk/atk/atkutil.h
+;; From atkutil.h
+
+;; Original typedef:
+;; typedef enum
+;; {
+;;   ATK_KEY_EVENT_PRESS,
+;;   ATK_KEY_EVENT_RELEASE,
+;;   ATK_KEY_EVENT_LAST_DEFINED
+;; } AtkKeyEventType;
 
 (define-enum-extended KeyEventType
   (in-module "Atk")
@@ -251,6 +542,12 @@
     '("last-defined" "ATK_KEY_EVENT_LAST_DEFINED" "2")
   )
 )
+
+;; Original typedef:
+;; typedef enum {
+;;   ATK_XY_SCREEN,
+;;   ATK_XY_WINDOW
+;; }AtkCoordType;
 
 (define-enum-extended CoordType
   (in-module "Atk")

@@ -40,16 +40,22 @@ int main(int, char**)
             << get_defs(ATK_TYPE_ACTION)
             << get_defs(ATK_TYPE_EDITABLE_TEXT)
             << get_defs(ATK_TYPE_HYPERLINK)
+            << get_defs(ATK_TYPE_HYPERLINK_IMPL)
             << get_defs(ATK_TYPE_HYPERTEXT)
             << get_defs(ATK_TYPE_IMAGE)
+            << get_defs(ATK_TYPE_MISC)
+            << get_defs(ATK_TYPE_PLUG)
             << get_defs(ATK_TYPE_SELECTION)
+            << get_defs(ATK_TYPE_SOCKET)
             << get_defs(ATK_TYPE_TABLE)
             << get_defs(ATK_TYPE_TEXT)
             << get_defs(ATK_TYPE_VALUE)
+            << get_defs(ATK_TYPE_WINDOW)
             << get_defs(ATK_TYPE_REGISTRY)
             << get_defs(ATK_TYPE_RELATION)
             << get_defs(ATK_TYPE_RELATION_SET)
-            << get_defs(ATK_TYPE_STATE_SET);
+            << get_defs(ATK_TYPE_STATE_SET)
+            ;
 
   g_type_class_unref(g_class_atk_no_op_object);
   return 0;

@@ -19,6 +19,7 @@
   )
 )
 
+;; Manually changed parameter type from gpointer to AtkPropertyValues*
 (define-signal property-change
   (of-object "AtkObject")
   (return-type "void")
@@ -44,6 +45,7 @@
   (when "last")
 )
 
+;; Manually changed parameter type from gpointer to gpointer*
 (define-signal active-descendant-changed
   (of-object "AtkObject")
   (return-type "void")
@@ -247,6 +249,8 @@
   (construct-only #f)
 )
 
+;; From AtkHyperlinkImpl
+
 ;; From AtkHypertext
 
 (define-signal link-selected
@@ -260,6 +264,10 @@
 
 ;; From AtkImage
 
+;; From AtkMisc
+
+;; From AtkPlug
+
 ;; From AtkSelection
 
 (define-signal selection-changed
@@ -267,6 +275,8 @@
   (return-type "void")
   (when "last")
 )
+
+;; From AtkSocket
 
 ;; From AtkTable
 
@@ -340,6 +350,40 @@
   )
 )
 
+(define-signal text-insert
+  (of-object "AtkText")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+    '("gint" "p1")
+    '("const-gchar*" "p2")
+  )
+)
+
+(define-signal text-remove
+  (of-object "AtkText")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+    '("gint" "p1")
+    '("const-gchar*" "p2")
+  )
+)
+
+(define-signal text-update
+  (of-object "AtkText")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gint" "p0")
+    '("gint" "p1")
+    '("gint" "p2")
+    '("const-gchar*" "p3")
+  )
+)
+
 (define-signal text-caret-moved
   (of-object "AtkText")
   (return-type "void")
@@ -362,6 +406,62 @@
 )
 
 ;; From AtkValue
+
+;; From AtkWindow
+
+(define-signal activate
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal create
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal deactivate
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal destroy
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal maximize
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal minimize
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal move
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal resize
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
+
+(define-signal restore
+  (of-object "AtkWindow")
+  (return-type "void")
+  (when "last")
+)
 
 ;; From AtkRegistry
 
@@ -388,3 +488,4 @@
 ;; From AtkRelationSet
 
 ;; From AtkStateSet
+
