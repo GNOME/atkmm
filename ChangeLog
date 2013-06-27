@@ -1,5 +1,12 @@
 2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
 
+	Update .gitignore.
+
+	* .gitignore: Add files that are copied to or generated in doc/ and
+	MSVC_Net2010/atkmm/.
+
+2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
+
 	Update Doxyfile.in.
 
 	* doc/reference/Doxyfile.in: Update for doxygen 1.8.3. Make it more similar

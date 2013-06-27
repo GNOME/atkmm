@@ -7,6 +7,8 @@ Makefile.in
 stamp-h?
 *.[ao]
 *.l[ao]
+*~
+
 /INSTALL
 /aclocal.m4
 /autom4te.cache/
@@ -17,7 +19,16 @@ stamp-h?
 /atkmm-*.tar.*
 /libtool
 /codegen/extradefs/generate_extra_defs
+
 /atk/atkmm-*.pc
 /atk/atkmmconfig.h
+
+/doc/doc-install.pl
+/doc/doc-postprocess.pl
+/doc/doxygen.css
+/doc/tagfile-to-devhelp2.xsl
+
 /MSVC_Net200[58]/atkmm/atkmm.rc
 /MSVC_Net200[58]/atkmm/atkmmconfig.h
+/MSVC_Net2010/atkmm/atkmm.rc
+/MSVC_Net2010/atkmm/atkmmconfig.h
