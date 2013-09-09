@@ -61,7 +61,6 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
     <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PreLinkEventUseInBuild>
@@ -83,8 +82,8 @@
     <ClCompile>
       <AdditionalOptions>/vd2 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../atk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../atk;$(SolutionDir)\..\..\vs10\win32\include\glibmm-2.4;$(SolutionDir)\..\..\vs10\win32\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs10\win32\include\sigc++-2.0;$(SolutionDir)\..\..\vs10\win32\lib\sigc++-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -100,6 +99,7 @@
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>atk-1.0.lib;glib-2.0.lib;gobject-2.0.lib;sigc-vc100-d-2_0.lib;glibmm-vc100-d-2_4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\vs10\win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)atkmm-vc100-d-1_6.dll</OutputFile>
       <ModuleDefinitionFile>$(Platform)\$(Configuration)\$(ProjectName).def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -111,8 +111,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions>/vd2 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>../../atk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../atk;$(SolutionDir)\..\..\vs10\win32\include\glibmm-2.4;$(SolutionDir)\..\..\vs10\win32\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs10\win32\include\sigc++-2.0;$(SolutionDir)\..\..\vs10\win32\lib\sigc++-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
@@ -126,6 +126,7 @@
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>atk-1.0.lib;glib-2.0.lib;gobject-2.0.lib;sigc-vc100-2_0.lib;glibmm-vc100-2_4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\vs10\win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)atkmm-vc100-1_6.dll</OutputFile>
       <ModuleDefinitionFile>$(Platform)\$(Configuration)\$(ProjectName).def</ModuleDefinitionFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -140,8 +141,8 @@
     <ClCompile>
       <AdditionalOptions>/vd2 %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../atk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../atk;$(SolutionDir)\..\..\vs10\x64\include\glibmm-2.4;$(SolutionDir)\..\..\vs10\x64\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs10\x64\include\sigc++-2.0;$(SolutionDir)\..\..\vs10\x64\lib\sigc++-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -157,6 +158,7 @@
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>atk-1.0.lib;glib-2.0.lib;gobject-2.0.lib;sigc-vc100-d-2_0.lib;glibmm-vc100-d-2_4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\vs10\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)atkmm-vc100-d-1_6.dll</OutputFile>
       <ModuleDefinitionFile>$(Platform)\$(Configuration)\$(ProjectName).def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -172,8 +174,8 @@
     </Midl>
     <ClCompile>
       <AdditionalOptions>/vd2 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>../../atk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../atk;$(SolutionDir)\..\..\vs10\x64\include\glibmm-2.4;$(SolutionDir)\..\..\vs10\x64\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs10\x64\include\sigc++-2.0;$(SolutionDir)\..\..\vs10\x64\lib\sigc++-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ATKMM_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
@@ -187,6 +189,7 @@
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>atk-1.0.lib;glib-2.0.lib;gobject-2.0.lib;sigc-vc100-2_0.lib;glibmm-vc100-2_4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\..\vs10\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OutputFile>$(OutDir)atkmm-vc100-1_6.dll</OutputFile>
       <ModuleDefinitionFile>$(Platform)\$(Configuration)\$(ProjectName).def</ModuleDefinitionFile>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>

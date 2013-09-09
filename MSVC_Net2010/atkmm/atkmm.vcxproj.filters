@@ -15,134 +15,50 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\atk\atkmm\action.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\component.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\document.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\editabletext.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\hyperlink.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\hypertext.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\image.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\implementor.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\init.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\noopobject.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\object.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\objectaccessible.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\relation.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\relationset.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\selection.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\stateset.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\streamablecontent.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\table.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\text.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\value.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\atk\atkmm\wrap_init.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\action.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\component.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\document.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\editabletext.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\hyperlink.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\hypertext.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\image.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\implementor.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\init.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\noopobject.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\object.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\objectaccessible.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\relation.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\relationset.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\selection.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\stateset.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\streamablecontent.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\table.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\text.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\value.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\..\atk\atkmm\wrap_init.cc"><Filter>Source Files</Filter></ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\atk\atkmm\action.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\document.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\editabletext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\hyperlink.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\hypertext.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\implementor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\init.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\noopobject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\objectaccessible.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\relation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\relationset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\selection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\stateset.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\streamablecontent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\table.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\value.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\atk\atkmm\wrap_init.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\action.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\component.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\document.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\editabletext.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\hyperlink.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\hypertext.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\image.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\implementor.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\init.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\noopobject.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\object.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\objectaccessible.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\relation.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\relationset.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\selection.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\stateset.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\streamablecontent.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\table.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\text.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\value.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\atk\atkmm\wrap_init.h"><Filter>Header Files</Filter></ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="atkmm.rc">

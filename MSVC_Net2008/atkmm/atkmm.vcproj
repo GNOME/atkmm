@@ -27,26 +27,11 @@
 			CharacterSet="2"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vd2"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../atk"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;ATKMM_BUILD"
+				AdditionalIncludeDirectories="../../atk;$(SolutionDir)\..\..\vs9\win32\include\glibmm-2.4;$(SolutionDir)\..\..\vs9\win32\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs9\win32\include\sigc++-2.0;$(SolutionDir)\..\..\vs9\win32\lib\sigc++-2.0\include"
+				PreprocessorDefinitions="_DEBUG;ATKMM_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -57,12 +42,6 @@
 				DebugInformationFormat="4"
 			/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
 				Name="VCPreLinkEventTool"
 				Description="Generate atkmm def file"
 				CommandLine="$(SolutionDir)gendef\$(PlatformName)\$(ConfigurationName)\gendef $(PlatformName)\$(ConfigurationName)\$(InputName).def $(TargetFileName) $(IntDir)\*.obj"
@@ -71,32 +50,12 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="atk-1.0.lib glib-2.0.lib gobject-2.0.lib sigc-vc90-d-2_0.lib glibmm-vc90-d-2_4.lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\..\..\vs9\win32\lib"
 				OutputFile="$(OutDir)/atkmm-vc90-d-1_6.dll"
 				ModuleDefinitionFile="$(PlatformName)\$(ConfigurationName)\$(InputName).def"
 				GenerateDebugInformation="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
@@ -108,37 +67,16 @@
 			CharacterSet="2"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vd2"
-				AdditionalIncludeDirectories="../../atk"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../atk;$(SolutionDir)\..\..\vs9\win32\include\glibmm-2.4;$(SolutionDir)\..\..\vs9\win32\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs9\win32\include\sigc++-2.0;$(SolutionDir)\..\..\vs9\win32\lib\sigc++-2.0\include"
+				PreprocessorDefinitions="ATKMM_BUILD"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -149,31 +87,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="atk-1.0.lib glib-2.0.lib gobject-2.0.lib sigc-vc90-2_0.lib glibmm-vc90-2_4.lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\..\..\vs9\win32\lib"
 				OutputFile="$(OutDir)\atkmm-vc90-1_6.dll"
 				ModuleDefinitionFile="$(PlatformName)\$(ConfigurationName)\$(InputName).def"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
@@ -185,18 +103,6 @@
 			CharacterSet="2"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="3"
 			/>
@@ -204,8 +110,8 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vd2"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../atk"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;ATKMM_BUILD"
+				AdditionalIncludeDirectories="../../atk;$(SolutionDir)\..\..\vs9\x64\include\glibmm-2.4;$(SolutionDir)\..\..\vs9\x64\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs9\x64\include\sigc++-2.0;$(SolutionDir)\..\..\vs9\x64\lib\sigc++-2.0\include"
+				PreprocessorDefinitions="_DEBUG;ATKMM_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -216,12 +122,6 @@
 				DebugInformationFormat="3"
 			/>
 			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
 				Name="VCPreLinkEventTool"
 				Description="Generate atkmm def file"
 				CommandLine="$(SolutionDir)gendef\$(PlatformName)\$(ConfigurationName)\gendef $(PlatformName)\$(ConfigurationName)\$(InputName).def $(TargetFileName) $(IntDir)\*.obj"
@@ -230,33 +130,13 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="atk-1.0.lib glib-2.0.lib gobject-2.0.lib sigc-vc90-d-2_0.lib glibmm-vc90-d-2_4.lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\..\..\vs9\x64\lib"
 				OutputFile="$(OutDir)/atkmm-vc90-d-1_6.dll"
 				ModuleDefinitionFile="$(PlatformName)\$(ConfigurationName)\$(InputName).def"
 				GenerateDebugInformation="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
@@ -268,38 +148,20 @@
 			CharacterSet="2"
 			>
 			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions="/vd2"
-				AdditionalIncludeDirectories="../../atk"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL"
+				AdditionalIncludeDirectories="../../atk;$(SolutionDir)\..\..\vs9\x64\include\glibmm-2.4;$(SolutionDir)\..\..\vs9\x64\lib\glibmm-2.4\include;$(SolutionDir)\..\..\vs9\x64\include\sigc++-2.0;$(SolutionDir)\..\..\vs9\x64\lib\sigc++-2.0\include"
+				PreprocessorDefinitions="ATKMM_BUILD"
 				RuntimeLibrary="2"
 				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -310,32 +172,12 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="atk-1.0.lib glib-2.0.lib gobject-2.0.lib sigc-vc90-2_0.lib glibmm-vc90-2_4.lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\..\..\vs9\x64\lib"
 				OutputFile="$(OutDir)\atkmm-vc90-1_6.dll"
 				ModuleDefinitionFile="$(PlatformName)\$(ConfigurationName)\$(InputName).def"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="17"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 	</Configurations>
@@ -347,194 +189,62 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File
-				RelativePath="..\..\atk\atkmm\action.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\blank.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\component.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\document.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\editabletext.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\hyperlink.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\hypertext.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\image.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\implementor.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\init.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\noopobject.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\object.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\objectaccessible.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\relation.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\relationset.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\selection.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\stateset.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\streamablecontent.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\table.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\text.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\value.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\wrap_init.cc"
-				>
-			</File>
+			<File RelativePath="..\..\atk\atkmm\action.cc" />
+			<File RelativePath="..\blank.cpp" />
+			<File RelativePath="..\..\atk\atkmm\component.cc" />
+			<File RelativePath="..\..\atk\atkmm\document.cc" />
+			<File RelativePath="..\..\atk\atkmm\editabletext.cc" />
+			<File RelativePath="..\..\atk\atkmm\hyperlink.cc" />
+			<File RelativePath="..\..\atk\atkmm\hypertext.cc" />
+			<File RelativePath="..\..\atk\atkmm\image.cc" />
+			<File RelativePath="..\..\atk\atkmm\implementor.cc" />
+			<File RelativePath="..\..\atk\atkmm\init.cc" />
+			<File RelativePath="..\..\atk\atkmm\noopobject.cc" />
+			<File RelativePath="..\..\atk\atkmm\object.cc" />
+			<File RelativePath="..\..\atk\atkmm\objectaccessible.cc" />
+			<File RelativePath="..\..\atk\atkmm\relation.cc" />
+			<File RelativePath="..\..\atk\atkmm\relationset.cc" />
+			<File RelativePath="..\..\atk\atkmm\selection.cc" />
+			<File RelativePath="..\..\atk\atkmm\stateset.cc" />
+			<File RelativePath="..\..\atk\atkmm\streamablecontent.cc" />
+			<File RelativePath="..\..\atk\atkmm\table.cc" />
+			<File RelativePath="..\..\atk\atkmm\text.cc" />
+			<File RelativePath="..\..\atk\atkmm\value.cc" />
+			<File RelativePath="..\..\atk\atkmm\wrap_init.cc" />
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\..\atk\atkmm\action.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\component.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\document.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\editabletext.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\hyperlink.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\hypertext.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\image.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\implementor.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\init.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\noopobject.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\object.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\objectaccessible.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\relation.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\relationset.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\selection.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\stateset.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\streamablecontent.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\table.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\text.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\value.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\atk\atkmm\wrap_init.h"
-				>
-			</File>
+			<File RelativePath="..\..\atk\atkmm\action.h" />
+			<File RelativePath="..\..\atk\atkmm\component.h" />
+			<File RelativePath="..\..\atk\atkmm\document.h" />
+			<File RelativePath="..\..\atk\atkmm\editabletext.h" />
+			<File RelativePath="..\..\atk\atkmm\hyperlink.h" />
+			<File RelativePath="..\..\atk\atkmm\hypertext.h" />
+			<File RelativePath="..\..\atk\atkmm\image.h" />
+			<File RelativePath="..\..\atk\atkmm\implementor.h" />
+			<File RelativePath="..\..\atk\atkmm\init.h" />
+			<File RelativePath="..\..\atk\atkmm\noopobject.h" />
+			<File RelativePath="..\..\atk\atkmm\object.h" />
+			<File RelativePath="..\..\atk\atkmm\objectaccessible.h" />
+			<File RelativePath="..\..\atk\atkmm\relation.h" />
+			<File RelativePath="..\..\atk\atkmm\relationset.h" />
+			<File RelativePath="..\..\atk\atkmm\selection.h" />
+			<File RelativePath="..\..\atk\atkmm\stateset.h" />
+			<File RelativePath="..\..\atk\atkmm\streamablecontent.h" />
+			<File RelativePath="..\..\atk\atkmm\table.h" />
+			<File RelativePath="..\..\atk\atkmm\text.h" />
+			<File RelativePath="..\..\atk\atkmm\value.h" />
+			<File RelativePath="..\..\atk\atkmm\wrap_init.h" />
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
-			<File
-				RelativePath=".\atkmm.rc"
-				>
-			</File>
+			<File RelativePath=".\atkmm.rc" />
 		</Filter>
 	</Files>
 	<Globals>

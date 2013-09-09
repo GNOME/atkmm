@@ -1,4 +1,23 @@
-2013-09-09  Chun-wei Fan  <kjell.ahlstedt@bredband.net>
+2013-09-09  Chun-wei Fan  <fanc999@yahoo.com.tw>
+	Update the MSVC Project Files
+
+	* MSVC_Net2005/gendef/gendef.vcproj:
+	MSVC_Net2008/gendef/gendef.vcproj:
+	MSVC_Net2010/gendef/gendef.vcxproj:
+	MSVC_Net2005/atkmm/atkmm.vcproj:
+	MSVC_Net2008/atkmm/atkmm.vcproj:
+	MSVC_Net2010/atkmm/atkmm.vcxproj: Clean up the project files by purging
+	unneeded entries, macros and whitespace.
+
+	Also improve on the project files by adding to the
+	AdditionalIncludeDirectories and AdditionalLibraryDirectories so that
+	they can find and use the deps from a local build directory instead
+	of using builds in the global include and libs path.  This is useful when
+	we are building an unstable release as unstable releases usually require
+	the latest unstable releases of their respective deps, which we do not
+	usually want to place where they are used globally.
+
+2013-09-09  Chun-wei Fan  <fanc999@yahoo.com.tw>
 
 	MSVC Solution Files: Use DOS Line Endings
 
