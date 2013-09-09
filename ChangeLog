@@ -1,3 +1,13 @@
+2013-09-09  Chun-wei Fan  <kjell.ahlstedt@bredband.net>
+
+	MSVC Solution Files: Use DOS Line Endings
+
+	* MSVC_Net2005/atkmm.sln:
+	* MSVC_Net2008/atkmm.sln:
+	* MSVC_Net2010/atkmm.sln: Use DOS/Windows line endings as Visual
+	Studio expects .sln files to have DOS/Windows line endings in order to
+	determine the Visual Studio version to use to open the .sln files.
+
 2013-06-27  Kjell Ahlstedt  <kjell.ahlstedt@bredband.net>
 
 	Update .gitignore.
