@@ -1,11 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atkmm-1.6", "atkmm\atkmm.vcproj", "{9FE0D5A6-458C-45C7-B954-2C3C1E6196C2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atkmm", "atkmm.vcproj", "{9FE0D5A6-458C-45C7-B954-2C3C1E6196C2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{07324745-C9BE-4D65-B08A-9C88188C0C28} = {07324745-C9BE-4D65-B08A-9C88188C0C28}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gendef", "gendef\gendef.vcproj", "{07324745-C9BE-4D65-B08A-9C88188C0C28}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gendef", "gendef.vcproj", "{07324745-C9BE-4D65-B08A-9C88188C0C28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
