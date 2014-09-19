@@ -2,10 +2,12 @@
 
 msvc_net2010_data =			\
 	atkmm.sln			\
-	gendef/gendef.vcxproj		\
-	gendef/gendef.vcxproj.filters	\
+	atkmm-build-defines.props	\
+	atkmm-version-paths.props	\
+	gendef.vcxproj			\
+	gendef.vcxproj.filters		\
 	gendef/gendef.cc		\
 	atkmm/atkmm.rc			\
-	atkmm/atkmm.vcxproj		\
-	atkmm/atkmm.vcxproj.filters	\
+	atkmm.vcxproj			\
+	atkmm.vcxproj.filters		\
 	atkmm/atkmmconfig.h
