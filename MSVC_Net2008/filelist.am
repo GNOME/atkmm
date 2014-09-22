@@ -5,8 +5,10 @@ msvc_net2008_data =			\
 	atkmm.sln			\
 	atkmm-build-defines.vsprops	\
 	atkmm-version-paths.vsprops	\
+	atkmm-install.vsprops		\
 	gendef.vcproj			\
 	gendef/gendef.cc		\
 	atkmm/atkmm.rc			\
 	atkmm.vcproj			\
-	atkmm/atkmmconfig.h
+	atkmm/atkmmconfig.h		\
+	install.vcproj
