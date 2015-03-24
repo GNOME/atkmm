@@ -21,6 +21,11 @@
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
+#m4 _PUSH(SECTION_CC_PRE_INCLUDES)
+#undef ATK_DISABLE_DEPRECATED
+#define ATK_DISABLE_DEPRECATION_WARNINGS 1
+#m4 _POP()
+
 #include <glibmm/interface.h>
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
@@ -45,8 +50,14 @@ class Document : public Glib::Interface
   _CLASS_INTERFACE(Document, AtkDocument, ATK_DOCUMENT, AtkDocumentIface)
 public:
 
-  _WRAP_METHOD(Glib::ustring get_document_type() const, atk_document_get_document_type)
-  _WRAP_METHOD(gpointer get_document(), atk_document_get_document)
+  _WRAP_METHOD(Glib::ustring get_document_type() const, atk_document_get_document_type, "Please use get_attribute() to ask for the document type if it applies.")
+  _WRAP_METHOD(gpointer get_document(), atk_document_get_document, deprecated "Document is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.")
+
+  _IGNORE(atk_document_get_locale)
+
+//TODO: AtkAttributeSet*      atk_document_get_attributes (AtkDocument *document);
+  _WRAP_METHOD(Glib::ustring get_attribute_value(const Glib::ustring& attribute_name) const, atk_document_get_attribute_value)
+  _WRAP_METHOD(bool set_attribute_value(const Glib::ustring& attribute_name, const Glib::ustring& attribute_value), atk_document_set_attribute_value)
 
 protected:
   _WRAP_VFUNC(const gchar* get_document_type(), get_document_type)
