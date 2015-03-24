@@ -157,6 +157,12 @@
   (gtype-id "ATK_TYPE_TABLE")
 )
 
+(define-object TableCell
+  (in-module "Atk")
+  (c-name "AtkTableCell")
+  (gtype-id "ATK_TYPE_TABLE_CELL")
+)
+
 (define-object Text
   (in-module "Atk")
   (c-name "AtkText")
@@ -300,6 +306,26 @@
     '("notification" "ATK_ROLE_NOTIFICATION")
     '("info-bar" "ATK_ROLE_INFO_BAR")
     '("level-bar" "ATK_ROLE_LEVEL_BAR")
+    '("title-bar" "ATK_ROLE_TITLE_BAR")
+    '("block-quote" "ATK_ROLE_BLOCK_QUOTE")
+    '("audio" "ATK_ROLE_AUDIO")
+    '("video" "ATK_ROLE_VIDEO")
+    '("definition" "ATK_ROLE_DEFINITION")
+    '("article" "ATK_ROLE_ARTICLE")
+    '("landmark" "ATK_ROLE_LANDMARK")
+    '("log" "ATK_ROLE_LOG")
+    '("marquee" "ATK_ROLE_MARQUEE")
+    '("math" "ATK_ROLE_MATH")
+    '("rating" "ATK_ROLE_RATING")
+    '("timer" "ATK_ROLE_TIMER")
+    '("description-list" "ATK_ROLE_DESCRIPTION_LIST")
+    '("description-term" "ATK_ROLE_DESCRIPTION_TERM")
+    '("description-value" "ATK_ROLE_DESCRIPTION_VALUE")
+    '("static" "ATK_ROLE_STATIC")
+    '("math-fraction" "ATK_ROLE_MATH_FRACTION")
+    '("math-root" "ATK_ROLE_MATH_ROOT")
+    '("subscript" "ATK_ROLE_SUBSCRIPT")
+    '("superscript" "ATK_ROLE_SUPERSCRIPT")
     '("last-defined" "ATK_ROLE_LAST_DEFINED")
   )
 )
@@ -390,6 +416,10 @@
     '("default" "ATK_STATE_DEFAULT")
     '("animated" "ATK_STATE_ANIMATED")
     '("visited" "ATK_STATE_VISITED")
+    '("checkable" "ATK_STATE_CHECKABLE")
+    '("has-popup" "ATK_STATE_HAS_POPUP")
+    '("has-tooltip" "ATK_STATE_HAS_TOOLTIP")
+    '("read-only" "ATK_STATE_READ_ONLY")
     '("last-defined" "ATK_STATE_LAST_DEFINED")
   )
 )
@@ -446,6 +476,19 @@
   )
 )
 
+(define-enum TextGranularity
+  (in-module "Atk")
+  (c-name "AtkTextGranularity")
+  (gtype-id "ATK_TYPE_TEXT_GRANULARITY")
+  (values
+    '("char" "ATK_TEXT_GRANULARITY_CHAR")
+    '("word" "ATK_TEXT_GRANULARITY_WORD")
+    '("sentence" "ATK_TEXT_GRANULARITY_SENTENCE")
+    '("line" "ATK_TEXT_GRANULARITY_LINE")
+    '("paragraph" "ATK_TEXT_GRANULARITY_PARAGRAPH")
+  )
+)
+
 (define-enum TextClipType
   (in-module "Atk")
   (c-name "AtkTextClipType")
@@ -476,6 +519,30 @@
   (values
     '("screen" "ATK_XY_SCREEN")
     '("window" "ATK_XY_WINDOW")
+  )
+)
+
+(define-enum ValueType
+  (in-module "Atk")
+  (c-name "AtkValueType")
+  (gtype-id "ATK_TYPE_VALUE_TYPE")
+  (values
+    '("very-weak" "ATK_VALUE_VERY_WEAK")
+    '("weak" "ATK_VALUE_WEAK")
+    '("acceptable" "ATK_VALUE_ACCEPTABLE")
+    '("strong" "ATK_VALUE_STRONG")
+    '("very-strong" "ATK_VALUE_VERY_STRONG")
+    '("very-low" "ATK_VALUE_VERY_LOW")
+    '("low" "ATK_VALUE_LOW")
+    '("medium" "ATK_VALUE_MEDIUM")
+    '("high" "ATK_VALUE_HIGH")
+    '("very-high" "ATK_VALUE_VERY_HIGH")
+    '("very-bad" "ATK_VALUE_VERY_BAD")
+    '("bad" "ATK_VALUE_BAD")
+    '("good" "ATK_VALUE_GOOD")
+    '("very-good" "ATK_VALUE_VERY_GOOD")
+    '("best" "ATK_VALUE_BEST")
+    '("last-defined" "ATK_VALUE_LAST_DEFINED")
   )
 )
 
@@ -746,6 +813,18 @@
   )
 )
 
+(define-method get_current_page_number
+  (of-object "AtkDocument")
+  (c-name "atk_document_get_current_page_number")
+  (return-type "gint")
+)
+
+(define-method get_page_count
+  (of-object "AtkDocument")
+  (c-name "atk_document_get_page_count")
+  (return-type "gint")
+)
+
 
 
 ;; From atkeditabletext.h
@@ -864,6 +943,11 @@
   (return-type "GType")
 )
 
+(define-function atk_text_granularity_get_type
+  (c-name "atk_text_granularity_get_type")
+  (return-type "GType")
+)
+
 (define-function atk_text_clip_type_get_type
   (c-name "atk_text_clip_type_get_type")
   (return-type "GType")
@@ -876,6 +960,11 @@
 
 (define-function atk_coord_type_get_type
   (c-name "atk_coord_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_value_type_get_type
+  (c-name "atk_value_type_get_type")
   (return-type "GType")
 )
 
@@ -1070,10 +1159,6 @@
 
 
 
-;; From atkintl.h
-
-
-
 ;; From atkmarshal.h
 
 
@@ -1169,14 +1254,6 @@
 
 ;; From atkobject.h
 
-(define-function atk_role_register
-  (c-name "atk_role_register")
-  (return-type "AtkRole")
-  (parameters
-    '("const-gchar*" "name")
-  )
-)
-
 (define-function atk_object_get_type
   (c-name "atk_object_get_type")
   (return-type "GType")
@@ -1208,6 +1285,12 @@
 (define-method get_parent
   (of-object "AtkObject")
   (c-name "atk_object_get_parent")
+  (return-type "AtkObject*")
+)
+
+(define-method peek_parent
+  (of-object "AtkObject")
+  (c-name "atk_object_peek_parent")
   (return-type "AtkObject*")
 )
 
@@ -1381,6 +1464,14 @@
   (return-type "const-gchar*")
 )
 
+(define-function atk_role_register
+  (c-name "atk_role_register")
+  (return-type "AtkRole")
+  (parameters
+    '("const-gchar*" "name")
+  )
+)
+
 (define-method get_object_locale
   (of-object "AtkObject")
   (c-name "atk_object_get_object_locale")
@@ -1406,6 +1497,60 @@
   (of-object "AtkPlug")
   (c-name "atk_plug_get_id")
   (return-type "gchar*")
+)
+
+
+
+;; From atkprivate.h
+
+
+
+;; From atkrange.h
+
+(define-function atk_range_get_type
+  (c-name "atk_range_get_type")
+  (return-type "GType")
+)
+
+(define-method copy
+  (of-object "AtkRange")
+  (c-name "atk_range_copy")
+  (return-type "AtkRange*")
+)
+
+(define-method free
+  (of-object "AtkRange")
+  (c-name "atk_range_free")
+  (return-type "none")
+)
+
+(define-method get_lower_limit
+  (of-object "AtkRange")
+  (c-name "atk_range_get_lower_limit")
+  (return-type "gdouble")
+)
+
+(define-method get_upper_limit
+  (of-object "AtkRange")
+  (c-name "atk_range_get_upper_limit")
+  (return-type "gdouble")
+)
+
+(define-method get_description
+  (of-object "AtkRange")
+  (c-name "atk_range_get_description")
+  (return-type "const-gchar*")
+)
+
+(define-function atk_range_new
+  (c-name "atk_range_new")
+  (is-constructor-of "AtkRange")
+  (return-type "AtkRange*")
+  (parameters
+    '("gdouble" "lower_limit")
+    '("gdouble" "upper_limit")
+    '("const-gchar*" "description")
+  )
 )
 
 
@@ -1876,6 +2021,67 @@
 
 
 
+;; From atktablecell.h
+
+(define-function atk_table_cell_get_type
+  (c-name "atk_table_cell_get_type")
+  (return-type "GType")
+)
+
+(define-method get_column_span
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_column_span")
+  (return-type "gint")
+)
+
+(define-method get_column_header_cells
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_column_header_cells")
+  (return-type "GPtrArray*")
+)
+
+(define-method get_position
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_position")
+  (return-type "gboolean")
+  (parameters
+    '("gint*" "row")
+    '("gint*" "column")
+  )
+)
+
+(define-method get_row_span
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_row_span")
+  (return-type "gint")
+)
+
+(define-method get_row_header_cells
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_row_header_cells")
+  (return-type "GPtrArray*")
+)
+
+(define-method get_row_column_span
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_row_column_span")
+  (return-type "gboolean")
+  (parameters
+    '("gint*" "row")
+    '("gint*" "column")
+    '("gint*" "row_span")
+    '("gint*" "column_span")
+  )
+)
+
+(define-method get_table
+  (of-object "AtkTableCell")
+  (c-name "atk_table_cell_get_table")
+  (return-type "AtkObject*")
+)
+
+
+
 ;; From atktable.h
 
 (define-function atk_table_get_type
@@ -2218,6 +2424,18 @@
   )
 )
 
+(define-method get_string_at_offset
+  (of-object "AtkText")
+  (c-name "atk_text_get_string_at_offset")
+  (return-type "gchar*")
+  (parameters
+    '("gint" "offset")
+    '("AtkTextGranularity" "granularity")
+    '("gint*" "start_offset")
+    '("gint*" "end_offset")
+  )
+)
+
 (define-method get_caret_offset
   (of-object "AtkText")
   (c-name "atk_text_get_caret_offset")
@@ -2541,6 +2759,55 @@
   (parameters
     '("GValue*" "value")
   )
+)
+
+(define-method get_value_and_text
+  (of-object "AtkValue")
+  (c-name "atk_value_get_value_and_text")
+  (return-type "none")
+  (parameters
+    '("gdouble*" "value")
+    '("gchar**" "text")
+  )
+)
+
+(define-method get_range
+  (of-object "AtkValue")
+  (c-name "atk_value_get_range")
+  (return-type "AtkRange*")
+)
+
+(define-method get_increment
+  (of-object "AtkValue")
+  (c-name "atk_value_get_increment")
+  (return-type "gdouble")
+)
+
+(define-method get_sub_ranges
+  (of-object "AtkValue")
+  (c-name "atk_value_get_sub_ranges")
+  (return-type "GSList*")
+)
+
+(define-method set_value
+  (of-object "AtkValue")
+  (c-name "atk_value_set_value")
+  (return-type "none")
+  (parameters
+    '("const-gdouble" "new_value")
+  )
+)
+
+(define-method get_name
+  (of-object "AtkValueType")
+  (c-name "atk_value_type_get_name")
+  (return-type "const-gchar*")
+)
+
+(define-method get_localized_name
+  (of-object "AtkValueType")
+  (c-name "atk_value_type_get_localized_name")
+  (return-type "const-gchar*")
 )
 
 

@@ -76,7 +76,7 @@
 (define-property accessible-parent
   (of-object "AtkObject")
   (prop-type "GParamObject")
-  (docs "Is used to notify that the parent has changed")
+  (docs "Parent of the current accessible as returned by atk_object_get_parent()")
   (readable #t)
   (writable #t)
   (construct-only #f)
@@ -372,18 +372,6 @@
   )
 )
 
-(define-signal text-update
-  (of-object "AtkText")
-  (return-type "void")
-  (when "last")
-  (parameters
-    '("gint" "p0")
-    '("gint" "p1")
-    '("gint" "p2")
-    '("const-gchar*" "p3")
-  )
-)
-
 (define-signal text-caret-moved
   (of-object "AtkText")
   (return-type "void")
@@ -406,6 +394,16 @@
 )
 
 ;; From AtkValue
+
+(define-signal value-changed
+  (of-object "AtkValue")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("gdouble" "p0")
+    '("const-gchar*" "p1")
+  )
+)
 
 ;; From AtkWindow
 
