@@ -21,6 +21,7 @@ _DEFS(atkmm,atk)
 
 #m4 _PUSH(SECTION_CC_PRE_INCLUDES)
 #undef ATK_DISABLE_DEPRECATED
+#define ATK_DISABLE_DEPRECATION_WARNINGS 1
 #m4 _POP()
 
 #include <atkmm/component.h> /* for Atk::CoordType */
