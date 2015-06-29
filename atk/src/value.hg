@@ -63,6 +63,10 @@ public:
 
   _WRAP_METHOD(void set_value(const gdouble new_value), atk_value_set_value)
 
+  _IGNORE(atk_value_get_minimum_increment)
+
+  //TODO: atk_value_get_sub_ranges ()
+
 
 protected:
   _WRAP_VFUNC(void get_current_value(Glib::ValueBase& value) const, get_current_value)
