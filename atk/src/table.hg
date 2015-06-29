@@ -56,7 +56,10 @@ class Table : public Glib::Interface
 
 public:
   _WRAP_METHOD(Glib::RefPtr<Atk::Object> get_at(int row, int column), atk_table_ref_at)
-  _WRAP_METHOD(int get_index_at(int row, int column) const, atk_table_get_index_at)
+  _WRAP_METHOD(Glib::RefPtr<const Atk::Object> get_at(int row, int column) const, atk_table_ref_at)
+
+  _WRAP_METHOD(int get_index_at(int row, int column) const, atk_table_get_index_at, deprecated "Use get_at() instead.")
+
   _WRAP_METHOD(int get_column_at_index(int index) const, atk_table_get_column_at_index)
   _WRAP_METHOD(int get_row_at_index(int index) const, atk_table_get_row_at_index)
   _WRAP_METHOD(int get_n_columns() const, atk_table_get_n_columns)
