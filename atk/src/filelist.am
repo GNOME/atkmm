@@ -21,6 +21,7 @@ atkmm_files_hg =		\
 	noopobject.hg		\
 	object.hg		\
 	objectaccessible.hg	\
+	range.hg		\
 	relation.hg		\
 	relationset.hg		\
 	selection.hg		\

@@ -40,5 +40,7 @@ _CONVERSION(`GIOChannel*',`Glib::RefPtr<Glib::IOChannel>',Glib::wrap($3))
 _CONVERSION(`Rectangle&', `AtkTextRectangle*', `&($3)')
 _CONVERSION(`const Rectangle&', `AtkTextRectangle*', `const_cast<AtkTextRectangle*>(&($3))')
 
+_CONVERSION(`AtkRange*',`Range',Glib::wrap($3))
+
 
 
