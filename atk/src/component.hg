@@ -57,16 +57,16 @@ class Component : public Glib::Interface
   _CLASS_INTERFACE(Component, AtkComponent, ATK_COMPONENT, AtkComponentIface)
   
 public:
-  _WRAP_METHOD(guint add_focus_handler(AtkFocusHandler handler), atk_component_add_focus_handler)
+  _WRAP_METHOD(guint add_focus_handler(AtkFocusHandler handler), atk_component_add_focus_handler, deprecated "If you need to track when an object gains or lose the focus, use Atk::Object::signal_state_change() and check for focused notification instead.")
   _WRAP_METHOD(bool contains(int x, int y, CoordType coord_type) const, atk_component_contains)
   _WRAP_METHOD(Glib::RefPtr<Atk::Object> get_accessible_at_point(int x, int y, CoordType coord_type), atk_component_ref_accessible_at_point)
   _WRAP_METHOD(void get_extents(int& x, int& y, int& width, int& height, CoordType coord_type) const, atk_component_get_extents)
-  _WRAP_METHOD(void get_position(int& x, int& y, CoordType coord_type) const, atk_component_get_position)
-  _WRAP_METHOD(void get_size(int& width, int& height) const, atk_component_get_size)
+  _WRAP_METHOD(void get_position(int& x, int& y, CoordType coord_type) const, atk_component_get_position, deprecated "Use get_extents() instead.")
+  _WRAP_METHOD(void get_size(int& width, int& height) const, atk_component_get_size, deprecated "Use get_extents() instead.")
   _WRAP_METHOD(Layer get_layer() const, atk_component_get_layer)
   _WRAP_METHOD(int get_mdi_zorder() const, atk_component_get_mdi_zorder)
   _WRAP_METHOD(bool grab_focus(), atk_component_grab_focus)
-  _WRAP_METHOD(void remove_focus_handler(guint handler_id), atk_component_remove_focus_handler)
+  _WRAP_METHOD(void remove_focus_handler(guint handler_id), atk_component_remove_focus_handler, deprecated "If you need to track when an object gains or lose the focus, use Atk::Object::signal_state_change() and check for focused notification instead.")
   _WRAP_METHOD(bool set_extents(int x, int y, int width, int height, CoordType coord_type), atk_component_set_extents)
   _WRAP_METHOD(bool set_position(int x, int y, CoordType coord_type), atk_component_set_position)
   _WRAP_METHOD(bool set_size(int width, int height), atk_component_set_size)
@@ -78,12 +78,20 @@ protected:
   _WRAP_VFUNC(Glib::RefPtr<Atk::Object> get_accessible_at_point(int x, int y, CoordType coord_type), ref_accessible_at_point, refreturn_ctype)
 
   _WRAP_VFUNC(void get_extents(int& x, int& y, int& width, int& height, CoordType coord_type) const, get_extents)
+
+  //deprecated:
   _WRAP_VFUNC(void get_position(int& x, int& y, CoordType coord_type) const, get_position)
+
+  //deprecated:
   _WRAP_VFUNC(void get_size(int& width, int& height) const, get_size)
+
   _WRAP_VFUNC(Layer get_layer() const, get_layer)
   _WRAP_VFUNC(int get_mdi_zorder() const, get_mdi_zorder)
   _WRAP_VFUNC(bool grab_focus(), grab_focus)
+
+  //deprecated:
   _WRAP_VFUNC(void remove_focus_handler(guint handler_id), remove_focus_handler)
+
   _WRAP_VFUNC(bool set_extents(int x, int y, int width, int height, CoordType coord_type), set_extents)
   _WRAP_VFUNC(bool set_position(int x, int y, CoordType coord_type), set_position)
   _WRAP_VFUNC(bool set_size(int width, int height), set_size)
