@@ -60,8 +60,8 @@ public:
 
   _WRAP_METHOD(int get_index_at(int row, int column) const, atk_table_get_index_at, deprecated "Use get_at() instead.")
 
-  _WRAP_METHOD(int get_column_at_index(int index) const, atk_table_get_column_at_index)
-  _WRAP_METHOD(int get_row_at_index(int index) const, atk_table_get_row_at_index)
+  _WRAP_METHOD(int get_column_at_index(int index) const, atk_table_get_column_at_index, deprecated "This should not be used in newly-written code.")
+  _WRAP_METHOD(int get_row_at_index(int index) const, atk_table_get_row_at_index, deprecated "This should not be used in newly-written code.")
   _WRAP_METHOD(int get_n_columns() const, atk_table_get_n_columns)
   _WRAP_METHOD(int get_n_rows() const, atk_table_get_n_rows)
   _WRAP_METHOD(int get_column_extent_at(int row, int column) const, atk_table_get_column_extent_at)
