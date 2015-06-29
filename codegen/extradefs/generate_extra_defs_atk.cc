@@ -35,6 +35,8 @@ int main(int, char**)
 
   void *const g_class_atk_no_op_object = g_type_class_ref(ATK_TYPE_NO_OP_OBJECT);
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+
   std::cout << get_defs(ATK_TYPE_OBJECT)
             << get_defs(ATK_TYPE_COMPONENT)
             << get_defs(ATK_TYPE_ACTION)
@@ -56,6 +58,8 @@ int main(int, char**)
             << get_defs(ATK_TYPE_RELATION_SET)
             << get_defs(ATK_TYPE_STATE_SET)
             ;
+
+G_GNUC_END_IGNORE_DEPRECATIONS
 
   g_type_class_unref(g_class_atk_no_op_object);
   return 0;
