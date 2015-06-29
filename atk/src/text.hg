@@ -116,6 +116,7 @@ namespace Atk
 
 _WRAP_ENUM(TextBoundary, AtkTextBoundary)
 _WRAP_ENUM(TextClipType, AtkTextClipType)
+_WRAP_ENUM(TextGranularity, AtkTextGranularity)
 
 /** The ATK interface implemented by components with text content.
  * This should be implemented by Atk::Objects on behalf of widgets that have text content which is either attributed
@@ -137,9 +138,12 @@ class Text : public Glib::Interface
 public:
   _WRAP_METHOD(Glib::ustring get_text(int start_offset, int end_offset) const, atk_text_get_text)
   _WRAP_METHOD(gunichar get_character_at_offset(int offset) const, atk_text_get_character_at_offset)
-  _WRAP_METHOD(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_after_offset, deprecated "Use get_text_at_offset() instead.")
-  _WRAP_METHOD(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_at_offset)
-  _WRAP_METHOD(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_before_offset, deprecated "Use get_text_at_offset() instead.")
+  _WRAP_METHOD(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_after_offset, deprecated "Use get_string_at_offset() instead.")
+  _WRAP_METHOD(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_at_offset, deprecated "Use get_string_at_offset() instead.")
+  _WRAP_METHOD(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_before_offset, deprecated "Use get_string_at_offset() instead.")
+
+  _WRAP_METHOD(Glib::ustring get_string_at_offset(int offset, TextGranularity granularity, int& start_offset, int& end_offset), atk_text_get_string_at_offset)
+
   _WRAP_METHOD(int get_caret_offset() const, atk_text_get_caret_offset)
   _WRAP_METHOD(void get_character_extents(int offset, int& x, int& y, int& width, int& height, CoordType coords) const, atk_text_get_character_extents)
   _WRAP_METHOD(AttributeSet get_run_attributes(int offset, int& start_offset, int& end_offset) const, atk_text_get_run_attributes)

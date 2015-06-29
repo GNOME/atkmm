@@ -9,6 +9,7 @@ _CONV_ENUM(Atk,StateType)
 _CONV_ENUM(Atk,CoordType)
 _CONV_ENUM(Atk,TextBoundary)
 _CONV_ENUM(Atk,TextClipType)
+_CONV_ENUM(Atk,TextGranularity)
 
 
 _CONVERSION(`AtkObject*',`Glib::RefPtr<Atk::Object>',Glib::wrap($3))
