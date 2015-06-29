@@ -20,3 +20,18 @@
 
 #include <atk/atkvalue.h>
 
+namespace Atk
+{
+
+void Value::get_value_and_text(double& value, Glib::ustring& text)
+{
+  gchar* c_text = 0;
+  atk_value_get_value_and_text(gobj(), &(value), &c_text);
+  if (c_text) {
+    text = c_text;
+    g_free (c_text);
+  }
+}
+
+} //namespace
+

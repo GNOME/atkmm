@@ -44,10 +44,22 @@ class Value : public Glib::Interface
   _CLASS_INTERFACE(Value, AtkValue, ATK_VALUE, AtkValueIface)
 
 public:
-  _WRAP_METHOD(void get_current_value(Glib::ValueBase& value) const, atk_value_get_current_value)
+  _WRAP_METHOD(void get_current_value(Glib::ValueBase& value) const, atk_value_get_current_value, deprecated "Use get_value_and_text() instead.")
   _WRAP_METHOD(void get_maximum_value(Glib::ValueBase& value) const, atk_value_get_maximum_value)
   _WRAP_METHOD(void get_minimum_value(Glib::ValueBase& value) const, atk_value_get_minimum_value)
-  _WRAP_METHOD(bool set_current_value(const Glib::ValueBase& value), atk_value_set_current_value)
+  _WRAP_METHOD(bool set_current_value(const Glib::ValueBase& value), atk_value_set_current_value, deprecated "Use set_value() instead.")
+
+  /** Gets the current value and the human readable text alternative.
+   *
+   * @newin{2,24}
+   */
+  void get_value_and_text(double& value, Glib::ustring& text);
+  _IGNORE(atk_value_get_value_and_text)
+
+  _WRAP_METHOD(double get_increment(), atk_value_get_increment)
+
+  _WRAP_METHOD(void set_value(const gdouble new_value), atk_value_set_value)
+
 
 protected:
   _WRAP_VFUNC(void get_current_value(Glib::ValueBase& value) const, get_current_value)
