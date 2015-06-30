@@ -1,3 +1,31 @@
+atkmm 2.23.1 (unstable):
+
+Atk:
+* Document: Add get/set_attribute() and deprecate get_document() and
+  get_document_type().
+  (Murray Cumming)
+* Component: Deprecate add/remove_focus_handler, get_size() and get_position().
+  (Murray Cumming)
+* Add Range.
+  (Murray Cumming)
+* Table:
+  - Deprecate get_column/row_at_index().
+  (Kjell Ahlstedt)
+  - Add a get_at() const version and deprecate get_index_at().
+  (Murray Cumming)
+* Text:
+  - Deprecate get_text_before_offset(), get_text_after_offset().
+  - Add get_string_at_offset(), deprecating other methods for it.
+  (Murray Cumming)
+* Value: Deprecate get_minimum/maximum_range() in favour or get_range().
+  (Murray Cumming)
+
+Build:
+
+* Update MSVC 2005, 2008 and 2010 Projects: Add "Install" Project
+  (Chun-wei Fan)
+
+
 atkmm 2.22.7 (stable):
 
 * Remove the use of g_type_init() because it has been deprecated.
