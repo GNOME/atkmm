@@ -1,3 +1,8 @@
+atkmm 2.23.2 (unstable):
+
+* Use (and require) C++11.
+  (Murray Cumming)
+
 atkmm 2.23.1 (unstable):
 
 Atk:
