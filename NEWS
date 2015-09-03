@@ -1,3 +1,9 @@
+atkmm 2.23.3 (unstable):
+
+* Rebuilt with latest glibmm,
+  whose gmmproc generates C++ move operations.
+  (Murray Cumming)
+
 atkmm 2.23.2 (unstable):
 
 * Use (and require) C++11.
