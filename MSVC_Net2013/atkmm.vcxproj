@@ -203,6 +203,7 @@
     <ClCompile Include="..\atk\atkmm\noopobject.cc" />
     <ClCompile Include="..\atk\atkmm\object.cc" />
     <ClCompile Include="..\atk\atkmm\objectaccessible.cc" />
+    <ClCompile Include="..\atk\atkmm\range.cc" />
     <ClCompile Include="..\atk\atkmm\relation.cc" />
     <ClCompile Include="..\atk\atkmm\relationset.cc" />
     <ClCompile Include="..\atk\atkmm\selection.cc" />
@@ -226,6 +227,7 @@
     <ClInclude Include="..\atk\atkmm\noopobject.h" />
     <ClInclude Include="..\atk\atkmm\object.h" />
     <ClInclude Include="..\atk\atkmm\objectaccessible.h" />
+    <ClInclude Include="..\atk\atkmm\range.h" />
     <ClInclude Include="..\atk\atkmm\relation.h" />
     <ClInclude Include="..\atk\atkmm\relationset.h" />
     <ClInclude Include="..\atk\atkmm\selection.h" />

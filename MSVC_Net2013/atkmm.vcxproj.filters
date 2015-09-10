@@ -27,6 +27,7 @@
     <ClCompile Include="..\atk\atkmm\noopobject.cc"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\atk\atkmm\object.cc"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\atk\atkmm\objectaccessible.cc"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="..\atk\atkmm\range.cc"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\atk\atkmm\relation.cc"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\atk\atkmm\relationset.cc"><Filter>Source Files</Filter></ClCompile>
     <ClCompile Include="..\atk\atkmm\selection.cc"><Filter>Source Files</Filter></ClCompile>
@@ -50,6 +51,7 @@
     <ClInclude Include="..\atk\atkmm\noopobject.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="..\atk\atkmm\object.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="..\atk\atkmm\objectaccessible.h"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\atk\atkmm\range.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="..\atk\atkmm\relation.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="..\atk\atkmm\relationset.h"><Filter>Header Files</Filter></ClInclude>
     <ClInclude Include="..\atk\atkmm\selection.h"><Filter>Header Files</Filter></ClInclude>
