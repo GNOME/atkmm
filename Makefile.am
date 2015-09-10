@@ -39,14 +39,10 @@ nodist_atkmm_libinclude_HEADERS = atk/atkmmconfig.h
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = atk/$(ATKMM_MODULE_NAME).pc
 
-include $(srcdir)/MSVC_Net2005/filelist.am
-include $(srcdir)/MSVC_Net2008/filelist.am
-include $(srcdir)/MSVC_Net2010/filelist.am
+include $(srcdir)/MSVC_Net2013/filelist.am
 
 text_files = COPYING.tools
-msvc_files = $(addprefix MSVC_Net2005/,$(msvc_net2005_data)) \
-             $(addprefix MSVC_Net2008/,$(msvc_net2008_data)) \
-             $(addprefix MSVC_Net2010/,$(msvc_net2010_data))
+msvc_files = $(addprefix MSVC_Net2013/,$(msvc_net2013_data))
 
 dist_noinst_DATA = $(text_files) $(msvc_files)
 dist_noinst_SCRIPTS = autogen.sh
