@@ -1,3 +1,8 @@
+atkmm 2.24.0 (unstable):
+
+* MSVC build fixes.
+  (Chun-wei Fan)
+
 atkmm 2.23.3 (unstable):
 
 * Rebuilt with latest glibmm,
