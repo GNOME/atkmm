@@ -19,7 +19,7 @@
 # pkg-config name as before and is meant to be binary compatible.  Thus for the
 # time being, the version number cannot be brought in line with ATK, since that
 # would break compatibility.
-AC_INIT([atkmm], [2.24.0], [https://bugzilla.gnome.org/enter_bug.cgi?product=atkmm],
+AC_INIT([atkmm], [2.24.1], [https://bugzilla.gnome.org/enter_bug.cgi?product=atkmm],
         [atkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
 
@@ -50,7 +50,7 @@ MM_AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
 
-AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.4 >= 2.46.0'])
+AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.4 >= 2.46.1'])
 PKG_CHECK_MODULES([ATKMM], [$ATKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GTHREAD_CFLAGS], [--cflags-only-other gthread-2.0])

@@ -1,4 +1,8 @@
-atkmm 2.24.0 (unstable):
+atkmm 2.24.1 (stable):
+
+* Regenerate with the latest glibmm.
+
+atkmm 2.24.0 (stable):
 
 * MSVC build fixes.
   (Chun-wei Fan)
