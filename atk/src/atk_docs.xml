@@ -287,7 +287,7 @@ NULL.
 The signal &quot;focus-event&quot; is emitted when an object gained or lost
 focus.
 
-Deprecated: 2.9.4: Use #AtkObject::state-change signal instead.
+Deprecated: 2.9.4: Use the #AtkObject::state-change signal instead.
 
 </description>
 <parameters>
@@ -1367,7 +1367,7 @@ when an object receives focus.
 
 Deprecated: 2.9.4: Focus tracking has been dropped as a feature
 to be implemented by ATK itself. If you need focus tracking on your
-implementation, subscribe to the state-changed:focused signal.
+implementation, subscribe to the #AtkObject::state-change &quot;focused&quot; signal.
 
 
 </description>
@@ -1479,7 +1479,7 @@ when this object receives focus events (in or out). If the handler is
 already added it is not added again
 
 Deprecated: 2.9.4: If you need to track when an object gains or
-lose the focus, use state-changed:focused notification instead.
+lose the focus, use the #AtkObject::state-change &quot;focused&quot; notification instead.
 
 
 </description>
@@ -1730,7 +1730,7 @@ functions to be executed when this object receives focus events
 (in or out).
 
 Deprecated: 2.9.4: If you need to track when an object gains or
-lose the focus, use state-changed:focused notification instead.
+lose the focus, use the #AtkObject::state-change &quot;focused&quot; notification instead.
 
 
 </description>
@@ -1906,7 +1906,7 @@ up to the caller to check atk_document_get_type to determine
 how to cast this pointer.
 
 Deprecated: Since 2.12. @document is already a representation of
-the document. Use it directly, or one of his children, as an
+the document. Use it directly, or one of its children, as an
 instance of the DOM.
 
 
@@ -3978,7 +3978,7 @@ Associate @name with a new #AtkRelationType
 <description>
 Deprecated: 2.9.4: Focus tracking has been dropped as a feature
 to be implemented by ATK itself. If you need focus tracking on your
-implementation, subscribe to the state-changed:focused signal.
+implementation, subscribe to the #AtkObject::state-change &quot;focused&quot; signal.
 
 Removes the specified focus tracker from the list of functions
 to be called when any object receives focus.
@@ -6332,7 +6332,7 @@ the returns list with g_slist_free().
 <description>
 Gets the current value and the human readable text alternative of
 @obj. @text is a newly created string, that must be freed by the
-caller. Can be NULL if not descriptor is available.
+caller. Can be NULL if no descriptor is available.
 
 Since: 2.12
 
