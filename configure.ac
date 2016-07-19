@@ -29,15 +29,16 @@ AC_CONFIG_MACRO_DIR([build])
 AC_CONFIG_HEADERS([build/config.h atk/atkmmconfig.h])
 
 AM_INIT_AUTOMAKE([1.9 -Wno-portability dist-bzip2 no-define nostdinc tar-pax])
-m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES])
+# Support silent build rules.
+# Disable by either passing --disable-silent-rules to configure or passing V=1 to make.
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AM_MAINTAINER_MODE
 AC_ARG_VAR([ACLOCAL_FLAGS], [aclocal flags, e.g. -I <macro dir>])
 
-MM_PREREQ([0.9.8])
+MM_PREREQ([0.9.10])
 MM_INIT_MODULE([atkmm-1.6])
 
-# Copy the mm-common .pl scripts into docs/,
-# and use them from there,
+# Copy the mm-common .pl scripts into doc/, and use them from there,
 # so we can dist them to avoid a tarball-build dependency.
 MM_CONFIG_DOCTOOL_DIR([doc])
 
@@ -45,7 +46,7 @@ MM_CONFIG_DOCTOOL_DIR([doc])
 AC_SUBST([ATKMM_SO_VERSION], [2:0:1])
 
 AC_PROG_CXX
-MM_AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+MM_AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory])
 
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
