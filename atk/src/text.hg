@@ -114,7 +114,6 @@ public:
 namespace Atk
 {
 
-_WRAP_ENUM(TextBoundary, AtkTextBoundary)
 _WRAP_ENUM(TextClipType, AtkTextClipType)
 _WRAP_ENUM(TextGranularity, AtkTextGranularity)
 
@@ -138,9 +137,9 @@ class Text : public Glib::Interface
 public:
   _WRAP_METHOD(Glib::ustring get_text(int start_offset, int end_offset) const, atk_text_get_text)
   _WRAP_METHOD(gunichar get_character_at_offset(int offset) const, atk_text_get_character_at_offset)
-  _WRAP_METHOD(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_after_offset, deprecated "Use get_string_at_offset() instead.")
-  _WRAP_METHOD(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_at_offset, deprecated "Use get_string_at_offset() instead.")
-  _WRAP_METHOD(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, atk_text_get_text_before_offset, deprecated "Use get_string_at_offset() instead.")
+  _IGNORE(atk_text_get_text_after_offset)
+  _IGNORE(atk_text_get_text_at_offset)
+  _IGNORE(atk_text_get_text_before_offset)
 
   _WRAP_METHOD(Glib::ustring get_string_at_offset(int offset, TextGranularity granularity, int& start_offset, int& end_offset), atk_text_get_string_at_offset)
 
@@ -177,15 +176,9 @@ protected:
   _WRAP_VFUNC(Glib::ustring get_text(int start_offset, int end_offset) const, get_text)
   _WRAP_VFUNC(gunichar get_character_at_offset(int offset) const, get_character_at_offset)
 
-  /** @deprecated This virtual function is deprecated and it should not be overridden.
-   */
-  _WRAP_VFUNC(Glib::ustring get_text_after_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_after_offset)
-
-  _WRAP_VFUNC(Glib::ustring get_text_at_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_at_offset)
-
-  /** @deprecated This virtual function is deprecated and it should not be overridden.
-   */
-  _WRAP_VFUNC(Glib::ustring get_text_before_offset(int offset, TextBoundary boundary_type, int& start_offset, int& end_offset) const, get_text_before_offset)
+  //_IGNORE_VFUNC(get_text_after_offset)
+  //_IGNORE_VFUNC(get_text_at_offset)
+  //_IGNORE_VFUNC(get_text_before_offset)
 
   _WRAP_VFUNC(int get_caret_offset() const, get_caret_offset)
   _WRAP_VFUNC(void get_character_extents(int offset, int& x, int& y, int& width, int& height, CoordType coords) const, get_character_extents)

@@ -45,8 +45,8 @@ class Document : public Glib::Interface
   _CLASS_INTERFACE(Document, AtkDocument, ATK_DOCUMENT, AtkDocumentIface)
 public:
 
-  _WRAP_METHOD(Glib::ustring get_document_type() const, atk_document_get_document_type, deprecated "Please use get_attribute() to ask for the document type if it applies.")
-  _WRAP_METHOD(gpointer get_document(), atk_document_get_document, deprecated "Document is already a representation of the document. Use it directly, or one of its children, as an instance of the DOM.")
+  _IGNORE(atk_document_get_document_type)
+  _IGNORE(atk_document_get_document)
 
   _IGNORE(atk_document_get_locale)
 

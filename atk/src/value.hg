@@ -45,10 +45,10 @@ class Value : public Glib::Interface
   _CLASS_INTERFACE(Value, AtkValue, ATK_VALUE, AtkValueIface)
 
 public:
-  _WRAP_METHOD(void get_current_value(Glib::ValueBase& value) const, atk_value_get_current_value, deprecated "Use get_value_and_text() instead.")
-  _WRAP_METHOD(void get_maximum_value(Glib::ValueBase& value) const, atk_value_get_maximum_value, deprecated "Use get_range() instead.")
-  _WRAP_METHOD(void get_minimum_value(Glib::ValueBase& value) const, atk_value_get_minimum_value, deprecated "Use get_range() instead.")
-  _WRAP_METHOD(bool set_current_value(const Glib::ValueBase& value), atk_value_set_current_value, deprecated "Use set_value() instead.")
+  _IGNORE(atk_value_get_current_value)
+  _IGNORE(atk_value_get_maximum_value)
+  _IGNORE(atk_value_get_minimum_value)
+  _IGNORE(atk_value_set_current_value)
 
   /** Gets the current value and the human readable text alternative.
    *
@@ -72,7 +72,7 @@ protected:
   _WRAP_VFUNC(void get_current_value(Glib::ValueBase& value) const, get_current_value)
   _WRAP_VFUNC(void get_maximum_value(Glib::ValueBase& value) const, get_maximum_value)
   _WRAP_VFUNC(void get_minimum_value(Glib::ValueBase& value) const, get_minimum_value)
-  _WRAP_VFUNC(bool set_current_value(const Glib::ValueBase& value), set_current_value)
+  //_IGNORE_VFUNC(bool set_current_value(const Glib::ValueBase& value), set_current_value)
 };
 
 } // namespace Atk
