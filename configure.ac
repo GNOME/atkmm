@@ -46,7 +46,7 @@ MM_CONFIG_DOCTOOL_DIR([doc])
 AC_SUBST([ATKMM_SO_VERSION], [2:0:1])
 
 AC_PROG_CXX
-MM_AX_CXX_COMPILE_STDCXX([11], [noext], [mandatory])
+MM_AX_CXX_COMPILE_STDCXX([14], [noext], [mandatory])
 
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
