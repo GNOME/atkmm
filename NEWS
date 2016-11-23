@@ -1,3 +1,17 @@
+atkmm 2.51.1 (unstable):
+
+This is the first release of the atkmm-2.26 API/ABI.
+It installs in parallel with the atkmm-1.6 API/ABI, of which
+the most recent version is atkmm 2.24.2.
+
+* Require C++14.
+  (Murray Cumming)
+* Use glibmm-2.52 instead of glibmm-2.4.
+  (Murray Cumming)
+* Fix silent builds.
+  (Kjell Ahlstedt) Bug #768797
+
+
 atkmm 2.24.2 (stable):
 
 * Regenerate with the latest glibmm.
