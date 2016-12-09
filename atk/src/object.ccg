@@ -35,7 +35,7 @@ namespace Atk
  * in the following example is doomed to fail:
  *
  * Gtk::Image image ("icon.png");
- * Glib::RefPtr<Atk::Image> accessible = Glib::RefPtr<Atk::Image>::cast_dynamic(image.get_accessible());
+ * auto accessible = Glib::RefPtr<Atk::Image>::cast_dynamic(image.get_accessible());
  * accessible->set_image_description("my icon");
  *
  * This would segfault, even though the accessible object _does_ implement
