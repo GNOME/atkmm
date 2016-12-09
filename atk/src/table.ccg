@@ -27,7 +27,7 @@ namespace Atk
 
 Glib::ArrayHandle<int> Table::get_selected_columns() const
 {
-  int* selected = 0;
+  int* selected = nullptr;
   const int n_selected = atk_table_get_selected_columns(const_cast<AtkTable*>(gobj()), &selected);
 
   return Glib::ArrayHandle<int>(selected, n_selected, Glib::OWNERSHIP_SHALLOW);
@@ -35,7 +35,7 @@ Glib::ArrayHandle<int> Table::get_selected_columns() const
 
 Glib::ArrayHandle<int> Table::get_selected_rows() const
 {
-  int* selected = 0;
+  int* selected = nullptr;
   const int n_selected = atk_table_get_selected_rows(const_cast<AtkTable*>(gobj()), &selected);
 
   return Glib::ArrayHandle<int>(selected, n_selected, Glib::OWNERSHIP_SHALLOW);
