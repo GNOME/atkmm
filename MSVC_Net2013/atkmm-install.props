@@ -11,6 +11,7 @@
 mkdir $(CopyDir)
 mkdir $(CopyDir)\bin
 copy $(BinDir)\atkmm-vc$(VSVer)0-$(ApiMajorVersion)_$(ApiMinorVersion).dll $(CopyDir)\bin
+copy $(BinDir)\atkmm-vc$(VSVer)0-$(ApiMajorVersion)_$(ApiMinorVersion).pdb $(CopyDir)\bin
 
 mkdir $(CopyDir)\lib\atkmm-$(ApiMajorVersion).$(ApiMinorVersion)\include
 copy $(BinDir)\atkmm-vc$(VSVer)0-$(ApiMajorVersion)_$(ApiMinorVersion).lib $(CopyDir)\lib
