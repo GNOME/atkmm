@@ -78,9 +78,9 @@ AC_CONFIG_FILES([Makefile
                  atk/atkmm/Makefile
                  doc/Makefile
                  doc/reference/Doxyfile
-                 MSVC_Net2013/atkmm/atkmm.rc])
+                 MSVC_Net2017/atkmm/atkmm.rc])
 
 # Copy the generated configuration headers into the MSVC project directories.
-AC_CONFIG_COMMANDS([MSVC_Net2013/atkmm/atkmmconfig.h],
-                   [cp -f atk/atkmmconfig.h MSVC_Net2013/atkmm/atkmmconfig.h])
+AC_CONFIG_COMMANDS([MSVC_Net2017/atkmm/atkmmconfig.h],
+                   [cp -f atk/atkmmconfig.h MSVC_Net2017/atkmm/atkmmconfig.h])
 AC_OUTPUT

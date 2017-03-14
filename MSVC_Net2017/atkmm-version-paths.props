@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="UserMacros">
-    <VSVer>12</VSVer>
+    <VSVer>15</VSVer>
     <GlibEtcInstallRoot>$(SolutionDir)\..\..\vs$(VSVer)\$(Platform)</GlibEtcInstallRoot>
     <CopyDir>$(GlibEtcInstallRoot)</CopyDir>
     <DefDir>$(SolutionDir)$(Configuration)\$(Platform)\obj\$(ProjectName)\</DefDir>
-    <ApiMajorVersion>1</ApiMajorVersion>
-    <ApiMinorVersion>6</ApiMinorVersion>
+    <ApiMajorVersion>2</ApiMajorVersion>
+    <ApiMinorVersion>26</ApiMinorVersion>
     <ReleaseDllSuffix>-vc$(VSVer)0-$(ApiMajorVersion)_$(ApiMinorVersion)</ReleaseDllSuffix>
     <DebugDllSuffix>-vc$(VSVer)0-d-$(ApiMajorVersion)_$(ApiMinorVersion)</DebugDllSuffix>
+    <SigCMajorVersion>3</SigCMajorVersion>
+    <GLibMMMajorVersion>2</GLibMMMajorVersion>
+    <GLibMMMinorVersion>52</GLibMMMinorVersion>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>atkmmversionpathsprops</_PropertySheetDisplayName>
@@ -37,6 +40,15 @@
     </BuildMacro>
     <BuildMacro Include="DebugDllSuffix">
       <Value>$(DebugDllSuffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SigCMajorVersion">
+      <Value>$(SigCMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibMMMajorVersion">
+      <Value>$(GLibMMMajorVersion)</Value>
+    </BuildMacro>
+    <BuildMacro Include="GLibMMMinorVersion">
+      <Value>$(GLibMMMinorVersion)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
