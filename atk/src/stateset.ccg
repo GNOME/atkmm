@@ -25,12 +25,12 @@
 namespace Atk
 {
 
-void StateSet::add_states(const Glib::ArrayHandle<StateType>& types)
+void StateSet::add_states(const std::vector<StateType>& types)
 {
   atk_state_set_add_states(gobj(), (AtkStateType*) types.data(), types.size());
 }
 
-bool StateSet::contains_states(const Glib::ArrayHandle<StateType>& types) const
+bool StateSet::contains_states(const std::vector<StateType>& types) const
 {
   return atk_state_set_contains_states(
       const_cast<AtkStateSet*>(gobj()), (AtkStateType*) types.data(), types.size());

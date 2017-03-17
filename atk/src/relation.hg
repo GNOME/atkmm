@@ -22,7 +22,6 @@ _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
 #include <glibmm/object.h>
-#include <glibmm/arrayhandle.h>
 
 namespace Atk
 {
@@ -41,17 +40,17 @@ class Relation : public Glib::Object
   _CLASS_GOBJECT(Relation, AtkRelation, ATK_RELATION, Glib::Object, GObject)
 
 protected:
-  explicit Relation(const Glib::ArrayHandle< Glib::RefPtr<Atk::Object> >& targets,
+  explicit Relation(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
                     RelationType relationship);
 
 public:
-  _WRAP_CREATE(const Glib::ArrayHandle< Glib::RefPtr<Atk::Object> >& targets,
+  _WRAP_CREATE(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
                RelationType relationship = RELATION_NULL)
 
   _WRAP_METHOD(RelationType get_relation_type() const, atk_relation_get_relation_type)
 
-  Glib::ArrayHandle< Glib::RefPtr<Atk::Object> > get_target();
-  Glib::ArrayHandle< Glib::RefPtr<const Atk::Object> > get_target() const;
+  std::vector<Glib::RefPtr<Atk::Object>> get_target();
+  std::vector<Glib::RefPtr<const Atk::Object>> get_target() const;
   _IGNORE(atk_relation_get_target)
   
   _WRAP_METHOD(void add_target(const Glib::RefPtr<Atk::Object>& target), atk_relation_add_target)
