@@ -20,7 +20,6 @@
 _DEFS(atkmm,atk)
 
 #include <atkmm/component.h> /* for Atk::CoordType */
-#include <glibmm/slisthandle.h>
 #include <atk/atktext.h>
 
 
@@ -70,9 +69,6 @@ struct AttributeTraits
   static CppType to_cpp_type(CType item)      { return CppType(item); }
   static void release_c_type(CType item)      { g_free(const_cast<CTypeNonConst>(item)); }
 };
-
-typedef Glib::SListHandle<Attribute, AttributeTraits> AttributeSet;
-
 
 _CC_INCLUDE(atk/atk-enum-types.h)
 _WRAP_ENUM(BuiltinTextAttribute, AtkTextAttribute)
@@ -145,8 +141,12 @@ public:
 
   _WRAP_METHOD(int get_caret_offset() const, atk_text_get_caret_offset)
   _WRAP_METHOD(void get_character_extents(int offset, int& x, int& y, int& width, int& height, CoordType coords) const, atk_text_get_character_extents)
-  _WRAP_METHOD(AttributeSet get_run_attributes(int offset, int& start_offset, int& end_offset) const, atk_text_get_run_attributes)
-  _WRAP_METHOD(AttributeSet get_default_attributes() const, atk_text_get_default_attributes)
+
+#m4 _CONVERSION(`AtkAttributeSet*', `std::vector<Attribute>', `SListHandler_Attribute::slist_to_vector($3, Glib::OWNERSHIP_DEEP)')
+
+  _WRAP_METHOD(std::vector<Attribute> get_run_attributes(int offset, int& start_offset, int& end_offset) const, atk_text_get_run_attributes)
+  _WRAP_METHOD(std::vector<Attribute> get_default_attributes() const, atk_text_get_default_attributes)
+
   _WRAP_METHOD(int get_character_count() const, atk_text_get_character_count)
   _WRAP_METHOD(int get_offset_at_point(int x, int y, CoordType coords) const, atk_text_get_offset_at_point)
   _WRAP_METHOD(int get_n_selections() const, atk_text_get_n_selections)

@@ -33,6 +33,8 @@ GType Glib::Value<Atk::TextAttribute>::value_type()
 namespace Atk
 {
 
+using SListHandler_Attribute = Glib::SListHandler<Attribute, AttributeTraits>;
+
 /**** Atk::Attribute *******************************************************/
 
 Attribute::Attribute()

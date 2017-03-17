@@ -33,8 +33,7 @@ _CONVERSION(`AtkGObjectAccessible*',`Glib::RefPtr<const ObjectAccessible>',Glib:
 _CONVERSION(`AtkHyperlink*',`Glib::RefPtr<Hyperlink>',Glib::wrap($3))
 _CONVERSION(`AtkHyperlink*',`Glib::RefPtr<const Hyperlink>',Glib::wrap($3))
 
-_CONVERSION(`AtkAttributeSet*', `AttributeSet', `AttributeSet($3, Glib::OWNERSHIP_DEEP)')
-_CONVERSION(`const AttributeSet&', `AtkAttributeSet*', `($3).data()')
+_CONVERSION(`const std::vector<Attribute>&', `AtkAttributeSet*', `SListHandler_Attribute::vector_to_slist($3).data()')
 
 _CONVERSION(`GIOChannel*',`Glib::RefPtr<Glib::IOChannel>',Glib::wrap($3))
 

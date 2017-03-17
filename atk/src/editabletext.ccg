@@ -21,3 +21,8 @@
 #include <atkmm/object.h>
 #include <atk/atkeditabletext.h>
 
+namespace Atk {
+
+using SListHandler_Attribute = Glib::SListHandler<Attribute, AttributeTraits>;
+
+} // namespace Atk
