@@ -30,7 +30,7 @@ dist_noinst_SCRIPTS = generate_defs_and_docs.sh
 noinst_PROGRAMS  = extradefs/generate_extra_defs
 
 extradefs_generate_extra_defs_SOURCES = extradefs/generate_extra_defs_atk.cc
-extradefs_generate_extra_defs_LDADD   = $(ATKMM_LIBS) -lglibmm_generate_extra_defs-2.52
+extradefs_generate_extra_defs_LDADD   = $(ATKMM_LIBS) -lglibmm_generate_extra_defs-2.54
 extradefs_generate_extra_defs_LDFLAGS = -no-undefined -avoid-version
 
 AM_CPPFLAGS = -I$(top_builddir) $(GTHREAD_CFLAGS) $(ATKMM_CFLAGS)
