@@ -1,4 +1,14 @@
-atkmm 2.51.1 (unstable):
+atkmm 2.25.2 (unstable):
+
+* Build: Use glibmm-2.54 instead of glibmm-2.52
+  (Murray Cumming)
+* Replace uses of Glib::ArrayHandle<> and Glib::SListHandle<> with vector.
+  (Murray Cumming)
+* Visual Studio: Require Visual Studio 2017.
+  (Chun-wei Fan)
+
+
+atkmm 2.25.1 (unstable):
 
 This is the first release of the atkmm-2.26 API/ABI.
 It installs in parallel with the atkmm-1.6 API/ABI, of which
