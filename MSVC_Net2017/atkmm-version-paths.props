@@ -11,7 +11,7 @@
     <DebugDllSuffix>-vc$(VSVer)0-d-$(ApiMajorVersion)_$(ApiMinorVersion)</DebugDllSuffix>
     <SigCMajorVersion>3</SigCMajorVersion>
     <GLibMMMajorVersion>2</GLibMMMajorVersion>
-    <GLibMMMinorVersion>52</GLibMMMinorVersion>
+    <GLibMMMinorVersion>54</GLibMMMinorVersion>
   </PropertyGroup>
   <PropertyGroup>
     <_PropertySheetDisplayName>atkmmversionpathsprops</_PropertySheetDisplayName>
