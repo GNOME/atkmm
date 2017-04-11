@@ -1,5 +1,3 @@
-/* $Id: relation.hg,v 1.3 2005/01/05 18:21:30 murrayc Exp $ */
-
 /* Copyright (C) 1998-2002 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -27,7 +25,7 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(RelationType, AtkRelationType)
+_WRAP_ENUM(RelationType, AtkRelationType, s#^NULL$#NONE#)
 
 class Object;
 
@@ -45,7 +43,7 @@ protected:
 
 public:
   _WRAP_CREATE(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
-               RelationType relationship = RELATION_NULL)
+               RelationType relationship = RelationType::NONE)
 
   _WRAP_METHOD(RelationType get_relation_type() const, atk_relation_get_relation_type)
 

@@ -1,5 +1,3 @@
-/* $Id: text.hg,v 1.7 2005/01/05 18:21:30 murrayc Exp $ */
-
 /* Copyright (C) 2002 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -80,7 +78,7 @@ private:
 
 public:
   TextAttribute() : attribute_ (0) {}
-  TextAttribute(BuiltinTextAttribute attribute) : attribute_ (attribute) {}
+  TextAttribute(BuiltinTextAttribute attribute) : attribute_(static_cast<int>(attribute)) {}
 
   // Behave like an ordinary enum.
   explicit TextAttribute(int attribute) : attribute_ (attribute) {}

@@ -1,5 +1,8 @@
 <root>
-
+<substitute_type_name from="GObject" to="Glib::Object" />
+<substitute_enumerator_name from_prefix="ATK_RELATION_" to_prefix="Atk::RelationType::" />
+<!-- These are preprocessor defines. Don't substitute. -->
+<substitute_enumerator_name from_prefix="ATK_ATTRIBUTE_" to_prefix="ATK_ATTRIBUTE_" />
 
 <function name="atk_text_get_run_attributes">
 <description>
