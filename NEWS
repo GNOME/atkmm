@@ -1,3 +1,13 @@
+atkmm 2.25.3 (unstable):
+
+* Use C++11 enum classes instead of old-style enums, and put some enums
+  inside relevant class declarations:
+  - Relation: Change RelationType to Relation::Type.
+  - Text: Move enums into the class.
+  (Kjell Ahlstedt, Murray Cumming)
+* Build: Windows: Visual Studio builds: Update glibmm ABI version.
+
+
 atkmm 2.25.2 (unstable):
 
 * Build: Use glibmm-2.54 instead of glibmm-2.52
