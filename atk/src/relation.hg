@@ -25,7 +25,6 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(RelationType, AtkRelationType, s#^NULL$#NONE#)
 
 class Object;
 
@@ -37,15 +36,18 @@ class Relation : public Glib::Object
 {
   _CLASS_GOBJECT(Relation, AtkRelation, ATK_RELATION, Glib::Object, GObject)
 
+public:
+  _WRAP_ENUM(Type, AtkRelationType, s#^NULL$#NONE#)
+
 protected:
   explicit Relation(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
-                    RelationType relationship);
+                    Relation::Type relationship);
 
 public:
   _WRAP_CREATE(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
-               RelationType relationship = RelationType::NONE)
+               Type relationship = Type::NONE)
 
-  _WRAP_METHOD(RelationType get_relation_type() const, atk_relation_get_relation_type)
+  _WRAP_METHOD(Type get_relation_type() const, atk_relation_get_relation_type)
 
   std::vector<Glib::RefPtr<Atk::Object>> get_target();
   std::vector<Glib::RefPtr<const Atk::Object>> get_target() const;

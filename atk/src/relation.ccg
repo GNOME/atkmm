@@ -22,13 +22,14 @@
 #include <atk/atkobject.h>
 #include <atk/atkrelation.h>
 
+using Type = Atk::Relation::Type;
 
 namespace Atk
 {
 
 //TODO: Implement this with the new GValue array thingy. See bug #74246.
 Relation::Relation(const std::vector<Glib::RefPtr<Atk::Object>>& targets,
-                   RelationType relationship)
+                   Relation::Type relationship)
 :
   Glib::Object((GObject*) atk_relation_new(const_cast<AtkObject**>(Glib::ArrayHandler<Glib::RefPtr<Atk::Object>>::vector_to_array(targets).data()), targets.size(),
                                            (AtkRelationType) relationship))

@@ -4,7 +4,7 @@ _EQUAL(State,AtkState)
 
 _CONV_ENUM(Atk,Role)
 _CONV_ENUM(Atk,Layer)
-_CONV_ENUM(Atk,RelationType)
+_CONV_INCLASS_ENUM(Atk,Relation,Type)
 _CONV_ENUM(Atk,StateType)
 _CONV_ENUM(Atk,CoordType)
 _CONV_ENUM(Atk,TextBoundary)

@@ -77,8 +77,8 @@ public:
   //_WRAP_METHOD(void remove_property_change_handler(guint handler_id), atk_object_remove_property_change_handler)
   _WRAP_METHOD(void notify_state_change(State state, bool value), atk_object_notify_state_change)
 
-  _WRAP_METHOD(bool add_relationship(RelationType relationship, const Glib::RefPtr<Object>& target), atk_object_add_relationship)
-  _WRAP_METHOD(bool remove_relationship(RelationType relationship, const Glib::RefPtr<Object>& target), atk_object_remove_relationship)
+  _WRAP_METHOD(bool add_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_add_relationship)
+  _WRAP_METHOD(bool remove_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_remove_relationship)
 
   _WRAP_SIGNAL(void children_changed(guint change_index, gpointer changed_child), "children_changed")
   _WRAP_SIGNAL(void focus_event(bool focus_in), "focus_event")
