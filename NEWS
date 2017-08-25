@@ -1,3 +1,14 @@
+atkmm 2.25.4 (unstable):
+Distro packagers should probably not package this yet.
+
+* Build: Use glibmm-2.56 instead of glibmm-2.54.
+  We have changed the ABI name in glibmm.
+  (Murray Cumming)
+* Text: Plug memory leaks in get_text_vfunc() and get_selection_vfunc().
+  These vfuncs shall delete the returned character array after it has been
+  copied to a Glib::ustring.
+  (Kjell Ahlstedt) Bug #783360
+
 atkmm 2.25.3 (unstable):
 
 * Use C++11 enum classes instead of old-style enums, and put some enums
