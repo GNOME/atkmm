@@ -141,6 +141,7 @@
 ;;   ATK_ROLE_MATH_ROOT,
 ;;   ATK_ROLE_SUBSCRIPT,
 ;;   ATK_ROLE_SUPERSCRIPT,
+;;   ATK_ROLE_FOOTNOTE,
 ;;   ATK_ROLE_LAST_DEFINED
 ;; } AtkRole;
 
@@ -270,7 +271,8 @@
     '("math-root" "ATK_ROLE_MATH_ROOT" "119")
     '("subscript" "ATK_ROLE_SUBSCRIPT" "120")
     '("superscript" "ATK_ROLE_SUPERSCRIPT" "121")
-    '("last-defined" "ATK_ROLE_LAST_DEFINED" "122")
+    '("footnote" "ATK_ROLE_FOOTNOTE" "122")
+    '("last-defined" "ATK_ROLE_LAST_DEFINED" "123")
   )
 )
 
@@ -324,6 +326,10 @@
 ;;   ATK_RELATION_DESCRIBED_BY,
 ;;   ATK_RELATION_DESCRIPTION_FOR,
 ;;   ATK_RELATION_NODE_PARENT_OF,
+;;   ATK_RELATION_DETAILS,
+;;   ATK_RELATION_DETAILS_FOR,
+;;   ATK_RELATION_ERROR_MESSAGE,
+;;   ATK_RELATION_ERROR_FOR,
 ;;   ATK_RELATION_LAST_DEFINED
 ;; } AtkRelationType;
 
@@ -348,7 +354,11 @@
     '("described-by" "ATK_RELATION_DESCRIBED_BY" "14")
     '("description-for" "ATK_RELATION_DESCRIPTION_FOR" "15")
     '("node-parent-of" "ATK_RELATION_NODE_PARENT_OF" "16")
-    '("last-defined" "ATK_RELATION_LAST_DEFINED" "17")
+    '("details" "ATK_RELATION_DETAILS" "17")
+    '("details-for" "ATK_RELATION_DETAILS_FOR" "18")
+    '("error-message" "ATK_RELATION_ERROR_MESSAGE" "19")
+    '("error-for" "ATK_RELATION_ERROR_FOR" "20")
+    '("last-defined" "ATK_RELATION_LAST_DEFINED" "21")
   )
 )
 

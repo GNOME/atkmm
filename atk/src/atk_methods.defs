@@ -326,6 +326,7 @@
     '("math-root" "ATK_ROLE_MATH_ROOT")
     '("subscript" "ATK_ROLE_SUBSCRIPT")
     '("superscript" "ATK_ROLE_SUPERSCRIPT")
+    '("footnote" "ATK_ROLE_FOOTNOTE")
     '("last-defined" "ATK_ROLE_LAST_DEFINED")
   )
 )
@@ -368,6 +369,10 @@
     '("described-by" "ATK_RELATION_DESCRIBED_BY")
     '("description-for" "ATK_RELATION_DESCRIPTION_FOR")
     '("node-parent-of" "ATK_RELATION_NODE_PARENT_OF")
+    '("details" "ATK_RELATION_DETAILS")
+    '("details-for" "ATK_RELATION_DETAILS_FOR")
+    '("error-message" "ATK_RELATION_ERROR_MESSAGE")
+    '("error-for" "ATK_RELATION_ERROR_FOR")
     '("last-defined" "ATK_RELATION_LAST_DEFINED")
   )
 )
@@ -906,70 +911,6 @@
 
 
 
-;; From atk-enum-types.h
-
-(define-function atk_hyperlink_state_flags_get_type
-  (c-name "atk_hyperlink_state_flags_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_role_get_type
-  (c-name "atk_role_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_layer_get_type
-  (c-name "atk_layer_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_relation_type_get_type
-  (c-name "atk_relation_type_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_state_type_get_type
-  (c-name "atk_state_type_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_text_attribute_get_type
-  (c-name "atk_text_attribute_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_text_boundary_get_type
-  (c-name "atk_text_boundary_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_text_granularity_get_type
-  (c-name "atk_text_granularity_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_text_clip_type_get_type
-  (c-name "atk_text_clip_type_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_key_event_type_get_type
-  (c-name "atk_key_event_type_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_coord_type_get_type
-  (c-name "atk_coord_type_get_type")
-  (return-type "GType")
-)
-
-(define-function atk_value_type_get_type
-  (c-name "atk_value_type_get_type")
-  (return-type "GType")
-)
-
-
-
 ;; From atkgobjectaccessible.h
 
 (define-function atk_gobject_accessible_get_type
@@ -1156,10 +1097,6 @@
   (c-name "atk_image_get_image_locale")
   (return-type "const-gchar*")
 )
-
-
-
-;; From atkmarshal.h
 
 
 
@@ -2812,6 +2749,83 @@
 
 
 
+;; From atkwindow.h
+
+(define-function atk_window_get_type
+  (c-name "atk_window_get_type")
+  (return-type "GType")
+)
+
+
+
+;; From atk-enum-types.h
+
+(define-function atk_hyperlink_state_flags_get_type
+  (c-name "atk_hyperlink_state_flags_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_role_get_type
+  (c-name "atk_role_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_layer_get_type
+  (c-name "atk_layer_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_relation_type_get_type
+  (c-name "atk_relation_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_state_type_get_type
+  (c-name "atk_state_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_text_attribute_get_type
+  (c-name "atk_text_attribute_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_text_boundary_get_type
+  (c-name "atk_text_boundary_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_text_granularity_get_type
+  (c-name "atk_text_granularity_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_text_clip_type_get_type
+  (c-name "atk_text_clip_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_key_event_type_get_type
+  (c-name "atk_key_event_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_coord_type_get_type
+  (c-name "atk_coord_type_get_type")
+  (return-type "GType")
+)
+
+(define-function atk_value_type_get_type
+  (c-name "atk_value_type_get_type")
+  (return-type "GType")
+)
+
+
+
+;; From atkmarshal.h
+
+
+
 ;; From atkversion.h
 
 (define-function atk_get_major_version
@@ -2838,18 +2852,5 @@
   (c-name "atk_get_interface_age")
   (return-type "guint")
 )
-
-
-
-;; From atkwindow.h
-
-(define-function atk_window_get_type
-  (c-name "atk_window_get_type")
-  (return-type "GType")
-)
-
-
-
-;; From stamp-atkmarshal.h
 
 

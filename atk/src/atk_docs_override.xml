@@ -1,6 +1,8 @@
 <root>
 <substitute_type_name from="GObject" to="Glib::Object" />
-<substitute_enumerator_name from_prefix="ATK_RELATION_" to_prefix="Atk::RelationType::" />
+<substitute_enumerator_name from_prefix="ATK_RELATION_" to_prefix="Atk::Relation::Type::" />
+<substitute_enumerator_name from="ATK_RELATION_NULL" to="Atk::Relation::Type::NONE" />
+<substitute_enumerator_name from_prefix="ATK_STATE_" to_prefix="Atk::StateType::" />
 <!-- These are preprocessor defines. Don't substitute. -->
 <substitute_enumerator_name from_prefix="ATK_ATTRIBUTE_" to_prefix="ATK_ATTRIBUTE_" />
 
