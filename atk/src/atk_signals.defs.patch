@@ -1,0 +1,28 @@
+--- ../atk/src/atk_signals.defs.orig	2017-09-04 17:16:11.876601000 +0200
++++ ../atk/src/atk_signals.defs	2017-09-04 18:43:44.087322801 +0200
+@@ -22,11 +22,11 @@
+ (define-signal property-change
+   (of-object "AtkObject")
+   (return-type "void")
+   (when "last")
+   (parameters
+-    '("gpointer" "p0")
++    '("AtkPropertyValues*" "p0")
+   )
+ )
+ 
+ (define-signal state-change
+   (of-object "AtkObject")
+@@ -47,11 +47,11 @@
+ (define-signal active-descendant-changed
+   (of-object "AtkObject")
+   (return-type "void")
+   (when "last")
+   (parameters
+-    '("gpointer" "p0")
++    '("gpointer*" "p0")
+   )
+ )
+ 
+ (define-property accessible-name
+   (of-object "AtkObject")
