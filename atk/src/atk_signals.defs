@@ -3,7 +3,8 @@
 (define-signal children-changed
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("guint" "p0")
     '("gpointer" "p1")
@@ -13,7 +14,7 @@
 (define-signal focus-event
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gboolean" "p0")
   )
@@ -22,7 +23,8 @@
 (define-signal property-change
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("AtkPropertyValues*" "p0")
   )
@@ -31,7 +33,8 @@
 (define-signal state-change
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("const-gchar*" "p0")
     '("gboolean" "p1")
@@ -41,13 +44,14 @@
 (define-signal visible-data-changed
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal active-descendant-changed
   (of-object "AtkObject")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("gpointer*" "p0")
   )
@@ -203,7 +207,7 @@
 (define-signal bounds-changed
   (of-object "AtkComponent")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("AtkRectangle*" "p0")
   )
@@ -218,7 +222,7 @@
 (define-signal link-activated
   (of-object "AtkHyperlink")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-property selected-link
@@ -268,7 +272,7 @@
 (define-signal link-selected
   (of-object "AtkHypertext")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
   )
@@ -285,7 +289,7 @@
 (define-signal selection-changed
   (of-object "AtkSelection")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 ;; From AtkSocket
@@ -295,7 +299,7 @@
 (define-signal row-inserted
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -305,7 +309,7 @@
 (define-signal column-inserted
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -315,7 +319,7 @@
 (define-signal row-deleted
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -325,7 +329,7 @@
 (define-signal column-deleted
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -335,19 +339,19 @@
 (define-signal row-reordered
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal column-reordered
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal model-changed
   (of-object "AtkTable")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 ;; From AtkText
@@ -355,7 +359,8 @@
 (define-signal text-changed
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -365,7 +370,8 @@
 (define-signal text-insert
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -376,7 +382,8 @@
 (define-signal text-remove
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
+  (detailed #t)
   (parameters
     '("gint" "p0")
     '("gint" "p1")
@@ -387,7 +394,7 @@
 (define-signal text-caret-moved
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gint" "p0")
   )
@@ -396,13 +403,13 @@
 (define-signal text-selection-changed
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal text-attributes-changed
   (of-object "AtkText")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 ;; From AtkValue
@@ -410,7 +417,7 @@
 (define-signal value-changed
   (of-object "AtkValue")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
   (parameters
     '("gdouble" "p0")
     '("const-gchar*" "p1")
@@ -422,55 +429,55 @@
 (define-signal activate
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal create
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal deactivate
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal destroy
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal maximize
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal minimize
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal move
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal resize
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 (define-signal restore
   (of-object "AtkWindow")
   (return-type "void")
-  (when "last")
+  (flags "Run Last")
 )
 
 ;; From AtkRegistry
