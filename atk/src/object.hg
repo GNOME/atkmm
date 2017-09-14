@@ -1,5 +1,3 @@
-/* $Id: object.hg,v 1.5 2004/11/30 21:41:44 murrayc Exp $ */
-
 /* Copyright (C) 1998-2002 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -80,14 +78,16 @@ public:
   _WRAP_METHOD(bool add_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_add_relationship)
   _WRAP_METHOD(bool remove_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_remove_relationship)
 
-  _WRAP_SIGNAL(void children_changed(guint change_index, gpointer changed_child), "children_changed")
+  _WRAP_SIGNAL(void children_changed(guint change_index, gpointer changed_child), "children_changed", detail_name add_or_remove)
   _WRAP_SIGNAL(void focus_event(bool focus_in), "focus_event")
-  _WRAP_SIGNAL(void property_change(AtkPropertyValues* values), "property_change")
+  _WRAP_SIGNAL(void property_change(AtkPropertyValues* values), "property_change", detail_name property_name)
 
 #m4 _CONVERSION(`const char*',`const Glib::ustring&',__GCHARP_TO_USTRING)
-  _WRAP_SIGNAL(void state_change(const Glib::ustring& name, bool state_set), "state_change")
+  _WRAP_SIGNAL(void state_change(const Glib::ustring& name, bool state_set), "state_change", detail_name state_name)
 
   _WRAP_SIGNAL(void visible_data_changed(), "visible_data_changed")
+  // AtkObject::active-descendant-changed supports a ::detail signal name, but it's
+  // not clear what that detail means, and it's not used in gtk+.
   _WRAP_SIGNAL(void active_descendant_changed(void** child), "active_descendant_changed")
 
   _WRAP_PROPERTY("accessible-name", Glib::ustring)
