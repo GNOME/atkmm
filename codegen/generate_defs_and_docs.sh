@@ -37,21 +37,29 @@ ATKMM_ATK_SRC_DIR=../atk/src
 
 if [ $# -eq 0 ]
 then
-  $GLIBMM_TOOLS_DIR/defs_gen/docextract_to_xml.py \
-    --with-properties --no-recursion \
-    -s $ATK_DIR/atk -s $ATK_DIR/build/atk \
+  # Documentation
+  PARAMS="--with-properties --no-recursion"
+  for dir in $ATK_DIR/atk $ATK_DIR/build/atk; do
+    if [ -d "$dir" ]; then
+      PARAMS="$PARAMS -s $dir"
+    fi
+  done
+  $GLIBMM_TOOLS_DIR/defs_gen/docextract_to_xml.py $PARAMS \
     >$ATKMM_ATK_SRC_DIR/atk_docs.xml
 
   shopt -s nullglob # Skip a filename pattern that matches no file
 
+  # Enums
   $GLIBMM_TOOLS_DIR/enum.pl \
     $ATK_DIR/atk/*.h $ATK_DIR/build/atk/*.h \
     >$ATKMM_ATK_SRC_DIR/atk_enums.defs
 
+  # Functions and methods
   $GLIBMM_TOOLS_DIR/defs_gen/h2def.py \
     $ATK_DIR/atk/*.h $ATK_DIR/build/atk/*.h \
     >$ATKMM_ATK_SRC_DIR/atk_methods.defs
 
+  # Properties and signals
   extradefs/generate_extra_defs \
     >$ATKMM_ATK_SRC_DIR/atk_signals.defs
   # patch version 2.7.5 does not like directory names.
