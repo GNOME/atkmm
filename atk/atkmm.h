@@ -39,7 +39,7 @@
  * compilation, but suffices for this simple example. Assuming that your
  * program source file is @c program.cc, compile it with:
  * @code
- * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-2.26`
+ * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-2.28`
  * @endcode
  * Alternatively, if using autoconf, use the following in @c configure.ac:
  * @code
