@@ -1,3 +1,11 @@
+atkmm 2.27.1 (unstable):
+Distro packagers should probably not package this yet.
+
+* Change ABI to atkmm-2.28.
+  (Murray Cumming)
+* Build changes.
+  (Kjell Ahlstedt)
+
 atkmm 2.25.4 (unstable):
 Distro packagers should probably not package this yet.
 
