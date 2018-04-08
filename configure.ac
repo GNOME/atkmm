@@ -35,7 +35,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AM_MAINTAINER_MODE
 AC_ARG_VAR([ACLOCAL_FLAGS], [aclocal flags, e.g. -I <macro dir>])
 
-MM_PREREQ([0.9.10])
+MM_PREREQ([0.9.12])
 MM_INIT_MODULE([atkmm-2.28])
 
 # Copy the mm-common .pl scripts into doc/, and use them from there,
@@ -46,7 +46,7 @@ MM_CONFIG_DOCTOOL_DIR([doc])
 AC_SUBST([ATKMM_SO_VERSION], [2:0:1])
 
 AC_PROG_CXX
-MM_AX_CXX_COMPILE_STDCXX([14], [noext], [mandatory])
+MM_AX_CXX_COMPILE_STDCXX([17], [noext], [mandatory])
 
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
