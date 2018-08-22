@@ -20,6 +20,9 @@ lib_LTLIBRARIES = libatkmm-@ATKMM_API_VERSION@.la
 include $(srcdir)/../src/filelist.am
 include $(srcdir)/filelist.am
 
+# Taken out from $(srcdir)/filelist.am
+atkmm_files_built_ph = $(patsubst %.hg,private/%_p.h,$(atkmm_files_hg))
+
 files_built_cc = $(atkmm_files_built_cc)
 files_built_h  = $(atkmm_files_built_h)
 files_built_ph = $(atkmm_files_built_ph)
