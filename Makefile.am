@@ -42,7 +42,7 @@ pkgconfig_DATA = atk/$(ATKMM_MODULE_NAME).pc
 include $(srcdir)/MSVC_NMake/filelist.am
 
 text_files = COPYING.tools
-msvc_files = $(addprefix MSVC_NMake/,$(msvc_net2017_data))
+msvc_files = $(addprefix MSVC_NMake/,$(msvc_nmake_data))
 
 dist_noinst_DATA = $(text_files) $(msvc_files)
 dist_noinst_SCRIPTS = autogen.sh
