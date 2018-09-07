@@ -1,0 +1,15 @@
+## This file is part of atkmm.
+
+msvc_nmake_data =		\
+	atkmm/atkmmconfig.h	\
+	atkmm/atkmm.rc		\
+	build-rules-msvc.mak	\
+	config-msvc.mak		\
+	create-lists-msvc.mak	\
+	create-lists.bat	\
+	detectenv-msvc.mak	\
+	gendef/gendef.cc	\
+	generate-msvc.mak	\
+	info-msvc.mak		\
+	install.mak		\
+	Makefile.vc
