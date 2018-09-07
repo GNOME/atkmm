@@ -39,10 +39,10 @@ nodist_atkmm_libinclude_HEADERS = atk/atkmmconfig.h
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = atk/$(ATKMM_MODULE_NAME).pc
 
-include $(srcdir)/MSVC_Net2013/filelist.am
+include $(srcdir)/MSVC_NMake/filelist.am
 
 text_files = COPYING.tools
-msvc_files = $(addprefix MSVC_Net2013/,$(msvc_net2013_data))
+msvc_files = $(addprefix MSVC_NMake/,$(msvc_net2013_data))
 
 dist_noinst_DATA = $(text_files) $(msvc_files)
 dist_noinst_SCRIPTS = autogen.sh
