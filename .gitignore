@@ -29,5 +29,5 @@ stamp-h?
 /doc/doxygen-extra.css
 /doc/tagfile-to-devhelp2.xsl
 
-/MSVC_Net201?/atkmm/atkmm.rc
-/MSVC_Net201?/atkmm/atkmmconfig.h
+/MSVC_NMake/atkmm/atkmm.rc
+/MSVC_NMake/atkmm/atkmmconfig.h
