@@ -1,0 +1,6 @@
+## This file is part of atkmm.
+
+# Taken out from $(srcdir)/filelist.am
+include $(top_srcdir)/atk/atkmm/filelist.am
+
+atkmm_files_built_ph = $(patsubst %.hg,private/%_p.h,$(atkmm_files_hg))

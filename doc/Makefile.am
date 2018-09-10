@@ -16,7 +16,7 @@
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 include $(top_srcdir)/atk/src/filelist.am
-include $(top_srcdir)/atk/atkmm/filelist.am
+include $(top_srcdir)/atk/atkmm/filelist.gmake.am
 
 atkmm_files_h = $(atkmm_files_built_h) $(filter-out wrap_init.h,$(atkmm_files_extra_h))
 
