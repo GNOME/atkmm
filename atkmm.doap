@@ -10,9 +10,8 @@
 It may be used, for instance, by user interfaces implemented with gtkmm.</description>
   <homepage rdf:resource="http://www.gtkmm.org/" />
   <mailing-list rdf:resource="mailto:gtkmm-list@gnome.org" />
-  <download-page rdf:resource="http://download.gnome.org/sources/atkmm/" />
-  <!-- There is no Bugzilla product called atkmm. -->
-  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=gtkmm" />
+  <download-page rdf:resource="https://download.gnome.org/sources/atkmm/" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/atkmm/issues/" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
   <programming-language>C++</programming-language>
 
