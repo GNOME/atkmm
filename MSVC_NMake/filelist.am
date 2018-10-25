@@ -1,15 +1,15 @@
 ## This file is part of atkmm.
 
-msvc_net2013_data =			\
-	atkmm.sln			\
-	atkmm-build-defines.props	\
-	atkmm-version-paths.props	\
-	atkmm-install.props		\
-	gendef.vcxproj			\
-	gendef.vcxproj.filters		\
+msvc_nmake_data =			\
 	gendef/gendef.cc		\
 	atkmm/atkmm.rc			\
-	atkmm.vcxproj			\
-	atkmm.vcxproj.filters		\
 	atkmm/atkmmconfig.h		\
-	install.vcxproj
+	build-rules-msvc.mak		\
+	config-msvc.mak			\
+	create-lists-msvc.mak		\
+	create-lists.bat		\
+	detectenv-msvc.mak		\
+	generate-msvc.mak		\
+	info-msvc.mak			\
+	install.mak			\
+	Makefile.vc
