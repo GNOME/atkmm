@@ -98,12 +98,12 @@
 
 (define-property accessible-role
   (of-object "AtkObject")
-  (prop-type "GParamInt")
+  (prop-type "GParamEnum")
   (docs "The accessible role of this object")
   (readable #t)
   (writable #t)
   (construct-only #f)
-  (default-value "66")
+  (default-value "ATK_ROLE_UNKNOWN")
 )
 
 (define-property accessible-component-layer

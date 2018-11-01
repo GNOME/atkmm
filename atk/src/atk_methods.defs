@@ -190,6 +190,21 @@
 
 ;; Enumerations and flags ...
 
+(define-enum ScrollType
+  (in-module "Atk")
+  (c-name "AtkScrollType")
+  (gtype-id "ATK_TYPE_SCROLL_TYPE")
+  (values
+    '("top-left" "ATK_SCROLL_TOP_LEFT")
+    '("bottom-right" "ATK_SCROLL_BOTTOM_RIGHT")
+    '("top-edge" "ATK_SCROLL_TOP_EDGE")
+    '("bottom-edge" "ATK_SCROLL_BOTTOM_EDGE")
+    '("left-edge" "ATK_SCROLL_LEFT_EDGE")
+    '("right-edge" "ATK_SCROLL_RIGHT_EDGE")
+    '("anywhere" "ATK_SCROLL_ANYWHERE")
+  )
+)
+
 (define-flags HyperlinkStateFlags
   (in-module "Atk")
   (c-name "AtkHyperlinkStateFlags")
@@ -524,6 +539,7 @@
   (values
     '("screen" "ATK_XY_SCREEN")
     '("window" "ATK_XY_WINDOW")
+    '("parent" "ATK_XY_PARENT")
   )
 )
 
@@ -764,6 +780,26 @@
   (of-object "AtkComponent")
   (c-name "atk_component_get_alpha")
   (return-type "gdouble")
+)
+
+(define-method scroll_to
+  (of-object "AtkComponent")
+  (c-name "atk_component_scroll_to")
+  (return-type "gboolean")
+  (parameters
+    '("AtkScrollType" "type")
+  )
+)
+
+(define-method scroll_to_point
+  (of-object "AtkComponent")
+  (c-name "atk_component_scroll_to_point")
+  (return-type "gboolean")
+  (parameters
+    '("AtkCoordType" "coords")
+    '("gint" "x")
+    '("gint" "y")
+  )
 )
 
 
@@ -2759,6 +2795,11 @@
 
 
 ;; From atk-enum-types.h
+
+(define-function atk_scroll_type_get_type
+  (c-name "atk_scroll_type_get_type")
+  (return-type "GType")
+)
 
 (define-function atk_hyperlink_state_flags_get_type
   (c-name "atk_hyperlink_state_flags_get_type")

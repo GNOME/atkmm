@@ -30,8 +30,13 @@ as atk_component_get_position() and atk_text_get_character_extents()
 </parameter_description>
 </parameter>
 <parameter name="ATK_XY_WINDOW">
-<parameter_description> specifies xy coordinates relative to the widget's 
+<parameter_description> specifies xy coordinates relative to the widget's
 top-level window
+</parameter_description>
+</parameter>
+<parameter name="ATK_XY_PARENT">
+<parameter_description> specifies xy coordinates relative to the widget's
+immediate parent. Since: 2.30
 </parameter_description>
 </parameter>
 </parameters>
@@ -337,8 +342,8 @@ notify doesn't support emission hooks.
 </parameter_description>
 </parameter>
 <parameter name="arg1">
-<parameter_description> an #AtkPropertyValues containing the new value of the
-property which changed.
+<parameter_description> an #AtkPropertyValues containing the new
+value of the property which changed.
 </parameter_description>
 </parameter>
 </parameters>
@@ -565,6 +570,53 @@ ATK_2.26.
 </parameter>
 <parameter name="ATK_RELATION_LAST_DEFINED">
 <parameter_description> Not used, this value indicates the end of the enumeration.
+</parameter_description>
+</parameter>
+</parameters>
+</enum>
+
+<enum name="AtkScrollType">
+<description>
+Specifies where an object should be placed on the screen when using scroll_to.
+
+Since: 2.30
+
+</description>
+<parameters>
+<parameter name="ATK_SCROLL_TOP_LEFT">
+<parameter_description> Scroll the object vertically and horizontally to the top
+left corner of the window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_BOTTOM_RIGHT">
+<parameter_description> Scroll the object vertically and horizontally to the
+bottom right corner of the window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_TOP_EDGE">
+<parameter_description> Scroll the object vertically to the top edge of the
+ window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_BOTTOM_EDGE">
+<parameter_description> Scroll the object vertically to the bottom edge of
+the window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_LEFT_EDGE">
+<parameter_description> Scroll the object vertically and horizontally to the
+left edge of the window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_RIGHT_EDGE">
+<parameter_description> Scroll the object vertically and horizontally to the
+right edge of the window.
+</parameter_description>
+</parameter>
+<parameter name="ATK_SCROLL_ANYWHERE">
+<parameter_description> Scroll the object vertically and horizontally so that
+as much as possible of the object becomes visible. The exact placement is
+determined by the application.
 </parameter_description>
 </parameter>
 </parameters>
@@ -1858,6 +1910,64 @@ from @component
 <return></return>
 </function>
 
+<function name="atk_component_scroll_to">
+<description>
+Makes @component visible on the screen by scrolling all necessary parents.
+
+Contrary to atk_component_set_position, this does not actually move
+@component in its parent, this only makes the parents scroll so that the
+object shows up on the screen, given its current position within the parents.
+
+Since: 2.30
+
+</description>
+<parameters>
+<parameter name="component">
+<parameter_description> an #AtkComponent
+</parameter_description>
+</parameter>
+<parameter name="type">
+<parameter_description> specify where the object should be made visible.
+</parameter_description>
+</parameter>
+</parameters>
+<return> whether scrolling was successful.
+
+</return>
+</function>
+
+<function name="atk_component_scroll_to_point">
+<description>
+Makes an object visible on the screen at a given position by scrolling all
+necessary parents.
+
+Since: 2.30
+
+</description>
+<parameters>
+<parameter name="component">
+<parameter_description> an #AtkComponent
+</parameter_description>
+</parameter>
+<parameter name="coords">
+<parameter_description> specify whether coordinates are relative to the screen or to the
+parent object.
+</parameter_description>
+</parameter>
+<parameter name="x">
+<parameter_description> x-position where to scroll to
+</parameter_description>
+</parameter>
+<parameter name="y">
+<parameter_description> y-position where to scroll to
+</parameter_description>
+</parameter>
+</parameters>
+<return> whether scrolling was successful.
+
+</return>
+</function>
+
 <function name="atk_component_set_extents">
 <description>
 Sets the extents of @component.
@@ -1897,7 +2007,10 @@ or to the components top level window
 
 <function name="atk_component_set_position">
 <description>
-Sets the postition of @component.
+Sets the position of @component.
+
+Contrary to atk_component_scroll_to, this does not trigger any scrolling,
+this just moves @component in its parent.
 
 
 </description>
@@ -1916,7 +2029,7 @@ Sets the postition of @component.
 </parameter>
 <parameter name="coord_type">
 <parameter_description> specifies whether the coordinates are relative to the screen
-or to the components top level window
+or to the component's top level window
 </parameter_description>
 </parameter>
 </parameters>
@@ -5584,7 +5697,7 @@ Adds a selection bounded by the specified offsets.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the start position of the selected region
+<parameter_description> the starting character offset of the selected region
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
@@ -5724,7 +5837,7 @@ element of the array returned by this function will be NULL.
 
 <function name="atk_text_get_caret_offset">
 <description>
-Gets the offset position of the caret (cursor).
+Gets the offset of the position of the caret (cursor).
 
 
 </description>
@@ -5734,7 +5847,7 @@ Gets the offset position of the caret (cursor).
 </parameter_description>
 </parameter>
 </parameters>
-<return> the offset position of the caret (cursor).
+<return> the character offset of position of the caret (cursor).
 </return>
 </function>
 
@@ -5750,7 +5863,7 @@ Gets the specified text.
 </parameter_description>
 </parameter>
 <parameter name="offset">
-<parameter_description> position
+<parameter_description> a character offset within @text
 </parameter_description>
 </parameter>
 </parameters>
@@ -5790,11 +5903,11 @@ a particular text offset.
 </parameter_description>
 </parameter>
 <parameter name="x">
-<parameter_description> Pointer for the x cordinate of the bounding box
+<parameter_description> Pointer for the x coordinate of the bounding box
 </parameter_description>
 </parameter>
 <parameter name="y">
-<parameter_description> Pointer for the y cordinate of the bounding box
+<parameter_description> Pointer for the y coordinate of the bounding box
 </parameter_description>
 </parameter>
 <parameter name="width">
@@ -5935,7 +6048,7 @@ returned.
 </parameter_description>
 </parameter>
 <parameter name="offset">
-<parameter_description> the offset at which to get the attributes, -1 means the offset of
+<parameter_description> the character offset at which to get the attributes, -1 means the offset of
 the character to be inserted at the caret location.
 </parameter_description>
 </parameter>
@@ -5974,12 +6087,12 @@ moving or deleting a selected region can change the numbering.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> passes back the start position of the selected region
+<parameter_description> passes back the starting character offset of the selected region
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
-<parameter_description> passes back the end position of (e.g. offset immediately past)
-the selected region
+<parameter_description> passes back the ending character offset (offset immediately past)
+of the selected region
 </parameter_description>
 </parameter>
 </parameters>
@@ -6039,7 +6152,7 @@ Since: 2.10
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the start offset of the returned string, or -1
+<parameter_description> the starting character offset of the returned string, or -1
 if an error has occurred (e.g. invalid offset, not implemented)
 </parameter_description>
 </parameter>
@@ -6068,11 +6181,11 @@ Gets the specified text.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> start position
+<parameter_description> a starting character offset within @text
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
-<parameter_description> end position, or -1 for the end of the string.
+<parameter_description> an ending character offset within @text, or -1 for the end of the string.
 </parameter_description>
 </parameter>
 </parameters>
@@ -6103,7 +6216,7 @@ Deprecated: 2.9.3: Please use atk_text_get_string_at_offset() instead.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the start offset of the returned string
+<parameter_description> the starting character offset of the returned string
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
@@ -6163,7 +6276,7 @@ Deprecated: This method is deprecated since ATK version
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the start offset of the returned string
+<parameter_description> the starting character offset of the returned string
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
@@ -6199,7 +6312,7 @@ Deprecated: 2.9.3: Please use atk_text_get_string_at_offset() instead.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the start offset of the returned string
+<parameter_description> the starting character offset of the returned string
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
@@ -6249,7 +6362,7 @@ Sets the caret (cursor) position to the specified @offset.
 </parameter_description>
 </parameter>
 <parameter name="offset">
-<parameter_description> position
+<parameter_description> the character offset of the new caret position
 </parameter_description>
 </parameter>
 </parameters>
@@ -6277,7 +6390,7 @@ moving or deleting a selected region can change the numbering.
 </parameter_description>
 </parameter>
 <parameter name="start_offset">
-<parameter_description> the new start position of the selection
+<parameter_description> the new starting character offset of the selection
 </parameter_description>
 </parameter>
 <parameter name="end_offset">

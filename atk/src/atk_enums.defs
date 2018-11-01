@@ -1,3 +1,30 @@
+;; From atkcomponent.h
+
+;; Original typedef:
+;; typedef enum {
+;;   ATK_SCROLL_TOP_LEFT,
+;;   ATK_SCROLL_BOTTOM_RIGHT,
+;;   ATK_SCROLL_TOP_EDGE,
+;;   ATK_SCROLL_BOTTOM_EDGE,
+;;   ATK_SCROLL_LEFT_EDGE,
+;;   ATK_SCROLL_RIGHT_EDGE,
+;;   ATK_SCROLL_ANYWHERE
+;; } AtkScrollType;
+
+(define-enum-extended ScrollType
+  (in-module "Atk")
+  (c-name "AtkScrollType")
+  (values
+    '("top-left" "ATK_SCROLL_TOP_LEFT" "0")
+    '("bottom-right" "ATK_SCROLL_BOTTOM_RIGHT" "1")
+    '("top-edge" "ATK_SCROLL_TOP_EDGE" "2")
+    '("bottom-edge" "ATK_SCROLL_BOTTOM_EDGE" "3")
+    '("left-edge" "ATK_SCROLL_LEFT_EDGE" "4")
+    '("right-edge" "ATK_SCROLL_RIGHT_EDGE" "5")
+    '("anywhere" "ATK_SCROLL_ANYWHERE" "6")
+  )
+)
+
 ;; From atkhyperlink.h
 
 ;; Original typedef:
@@ -624,7 +651,8 @@
 ;; Original typedef:
 ;; typedef enum {
 ;;   ATK_XY_SCREEN,
-;;   ATK_XY_WINDOW
+;;   ATK_XY_WINDOW,
+;;   ATK_XY_PARENT
 ;; }AtkCoordType;
 
 (define-enum-extended CoordType
@@ -633,6 +661,7 @@
   (values
     '("screen" "ATK_XY_SCREEN" "0")
     '("window" "ATK_XY_WINDOW" "1")
+    '("parent" "ATK_XY_PARENT" "2")
   )
 )
 
