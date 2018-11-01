@@ -94,7 +94,7 @@ public:
   _WRAP_PROPERTY("accessible-description", Glib::ustring)
   _WRAP_PROPERTY("accessible-parent", Glib::RefPtr<Atk::Object>)
   _WRAP_PROPERTY("accessible-value", double)
-  _WRAP_PROPERTY("accessible-role", int)
+  _WRAP_PROPERTY("accessible-role", Role)
   _WRAP_PROPERTY("accessible-component-layer", int)
   _WRAP_PROPERTY("accessible-component-mdi-zorder", int)
   _WRAP_PROPERTY("accessible-table-caption", Glib::ustring)
