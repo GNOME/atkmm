@@ -1,3 +1,17 @@
+atkmm 2.29.1 (unstable):
+Distro packagers should probably not package this yet.
+
+Build:
+* Require C++17.
+  (Murray Cumming)
+* Replace the Visual Studio project files with MSVC NMake project files
+  (Chun-wei Fan) Merge request !1
+* Use glibmm-2.60 instead of glibmm-2.56
+  (Kjell Ahlstedt)
+* Change the ABI to atkmm-2.30
+  (Kjell Ahlstedt)
+
+
 atkmm 2.27.1 (unstable):
 Distro packagers should probably not package this yet.
 
