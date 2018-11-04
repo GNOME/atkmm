@@ -1,3 +1,9 @@
+atkmm 2.28.0 (stable):
+
+This release is identical to 2.24.3.
+
+There is no 2.26.x release.
+
 atkmm 2.24.3 (stable):
 
 * Fix silent builds.
