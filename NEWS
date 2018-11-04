@@ -1,3 +1,14 @@
+atkmm 2.24.3 (stable):
+
+* Fix silent builds.
+  (Kjell Ahlstedt) Bug #768797 (Sebastian)
+* Text: Plug memory leaks in get_text_vfunc() and get_selection_vfunc().
+  These vfuncs shall delete the returned character array after it has been
+  copied to a Glib::ustring.
+  (Kjell Ahlstedt) Bug #783360
+* Replace the Visual Studio project files with MSVC NMake project files
+  (Chun-wei Fan) Merge request !2
+
 atkmm 2.24.2 (stable):
 
 * Regenerate with the latest glibmm.
