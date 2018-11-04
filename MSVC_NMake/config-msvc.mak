@@ -6,14 +6,14 @@ BASE_INCLUDES =	/I$(PREFIX)\include
 # Please do not change anything beneath this line unless maintaining the NMake Makefiles
 ATK_API_VERSION = 1.0
 ATKMM_MAJOR_VERSION = 2
-ATKMM_MINOR_VERSION = 28
+ATKMM_MINOR_VERSION = 30
 
 GLIB_API_VERSION = 2.0
 
 LIBSIGC_MAJOR_VERSION = 3
 LIBSIGC_MINOR_VERSION = 0
 GLIBMM_MAJOR_VERSION = 2
-GLIBMM_MINOR_VERSION = 58
+GLIBMM_MINOR_VERSION = 60
 
 
 !if "$(CFG)" == "debug" || "$(CFG)" == "Debug"

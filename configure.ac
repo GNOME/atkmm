@@ -19,7 +19,7 @@
 # pkg-config name as before and is meant to be binary compatible.  Thus for the
 # time being, the version number cannot be brought in line with ATK, since that
 # would break compatibility.
-AC_INIT([atkmm], [2.27.1], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
+AC_INIT([atkmm], [2.29.1], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
         [atkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
 
@@ -36,7 +36,7 @@ AM_MAINTAINER_MODE
 AC_ARG_VAR([ACLOCAL_FLAGS], [aclocal flags, e.g. -I <macro dir>])
 
 MM_PREREQ([0.9.12])
-MM_INIT_MODULE([atkmm-2.28])
+MM_INIT_MODULE([atkmm-2.30])
 
 # Copy the mm-common .pl scripts into doc/, and use them from there,
 # so we can dist them to avoid a tarball-build dependency.
