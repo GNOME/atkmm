@@ -1,22 +1,24 @@
 #!/bin/bash
 
-# atkmm/codegen/generate_defs_and_docs.sh
+# atkmm-1.6/codegen/generate_defs_and_docs.sh
 
-# This script must be executed from directory atkmm/codegen.
-
-# Assumed directory structure:
-#   glibmm/tools/defs_gen/docextract_to_xml.py
-#   glibmm/tools/defs_gen/h2def.py
-#   glibmm/tools/enum.pl
-#   atk/atk/*.h atk/build/atk/*.h
-#   atk/atk/*.c atk/build/atk/*.c
-#   atkmm/codegen/extradefs/generate_extra_defs
+# Global environment variables:
+# GMMPROC_GEN_SOURCE_DIR  Top directory where source files are searched for.
+#                         Default value: $(dirname "$0")/../..
+#                         i.e. 2 levels above this file.
+# GMMPROC_GEN_BUILD_DIR   Top directory where built files are searched for.
+#                         Default value: $GMMPROC_GEN_SOURCE_DIR
+#
+# If you use jhbuild, you can set these environment variables equal to jhbuild's
+# configuration variables checkoutroot and buildroot, respectively.
+# Usually you can leave GMMPROC_GEN_SOURCE_DIR undefined.
+# If you have set buildroot=None, GMMPROC_GEN_BUILD_DIR can also be undefined.
 
 # Generated files:
-#   atkmm/atk/src/atk_docs.xml
-#   atkmm/atk/src/atk_enums.defs
-#   atkmm/atk/src/atk_methods.defs
-#   atkmm/atk/src/atk_signals.defs
+#   atkmm-1.6/atk/src/atk_docs.xml
+#   atkmm-1.6/atk/src/atk_enums.defs
+#   atkmm-1.6/atk/src/atk_methods.defs
+#   atkmm-1.6/atk/src/atk_signals.defs
 
 # To update the atk_docs.xml file and the .defs files:
 # 1. ./generate_defs_and_docs.sh
@@ -29,52 +31,78 @@
 # 1. Like step 1 when updating only the docs.xml and .defs files.
 # 2. Apply new patches manually to the atk_signals.defs file.
 # 3. ./generate_defs_and_docs.sh --make-patch
-# 4. Like step 2 when updating only the nly the docs.xml and .defs files.
+# 4. Like step 2 when updating only the docs.xml and .defs files.
 
-GLIBMM_TOOLS_DIR=../../glibmm/tools
-ATK_DIR=../../atk
-ATKMM_ATK_SRC_DIR=../atk/src
+# Root directory of atkmm-1.6 source files.
+root_dir="$(dirname "$0")/.."
 
-if [ $# -eq 0 ]
-then
+# Where to search for source files.
+if [ -z "$GMMPROC_GEN_SOURCE_DIR" ]; then
+  GMMPROC_GEN_SOURCE_DIR="$root_dir/.."
+fi
+
+# Where to search for built files.
+if [ -z "$GMMPROC_GEN_BUILD_DIR" ]; then
+  GMMPROC_GEN_BUILD_DIR="$GMMPROC_GEN_SOURCE_DIR"
+fi
+
+# Scripts in glibmm-2.4. These are source files.
+gen_docs="$GMMPROC_GEN_SOURCE_DIR/glibmm-2.4/tools/defs_gen/docextract_to_xml.py"
+gen_methods="$GMMPROC_GEN_SOURCE_DIR/glibmm-2.4/tools/defs_gen/h2def.py"
+gen_enums="$GMMPROC_GEN_SOURCE_DIR/glibmm-2.4/tools/enum.pl"
+
+# Where to find the executable that generates extra defs (signals and properties).
+# atkmm-1.6 is built with autotools.
+# autotools support, but don't require, non-source-dir builds.
+extra_defs_gen_dir="$GMMPROC_GEN_BUILD_DIR/atkmm-1.6/codegen/extradefs"
+
+source_prefix="$GMMPROC_GEN_SOURCE_DIR/atk"
+build_prefix="$GMMPROC_GEN_BUILD_DIR/atk"
+if [ "$source_prefix" == "$build_prefix" ]; then
+  # atk is built with meson, which requires non-source-dir builds.
+  # This is what jhbuild does, if neccesary, to force non-source-dir builds.
+  build_prefix="$build_prefix/build"
+fi
+
+out_dir="$root_dir/atk/src"
+signals_out_file=atk_signals.defs
+signals_out_dir_file="$out_dir"/$signals_out_file
+
+if [ $# -eq 0 ]; then
   # Documentation
-  PARAMS="--with-properties --no-recursion"
-  for dir in $ATK_DIR/atk $ATK_DIR/build/atk; do
+  echo === atk_docs.xml ===
+  params="--with-properties --no-recursion"
+  for dir in "$source_prefix/atk" "$build_prefix/atk"; do
     if [ -d "$dir" ]; then
-      PARAMS="$PARAMS -s $dir"
+      params="$params -s $dir"
     fi
   done
-  $GLIBMM_TOOLS_DIR/defs_gen/docextract_to_xml.py $PARAMS \
-    >$ATKMM_ATK_SRC_DIR/atk_docs.xml
+  "$gen_docs" $params > "$out_dir/atk_docs.xml"
 
   shopt -s nullglob # Skip a filename pattern that matches no file
 
   # Enums
-  $GLIBMM_TOOLS_DIR/enum.pl \
-    $ATK_DIR/atk/*.h $ATK_DIR/build/atk/*.h \
-    >$ATKMM_ATK_SRC_DIR/atk_enums.defs
+  echo === atk_enums.defs ===
+  "$gen_enums" "$source_prefix"/atk/*.h "$build_prefix"/atk/*.h  > "$out_dir/atk_enums.defs"
 
   # Functions and methods
-  $GLIBMM_TOOLS_DIR/defs_gen/h2def.py \
-    $ATK_DIR/atk/*.h $ATK_DIR/build/atk/*.h \
-    >$ATKMM_ATK_SRC_DIR/atk_methods.defs
+  echo === atk_methods.defs ===
+  "$gen_methods" "$source_prefix"/atk/*.h "$build_prefix"/atk/*.h  > "$out_dir/atk_methods.defs"
 
   # Properties and signals
-  extradefs/generate_extra_defs \
-    >$ATKMM_ATK_SRC_DIR/atk_signals.defs
-  if [ -f $ATKMM_ATK_SRC_DIR/atk_signals.defs.patch ]; then
+  echo === $signals_out_file ===
+  "$extra_defs_gen_dir"/generate_extra_defs > "$signals_out_dir_file"
+  if [ -f "$signals_out_dir_file".patch ]; then
     # patch version 2.7.5 does not like directory names.
-    cd "$ATKMM_ATK_SRC_DIR"
-    PATCH_OPTIONS="--backup --version-control=simple --suffix=.orig"
-    patch $PATCH_OPTIONS atk_signals.defs atk_signals.defs.patch
+    cd "$out_dir"
+    patch_options="--backup --version-control=simple --suffix=.orig"
+    patch $patch_options $signals_out_file $signals_out_file.patch
   else
-    echo "File $ATKMM_ATK_SRC_DIR/atk_signals.defs.patch does not exist."
-    echo "You may have to patch $ATKMM_ATK_SRC_DIR/atk_signals.defs manually."
+    echo "File $signals_out_dir_file.patch does not exist."
+    echo "You may have to patch $signals_out_dir_file manually."
   fi
-elif [ "$1" = "--make-patch" ]
-then
-  ATKMM_ATK_SRC_DIR_FILE=$ATKMM_ATK_SRC_DIR/atk_signals.defs
-  diff --unified=5 $ATKMM_ATK_SRC_DIR_FILE.orig $ATKMM_ATK_SRC_DIR_FILE > $ATKMM_ATK_SRC_DIR_FILE.patch
+elif [ "$1" == "--make-patch" ]; then
+  diff --unified=5 "$signals_out_dir_file".orig "$signals_out_dir_file" > "$signals_out_dir_file".patch
 else
   echo "Usage: $0 [--make-patch]"
   exit 1
