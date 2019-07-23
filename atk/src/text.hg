@@ -162,7 +162,7 @@ public:
   _WRAP_METHOD(AtkTextRange** get_bounded_ranges(const Rectangle& rect, CoordType coord_type,
                                                  ClipType x_clip_type, ClipType y_clip_type), atk_text_get_bounded_ranges)
 
-  // AtkObject::text-changed is deprecated in favor of text-insert and text-remove,
+  // AtkText::text-changed is deprecated in favor of text-insert and text-remove,
   // but code in gtk+/gtk/a11y still emits text-changed, 2019-07-23.
   // Deprecation of a signal probably means "don't emit" rather than "don't listen",
   // so let's keep it here.

@@ -71,9 +71,8 @@ public:
   _WRAP_METHOD(void set_description(const Glib::ustring& description), atk_object_set_description)
   _WRAP_METHOD(void set_parent(const Glib::RefPtr<Atk::Object>& parent), atk_object_set_parent)
   _WRAP_METHOD(void set_role(Role role), atk_object_set_role)
-  //_WRAP_METHOD(guint connect_property_change_handler(AtkPropertyChangeHandler* handler), atk_object_connect_property_change_handler)
-  //_WRAP_METHOD(void remove_property_change_handler(guint handler_id), atk_object_remove_property_change_handler)
   _WRAP_METHOD(void notify_state_change(State state, bool value), atk_object_notify_state_change)
+  _IGNORE(atk_object_connect_property_change_handler, atk_object_remove_property_change_handler)dnl// deprecated
 
   _WRAP_METHOD(bool add_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_add_relationship)
   _WRAP_METHOD(bool remove_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_remove_relationship)
@@ -83,6 +82,10 @@ public:
   _WRAP_METHOD(void set_accessible_id(const Glib::ustring& name), atk_object_set_accessible_id)
 
   _WRAP_SIGNAL(void children_changed(guint change_index, gpointer changed_child), "children_changed", detail_name add_or_remove)
+
+  // AtkObject::focus-event is deprecated in favor of state-change,
+  // but deprecation of a signal probably means "don't emit" rather than
+  // "don't listen", so let's keep it here.
   _WRAP_SIGNAL(void focus_event(bool focus_in), "focus_event")
   _WRAP_SIGNAL(void property_change(AtkPropertyValues* values), "property_change", detail_name property_name)
 
@@ -97,18 +100,15 @@ public:
   _WRAP_PROPERTY("accessible-name", Glib::ustring)
   _WRAP_PROPERTY("accessible-description", Glib::ustring)
   _WRAP_PROPERTY("accessible-parent", Glib::RefPtr<Atk::Object>)
-  _WRAP_PROPERTY("accessible-value", double)
   _WRAP_PROPERTY("accessible-role", Role)
   _WRAP_PROPERTY("accessible-component-layer", int)
   _WRAP_PROPERTY("accessible-component-mdi-zorder", int)
-  _WRAP_PROPERTY("accessible-table-caption", Glib::ustring)
-  _WRAP_PROPERTY("accessible-table-column-description", Glib::ustring)
-  _WRAP_PROPERTY("accessible-table-column-header", Glib::RefPtr<Atk::Object>)
-  _WRAP_PROPERTY("accessible-table-row-description", Glib::ustring)
-  _WRAP_PROPERTY("accessible-table-row-header", Glib::RefPtr<Atk::Object>)
   _WRAP_PROPERTY("accessible-table-summary", Glib::RefPtr<Atk::Object>)
   _WRAP_PROPERTY("accessible-table-caption-object", Glib::RefPtr<Atk::Object>)
   _WRAP_PROPERTY("accessible-hypertext-nlinks", int)
+  _IGNORE_PROPERTY("accessible-value", "accessible-table-caption",
+    "accessible-table-column-header", "accessible-table-column-description",
+    "accessible-table-row-header", "accessible-table-row-description") dnl// deprecated
 };
 
 } // namespace Atk
