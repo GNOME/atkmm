@@ -342,6 +342,8 @@
     '("subscript" "ATK_ROLE_SUBSCRIPT")
     '("superscript" "ATK_ROLE_SUPERSCRIPT")
     '("footnote" "ATK_ROLE_FOOTNOTE")
+    '("content-deletion" "ATK_ROLE_CONTENT_DELETION")
+    '("content-insertion" "ATK_ROLE_CONTENT_INSERTION")
     '("last-defined" "ATK_ROLE_LAST_DEFINED")
   )
 )
@@ -1449,6 +1451,21 @@
   (of-object "AtkObject")
   (c-name "atk_object_get_object_locale")
   (return-type "const-gchar*")
+)
+
+(define-method get_accessible_id
+  (of-object "AtkObject")
+  (c-name "atk_object_get_accessible_id")
+  (return-type "const-gchar*")
+)
+
+(define-method set_accessible_id
+  (of-object "AtkObject")
+  (c-name "atk_object_set_accessible_id")
+  (return-type "none")
+  (parameters
+    '("const-gchar*" "name")
+  )
 )
 
 
@@ -2577,6 +2594,30 @@
   (return-type "const-gchar*")
   (parameters
     '("gint" "index_")
+  )
+)
+
+(define-method scroll_substring_to
+  (of-object "AtkText")
+  (c-name "atk_text_scroll_substring_to")
+  (return-type "gboolean")
+  (parameters
+    '("gint" "start_offset")
+    '("gint" "end_offset")
+    '("AtkScrollType" "type")
+  )
+)
+
+(define-method scroll_substring_to_point
+  (of-object "AtkText")
+  (c-name "atk_text_scroll_substring_to_point")
+  (return-type "gboolean")
+  (parameters
+    '("gint" "start_offset")
+    '("gint" "end_offset")
+    '("AtkCoordType" "coords")
+    '("gint" "x")
+    '("gint" "y")
   )
 )
 

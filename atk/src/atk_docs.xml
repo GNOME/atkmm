@@ -575,6 +575,587 @@ ATK_2.26.
 </parameters>
 </enum>
 
+<enum name="AtkRole">
+<description>
+Describes the role of an object
+
+These are the built-in enumerated roles that UI components can have
+in ATK.  Other roles may be added at runtime, so an AtkRole &gt;=
+%ATK_ROLE_LAST_DEFINED is not necessarily an error.
+
+</description>
+<parameters>
+<parameter name="ATK_ROLE_INVALID">
+<parameter_description> Invalid role
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ACCEL_LABEL">
+<parameter_description> A label which represents an accelerator
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ALERT">
+<parameter_description> An object which is an alert to the user. Assistive Technologies typically respond to ATK_ROLE_ALERT by reading the entire onscreen contents of containers advertising this role.  Should be used for warning dialogs, etc.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ANIMATION">
+<parameter_description> An object which is an animated image
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ARROW">
+<parameter_description> An arrow in one of the four cardinal directions
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CALENDAR">
+<parameter_description>  An object that displays a calendar and allows the user to select a date
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CANVAS">
+<parameter_description> An object that can be drawn into and is used to trap events
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CHECK_BOX">
+<parameter_description> A choice that can be checked or unchecked and provides a separate indicator for the current state
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CHECK_MENU_ITEM">
+<parameter_description> A menu item with a check box
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_COLOR_CHOOSER">
+<parameter_description> A specialized dialog that lets the user choose a color
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_COLUMN_HEADER">
+<parameter_description> The header for a column of data
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_COMBO_BOX">
+<parameter_description> A collapsible list of choices the user can select from
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DATE_EDITOR">
+<parameter_description> An object whose purpose is to allow a user to edit a date
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DESKTOP_ICON">
+<parameter_description> An inconifed internal frame within a DESKTOP_PANE
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DESKTOP_FRAME">
+<parameter_description> A pane that supports internal frames and iconified versions of those internal frames
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DIAL">
+<parameter_description> An object whose purpose is to allow a user to set a value
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DIALOG">
+<parameter_description> A top level window with title bar and a border
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DIRECTORY_PANE">
+<parameter_description> A pane that allows the user to navigate through and select the contents of a directory
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DRAWING_AREA">
+<parameter_description> An object used for drawing custom user interface elements
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FILE_CHOOSER">
+<parameter_description> A specialized dialog that lets the user choose a file
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FILLER">
+<parameter_description> A object that fills up space in a user interface
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FONT_CHOOSER">
+<parameter_description> A specialized dialog that lets the user choose a font
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FRAME">
+<parameter_description> A top level window with a title bar, border, menubar, etc.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_GLASS_PANE">
+<parameter_description> A pane that is guaranteed to be painted on top of all panes beneath it
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_HTML_CONTAINER">
+<parameter_description> A document container for HTML, whose children represent the document content
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ICON">
+<parameter_description> A small fixed size picture, typically used to decorate components
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_IMAGE">
+<parameter_description> An object whose primary purpose is to display an image
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_INTERNAL_FRAME">
+<parameter_description> A frame-like object that is clipped by a desktop pane
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LABEL">
+<parameter_description> An object used to present an icon or short string in an interface
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LAYERED_PANE">
+<parameter_description> A specialized pane that allows its children to be drawn in layers, providing a form of stacking order
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LIST">
+<parameter_description> An object that presents a list of objects to the user and allows the user to select one or more of them 
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LIST_ITEM">
+<parameter_description> An object that represents an element of a list 
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MENU">
+<parameter_description> An object usually found inside a menu bar that contains a list of actions the user can choose from
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MENU_BAR">
+<parameter_description> An object usually drawn at the top of the primary dialog box of an application that contains a list of menus the user can choose from 
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MENU_ITEM">
+<parameter_description> An object usually contained in a menu that presents an action the user can choose
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_OPTION_PANE">
+<parameter_description> A specialized pane whose primary use is inside a DIALOG
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PAGE_TAB">
+<parameter_description> An object that is a child of a page tab list
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PAGE_TAB_LIST">
+<parameter_description> An object that presents a series of panels (or page tabs), one at a time, through some mechanism provided by the object 
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PANEL">
+<parameter_description> A generic container that is often used to group objects
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PASSWORD_TEXT">
+<parameter_description> A text object uses for passwords, or other places where the text content is not shown visibly to the user
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_POPUP_MENU">
+<parameter_description> A temporary window that is usually used to offer the user a list of choices, and then hides when the user selects one of those choices
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PROGRESS_BAR">
+<parameter_description> An object used to indicate how much of a task has been completed
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PUSH_BUTTON">
+<parameter_description> An object the user can manipulate to tell the application to do something
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_RADIO_BUTTON">
+<parameter_description> A specialized check box that will cause other radio buttons in the same group to become unchecked when this one is checked
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_RADIO_MENU_ITEM">
+<parameter_description> A check menu item which belongs to a group. At each instant exactly one of the radio menu items from a group is selected
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ROOT_PANE">
+<parameter_description> A specialized pane that has a glass pane and a layered pane as its children
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ROW_HEADER">
+<parameter_description> The header for a row of data
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SCROLL_BAR">
+<parameter_description> An object usually used to allow a user to incrementally view a large amount of data.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SCROLL_PANE">
+<parameter_description> An object that allows a user to incrementally view a large amount of information
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SEPARATOR">
+<parameter_description> An object usually contained in a menu to provide a visible and logical separation of the contents in a menu
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SLIDER">
+<parameter_description> An object that allows the user to select from a bounded range
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SPLIT_PANE">
+<parameter_description> A specialized panel that presents two other panels at the same time
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SPIN_BUTTON">
+<parameter_description> An object used to get an integer or floating point number from the user
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_STATUSBAR">
+<parameter_description> An object which reports messages of minor importance to the user
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TABLE">
+<parameter_description> An object used to represent information in terms of rows and columns
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TABLE_CELL">
+<parameter_description> A cell in a table
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TABLE_COLUMN_HEADER">
+<parameter_description> The header for a column of a table
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TABLE_ROW_HEADER">
+<parameter_description> The header for a row of a table
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TEAR_OFF_MENU_ITEM">
+<parameter_description> A menu item used to tear off and reattach its menu
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TERMINAL">
+<parameter_description> An object that represents an accessible terminal.  (Since: 0.6)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TEXT">
+<parameter_description> An interactive widget that supports multiple lines of text and
+optionally accepts user input, but whose purpose is not to solicit user input.
+Thus ATK_ROLE_TEXT is appropriate for the text view in a plain text editor
+but inappropriate for an input field in a dialog box or web form. For widgets
+whose purpose is to solicit input from the user, see ATK_ROLE_ENTRY and
+ATK_ROLE_PASSWORD_TEXT. For generic objects which display a brief amount of
+textual information, see ATK_ROLE_STATIC.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TOGGLE_BUTTON">
+<parameter_description> A specialized push button that can be checked or unchecked, but does not provide a separate indicator for the current state
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TOOL_BAR">
+<parameter_description> A bar or palette usually composed of push buttons or toggle buttons
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TOOL_TIP">
+<parameter_description> An object that provides information about another object
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TREE">
+<parameter_description> An object used to represent hierarchical information to the user
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TREE_TABLE">
+<parameter_description> An object capable of expanding and collapsing rows as well as showing multiple columns of data.   (Since: 0.7)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_UNKNOWN">
+<parameter_description> The object contains some Accessible information, but its role is not known
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_VIEWPORT">
+<parameter_description> An object usually used in a scroll pane
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_WINDOW">
+<parameter_description> A top level window with no title or border.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_HEADER">
+<parameter_description> An object that serves as a document header. (Since: 1.1.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FOOTER">
+<parameter_description> An object that serves as a document footer.  (Since: 1.1.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PARAGRAPH">
+<parameter_description> An object which is contains a paragraph of text content.   (Since: 1.1.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_RULER">
+<parameter_description> An object which describes margins and tab stops, etc. for text objects which it controls (should have CONTROLLER_FOR relation to such).   (Since: 1.1.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_APPLICATION">
+<parameter_description> The object is an application object, which may contain @ATK_ROLE_FRAME objects or other types of accessibles.  The root accessible of any application's ATK hierarchy should have ATK_ROLE_APPLICATION.   (Since: 1.1.4)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_AUTOCOMPLETE">
+<parameter_description> The object is a dialog or list containing items for insertion into an entry widget, for instance a list of words for completion of a text entry.   (Since: 1.3)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_EDITBAR">
+<parameter_description> The object is an editable text object in a toolbar.  (Since: 1.5)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_EMBEDDED">
+<parameter_description> The object is an embedded container within a document or panel.  This role is a grouping &quot;hint&quot; indicating that the contained objects share a context.  (Since: 1.7.2)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ENTRY">
+<parameter_description> The object is a component whose textual content may be entered or modified by the user, provided @ATK_STATE_EDITABLE is present.   (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CHART">
+<parameter_description> The object is a graphical depiction of quantitative data. It may contain multiple subelements whose attributes and/or description may be queried to obtain both the quantitative data and information about how the data is being presented. The LABELLED_BY relation is particularly important in interpreting objects of this type, as is the accessible-description property.  (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CAPTION">
+<parameter_description> The object contains descriptive information, usually textual, about another user interface element such as a table, chart, or image.  (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_FRAME">
+<parameter_description> The object is a visual frame or container which contains a view of document content. Document frames may occur within another Document instance, in which case the second document may be said to be embedded in the containing instance. HTML frames are often ROLE_DOCUMENT_FRAME. Either this object, or a singleton descendant, should implement the Document interface.  (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_HEADING">
+<parameter_description> The object serves as a heading for content which follows it in a document. The 'heading level' of the heading, if availabe, may be obtained by querying the object's attributes.
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_PAGE">
+<parameter_description> The object is a containing instance which encapsulates a page of information. @ATK_ROLE_PAGE is used in documents and content which support a paginated navigation model.  (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SECTION">
+<parameter_description> The object is a containing instance of document content which constitutes a particular 'logical' section of the document. The type of content within a section, and the nature of the section division itself, may be obtained by querying the object's attributes. Sections may be nested. (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_REDUNDANT_OBJECT">
+<parameter_description> The object is redundant with another object in the hierarchy, and is exposed for purely technical reasons.  Objects of this role should normally be ignored by clients. (Since: 1.11)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FORM">
+<parameter_description> The object is a container for form controls, for instance as part of a 
+web form or user-input form within a document.  This role is primarily a tag/convenience for 
+clients when navigating complex documents, it is not expected that ordinary GUI containers will 
+always have ATK_ROLE_FORM. (Since: 1.12.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LINK">
+<parameter_description> The object is a hypertext anchor, i.e. a &quot;link&quot; in a
+hypertext document.  Such objects are distinct from 'inline'
+content which may also use the Hypertext/Hyperlink interfaces
+to indicate the range/location within a text object where
+an inline or embedded object lies.  (Since: 1.12.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_INPUT_METHOD_WINDOW">
+<parameter_description> The object is a window or similar viewport 
+which is used to allow composition or input of a 'complex character',
+in other words it is an &quot;input method window.&quot; (Since: 1.12.1)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TABLE_ROW">
+<parameter_description> A row in a table.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TREE_ITEM">
+<parameter_description> An object that represents an element of a tree.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_SPREADSHEET">
+<parameter_description> A document frame which contains a spreadsheet.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_PRESENTATION">
+<parameter_description> A document frame which contains a presentation or slide content.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_TEXT">
+<parameter_description> A document frame which contains textual content, such as found in a word processing application.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_WEB">
+<parameter_description> A document frame which contains HTML or other markup suitable for display in a web browser.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DOCUMENT_EMAIL">
+<parameter_description> A document frame which contains email content to be displayed or composed either in plain text or HTML.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_COMMENT">
+<parameter_description> An object found within a document and designed to present a comment, note, or other annotation. In some cases, this object might not be visible until activated.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LIST_BOX">
+<parameter_description> A non-collapsible list of choices the user can select from. (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_GROUPING">
+<parameter_description> A group of related widgets. This group typically has a label. (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_IMAGE_MAP">
+<parameter_description> An image map object. Usually a graphic with multiple hotspots, where each hotspot can be activated resulting in the loading of another document or section of a document. (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_NOTIFICATION">
+<parameter_description> A transitory object designed to present a message to the user, typically at the desktop level rather than inside a particular application.  (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_INFO_BAR">
+<parameter_description> An object designed to present a message to the user within an existing window. (Since: 2.1.0)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LEVEL_BAR">
+<parameter_description> A bar that serves as a level indicator to, for instance, show the strength of a password or the state of a battery.  (Since: 2.7.3)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TITLE_BAR">
+<parameter_description> A bar that serves as the title of a window or a
+dialog. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_BLOCK_QUOTE">
+<parameter_description> An object which contains a text section
+that is quoted from another source. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_AUDIO">
+<parameter_description> An object which represents an audio element. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_VIDEO">
+<parameter_description> An object which represents a video element. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DEFINITION">
+<parameter_description> A definition of a term or concept. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_ARTICLE">
+<parameter_description> A section of a page that consists of a
+composition that forms an independent part of a document, page, or
+site. Examples: A blog entry, a news story, a forum post. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LANDMARK">
+<parameter_description> A region of a web page intended as a
+navigational landmark. This is designed to allow Assistive
+Technologies to provide quick navigation among key regions within a
+document. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LOG">
+<parameter_description> A text widget or container holding log content, such
+as chat history and error logs. In this role there is a
+relationship between the arrival of new items in the log and the
+reading order. The log contains a meaningful sequence and new
+information is added only to the end of the log, not at arbitrary
+points. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MARQUEE">
+<parameter_description> A container where non-essential information
+changes frequently. Common usages of marquee include stock tickers
+and ad banners. The primary difference between a marquee and a log
+is that logs usually have a meaningful order or sequence of
+important content changes. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MATH">
+<parameter_description> A text widget or container that holds a mathematical
+expression. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_RATING">
+<parameter_description> A widget whose purpose is to display a rating,
+such as the number of stars associated with a song in a media
+player. Objects of this role should also implement
+AtkValue. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_TIMER">
+<parameter_description> An object containing a numerical counter which
+indicates an amount of elapsed time from a start point, or the time
+remaining until an end point. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DESCRIPTION_LIST">
+<parameter_description> An object that represents a list of
+term-value groups. A term-value group represents a individual
+description and consist of one or more names
+(ATK_ROLE_DESCRIPTION_TERM) followed by one or more values
+(ATK_ROLE_DESCRIPTION_VALUE). For each list, there should not be
+more than one group with the same term name. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DESCRIPTION_TERM">
+<parameter_description> An object that represents a term or phrase
+with a corresponding definition. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_DESCRIPTION_VALUE">
+<parameter_description> An object that represents the
+description, definition or value of a term. (Since: 2.12)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_STATIC">
+<parameter_description> A generic non-container object whose purpose is to display a
+brief amount of information to the user and whose role is known by the
+implementor but lacks semantic value for the user. Examples in which
+%ATK_ROLE_STATIC is appropriate include the message displayed in a message box
+and an image used as an alternative means to display text. %ATK_ROLE_STATIC
+should not be applied to widgets which are traditionally interactive, objects
+which display a significant amount of content, or any object which has an
+accessible relation pointing to another object. Implementors should expose the
+displayed information through the accessible name of the object. If doing so seems
+inappropriate, it may indicate that a different role should be used. For
+labels which describe another widget, see %ATK_ROLE_LABEL. For text views, see
+%ATK_ROLE_TEXT. For generic containers, see %ATK_ROLE_PANEL. For objects whose
+role is not known by the implementor, see %ATK_ROLE_UNKNOWN. (Since: 2.16)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MATH_FRACTION">
+<parameter_description> An object that represents a mathematical fraction.
+(Since: 2.16)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_MATH_ROOT">
+<parameter_description> An object that represents a mathematical expression
+displayed with a radical. (Since: 2.16)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SUBSCRIPT">
+<parameter_description> An object that contains text that is displayed as a
+subscript. (Since: 2.16)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_SUPERSCRIPT">
+<parameter_description> An object that contains text that is displayed as a
+superscript. (Since: 2.16)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_FOOTNOTE">
+<parameter_description> An object that contains the text of a footnote. (Since: 2.26)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CONTENT_DELETION">
+<parameter_description> Content previously deleted or proposed to be
+deleted, e.g. in revision history or a content view providing suggestions
+from reviewers. (Since: 2.34)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_CONTENT_INSERTION">
+<parameter_description> Content previously inserted or proposed to be
+inserted, e.g. in revision history or a content view providing suggestions
+from reviewers. (Since: 2.34)
+</parameter_description>
+</parameter>
+<parameter name="ATK_ROLE_LAST_DEFINED">
+<parameter_description> not a valid role, used for finding end of the enumeration
+</parameter_description>
+</parameter>
+</parameters>
+</enum>
+
 <enum name="AtkScrollType">
 <description>
 Specifies where an object should be placed on the screen when using scroll_to.
@@ -595,7 +1176,7 @@ bottom right corner of the window.
 </parameter>
 <parameter name="ATK_SCROLL_TOP_EDGE">
 <parameter_description> Scroll the object vertically to the top edge of the
- window.
+window.
 </parameter_description>
 </parameter>
 <parameter name="ATK_SCROLL_BOTTOM_EDGE">
@@ -636,6 +1217,258 @@ implements AtkSelection interface when the selection changes.
 </parameters>
 <return></return>
 </signal>
+
+<enum name="AtkStateType">
+<description>
+The possible types of states of an object
+
+</description>
+<parameters>
+<parameter name="ATK_STATE_INVALID">
+<parameter_description> Indicates an invalid state - probably an error condition.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_ACTIVE">
+<parameter_description> Indicates a window is currently the active window, or an object is the active subelement within a container or table. ATK_STATE_ACTIVE should not be used for objects which have ATK_STATE_FOCUSABLE or ATK_STATE_SELECTABLE: Those objects should use ATK_STATE_FOCUSED and ATK_STATE_SELECTED respectively. ATK_STATE_ACTIVE is a means to indicate that an object which is not focusable and not selectable is the currently-active item within its parent container.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_ARMED">
+<parameter_description> Indicates that the object is 'armed', i.e. will be activated by if a pointer button-release event occurs within its bounds.  Buttons often enter this state when a pointer click occurs within their bounds, as a precursor to activation. ATK_STATE_ARMED has been deprecated since ATK-2.16 and should not be used in newly-written code.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_BUSY">
+<parameter_description>  Indicates the current object is busy, i.e. onscreen representation is in the process of changing, or the object is temporarily unavailable for interaction due to activity already in progress.  This state may be used by implementors of Document to indicate that content loading is underway.  It also may indicate other 'pending' conditions; clients may wish to interrogate this object when the ATK_STATE_BUSY flag is removed.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_CHECKED">
+<parameter_description> Indicates this object is currently checked, for instance a checkbox is 'non-empty'.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_DEFUNCT">
+<parameter_description> Indicates that this object no longer has a valid backing widget (for instance, if its peer object has been destroyed)
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_EDITABLE">
+<parameter_description> Indicates that this object can contain text, and that the
+user can change the textual contents of this object by editing those contents
+directly. For an object which is expected to be editable due to its type, but
+which cannot be edited due to the application or platform preventing the user
+from doing so, that object's #AtkStateSet should lack ATK_STATE_EDITABLE and
+should contain ATK_STATE_READ_ONLY.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_ENABLED">
+<parameter_description> 	Indicates that this object is enabled, i.e. that it currently reflects some application state. Objects that are &quot;greyed out&quot; may lack this state, and may lack the STATE_SENSITIVE if direct user interaction cannot cause them to acquire STATE_ENABLED. See also: ATK_STATE_SENSITIVE
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_EXPANDABLE">
+<parameter_description> Indicates this object allows progressive disclosure of its children
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_EXPANDED">
+<parameter_description> Indicates this object its expanded - see ATK_STATE_EXPANDABLE above
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_FOCUSABLE">
+<parameter_description> Indicates this object can accept keyboard focus, which means all events resulting from typing on the keyboard will normally be passed to it when it has focus
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_FOCUSED">
+<parameter_description> Indicates this object currently has the keyboard focus
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_HORIZONTAL">
+<parameter_description> Indicates the orientation of this object is horizontal; used, for instance, by objects of ATK_ROLE_SCROLL_BAR.  For objects where vertical/horizontal orientation is especially meaningful.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_ICONIFIED">
+<parameter_description> Indicates this object is minimized and is represented only by an icon
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_MODAL">
+<parameter_description> Indicates something must be done with this object before the user can interact with an object in a different window
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_MULTI_LINE">
+<parameter_description> Indicates this (text) object can contain multiple lines of text
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_MULTISELECTABLE">
+<parameter_description> Indicates this object allows more than one of its children to be selected at the same time, or in the case of text objects, that the object supports non-contiguous text selections.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_OPAQUE">
+<parameter_description> Indicates this object paints every pixel within its rectangular region.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_PRESSED">
+<parameter_description> Indicates this object is currently pressed.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_RESIZABLE">
+<parameter_description> Indicates the size of this object is not fixed
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SELECTABLE">
+<parameter_description> Indicates this object is the child of an object that allows its children to be selected and that this child is one of those children that can be selected
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SELECTED">
+<parameter_description> Indicates this object is the child of an object that allows its children to be selected and that this child is one of those children that has been selected
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SENSITIVE">
+<parameter_description> Indicates this object is sensitive, e.g. to user interaction. 
+STATE_SENSITIVE usually accompanies STATE_ENABLED for user-actionable controls,
+but may be found in the absence of STATE_ENABLED if the current visible state of the 
+control is &quot;disconnected&quot; from the application state.  In such cases, direct user interaction
+can often result in the object gaining STATE_SENSITIVE, for instance if a user makes 
+an explicit selection using an object whose current state is ambiguous or undefined.
+@see STATE_ENABLED, STATE_INDETERMINATE.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SHOWING">
+<parameter_description> Indicates this object, the object's parent, the object's parent's parent, and so on, 
+are all 'shown' to the end-user, i.e. subject to &quot;exposure&quot; if blocking or obscuring objects do not interpose
+between this object and the top of the window stack.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SINGLE_LINE">
+<parameter_description> Indicates this (text) object can contain only a single line of text
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_STALE">
+<parameter_description> Indicates that the information returned for this object may no longer be
+synchronized with the application state.  This is implied if the object has STATE_TRANSIENT,
+and can also occur towards the end of the object peer's lifecycle. It can also be used to indicate that 
+the index associated with this object has changed since the user accessed the object (in lieu of
+&quot;index-in-parent-changed&quot; events).
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_TRANSIENT">
+<parameter_description> Indicates this object is transient, i.e. a snapshot which may not emit events when its
+state changes.  Data from objects with ATK_STATE_TRANSIENT should not be cached, since there may be no
+notification given when the cached data becomes obsolete.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_VERTICAL">
+<parameter_description> Indicates the orientation of this object is vertical
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_VISIBLE">
+<parameter_description> Indicates this object is visible, e.g. has been explicitly marked for exposure to the user.
+**note**: %ATK_STATE_VISIBLE is no guarantee that the object is actually unobscured on the screen, only
+that it is 'potentially' visible, barring obstruction, being scrolled or clipped out of the 
+field of view, or having an ancestor container that has not yet made visible.
+A widget is potentially onscreen if it has both %ATK_STATE_VISIBLE and %ATK_STATE_SHOWING.
+The absence of %ATK_STATE_VISIBLE and %ATK_STATE_SHOWING is semantically equivalent to saying
+that an object is 'hidden'.  See also %ATK_STATE_TRUNCATED, which applies if an object with
+%ATK_STATE_VISIBLE and %ATK_STATE_SHOWING set lies within a viewport which means that its
+contents are clipped, e.g. a truncated spreadsheet cell or
+an image within a scrolling viewport.  Mostly useful for screen-review and magnification
+algorithms.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_MANAGES_DESCENDANTS">
+<parameter_description> Indicates that &quot;active-descendant-changed&quot; event
+is sent when children become 'active' (i.e. are selected or navigated to onscreen).
+Used to prevent need to enumerate all children in very large containers, like tables.
+The presence of STATE_MANAGES_DESCENDANTS is an indication to the client.
+that the children should not, and need not, be enumerated by the client.
+Objects implementing this state are expected to provide relevant state
+notifications to listening clients, for instance notifications of visibility
+changes and activation of their contained child objects, without the client 
+having previously requested references to those children.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_INDETERMINATE">
+<parameter_description> Indicates that the value, or some other quantifiable
+property, of this AtkObject cannot be fully determined. In the case of a large
+data set in which the total number of items in that set is unknown (e.g. 1 of
+999+), implementors should expose the currently-known set size (999) along
+with this state. In the case of a check box, this state should be used to
+indicate that the check box is a tri-state check box which is currently
+neither checked nor unchecked.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_TRUNCATED">
+<parameter_description> Indicates that an object is truncated, e.g. a text value in a speradsheet cell.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_REQUIRED">
+<parameter_description> Indicates that explicit user interaction with an object is required by the user interface, e.g. a required field in a &quot;web-form&quot; interface.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_INVALID_ENTRY">
+<parameter_description> Indicates that the object has encountered an error condition due to failure of input validation. For instance, a form control may acquire this state in response to invalid or malformed user input.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SUPPORTS_AUTOCOMPLETION">
+<parameter_description>  Indicates that the object in question implements some form of ¨typeahead¨ or 
+pre-selection behavior whereby entering the first character of one or more sub-elements
+causes those elements to scroll into view or become selected.  Subsequent character input
+may narrow the selection further as long as one or more sub-elements match the string.
+This state is normally only useful and encountered on objects that implement Selection.
+In some cases the typeahead behavior may result in full or partial ¨completion¨ of 
+the data in the input field, in which case these input events may trigger text-changed
+events from the AtkText interface.  This state supplants @ATK_ROLE_AUTOCOMPLETE.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_SELECTABLE_TEXT">
+<parameter_description>Indicates that the object in question supports text selection. It should only be exposed on objects which implement the Text interface, in order to distinguish this state from @ATK_STATE_SELECTABLE, which infers that the object in question is a selectable child of an object which implements Selection. While similar, text selection and subelement selection are distinct operations.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_DEFAULT">
+<parameter_description> Indicates that the object is the &quot;default&quot; active component, i.e. the object which is activated by an end-user press of the &quot;Enter&quot; or &quot;Return&quot; key.  Typically a &quot;close&quot; or &quot;submit&quot; button.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_ANIMATED">
+<parameter_description> Indicates that the object changes its appearance dynamically as an inherent part of its presentation.  This state may come and go if an object is only temporarily animated on the way to a 'final' onscreen presentation.
+**note**: some applications, notably content viewers, may not be able to detect
+all kinds of animated content.  Therefore the absence of this state should not
+be taken as definitive evidence that the object's visual representation is
+static; this state is advisory.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_VISITED">
+<parameter_description> Indicates that the object (typically a hyperlink) has already been 'activated', and/or its backing data has already been downloaded, rendered, or otherwise &quot;visited&quot;.
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_CHECKABLE">
+<parameter_description> Indicates this object has the potential to be
+checked, such as a checkbox or toggle-able table cell. @Since:
+ATK-2.12
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_HAS_POPUP">
+<parameter_description> Indicates that the object has a popup context
+menu or sub-level menu which may or may not be showing. This means
+that activation renders conditional content.  Note that ordinary
+tooltips are not considered popups in this context. @Since: ATK-2.12
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_HAS_TOOLTIP">
+<parameter_description> Indicates this object has a tooltip. @Since: ATK-2.16
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_READ_ONLY">
+<parameter_description> Indicates that a widget which is ENABLED and SENSITIVE
+has a value which can be read, but not modified, by the user. Note that this
+state should only be applied to widget types whose value is normally directly
+user modifiable, such as check boxes, radio buttons, spin buttons, text input
+fields, and combo boxes, as a means to convey that the expected interaction
+with that widget is not possible. When the expected interaction with a
+widget does not include modification by the user, as is the case with
+labels and containers, ATK_STATE_READ_ONLY should not be applied. See also
+ATK_STATE_EDITABLE. @Since: ATK-2-16
+</parameter_description>
+</parameter>
+<parameter name="ATK_STATE_LAST_DEFINED">
+<parameter_description> Not a valid state, used for finding end of enumeration
+</parameter_description>
+</parameter>
+</parameters>
+</enum>
 
 <signal name="AtkTable::column-deleted">
 <description>
@@ -2063,8 +2896,9 @@ Set the size of the @component in terms of width and height.
 
 <function name="atk_document_get_attribute_value">
 <description>
-Since: 1.12
+Retrieves the value of the given @attribute_name inside @document.
 
+Since: 1.12
 
 </description>
 <parameters>
@@ -2079,8 +2913,9 @@ whose value is being queried.
 </parameter>
 </parameters>
 <return> a string value associated with the named
-attribute for this document, or NULL if a value for
-#attribute_name has not been specified for this document.
+attribute for this document, or %NULL if a value for
+@attribute_name has not been specified for this document.
+
 </return>
 </function>
 
@@ -2107,8 +2942,9 @@ as a whole.
 
 <function name="atk_document_get_current_page_number">
 <description>
-Since: 2.12
+Retrieves the current page number inside @document.
 
+Since: 2.12
 
 </description>
 <parameters>
@@ -2117,8 +2953,9 @@ Since: 2.12
 </parameter_description>
 </parameter>
 </parameters>
-<return> current page number inside @document. -1 if not
-implemented, not know by the implementor or irrelevant.
+<return> the current page number inside @document, or -1 if
+not implemented, not know by the implementor, or irrelevant.
+
 </return>
 </function>
 
@@ -2189,8 +3026,9 @@ the document content does not specify a locale.
 
 <function name="atk_document_get_page_count">
 <description>
-Since: 2.12
+Retrieves the total number of pages inside @document.
 
+Since: 2.12
 
 </description>
 <parameters>
@@ -2199,20 +3037,23 @@ Since: 2.12
 </parameter_description>
 </parameter>
 </parameters>
-<return> total page count of @document. -1 if not implemented, not
-know by the implementor or irrelevant.
+<return> total page count of @document, or -1 if not implemented,
+not know by the implementor or irrelevant.
+
 </return>
 </function>
 
 <function name="atk_document_set_attribute_value">
 <description>
+Sets the value for the given @attribute_name inside @document.
+
 Since: 1.12
 
 
 </description>
 <parameters>
 <parameter name="document">
-<parameter_description> a #GObject instance that implements AtkDocumentIface
+<parameter_description> a #GObject instance that implements #AtkDocumentIface
 </parameter_description>
 </parameter>
 <parameter name="attribute_name">
@@ -2221,13 +3062,13 @@ whose value is being set.
 </parameter_description>
 </parameter>
 <parameter name="attribute_value">
-<parameter_description> a string value to be associated with #attribute_name.
+<parameter_description> a string value to be associated with @attribute_name.
 </parameter_description>
 </parameter>
 </parameters>
-<return> TRUE if #value is successfully associated with #attribute_name
-for this document, FALSE otherwise (e.g. if the document does not
-allow the attribute to be modified).
+<return> %TRUE if @attribute_value is successfully associated
+with @attribute_name for this @document, and %FALSE if if the
+document does not allow the attribute to be modified
 </return>
 </function>
 
@@ -2899,6 +3740,8 @@ Get a textual description of this image.
 
 <function name="atk_image_get_image_locale">
 <description>
+Retrieves the locale identifier associated to the #AtkImage.
+
 Since: 1.12
 
 
@@ -2910,8 +3753,8 @@ Since: 1.12
 </parameter>
 </parameters>
 <return> a string corresponding to the POSIX
-LC_MESSAGES locale used by the image description, or %NULL if the
-image does not specify a locale.
+`LC_MESSAGES` locale used by the image description, or
+%NULL if the image does not specify a locale.
 
 </return>
 </function>
@@ -3130,9 +3973,10 @@ Adds a relationship of the specified type with the specified target.
 
 <function name="atk_object_connect_property_change_handler">
 <description>
-Deprecated: Since 2.12. Connect directly to property-change or
-notify signals.
+Calls @handler on property changes.
 
+Deprecated: 2.12: Connect directly to #AtkObject::property-change or
+the relevant #GObject::notify signal for each desired property.
 
 </description>
 <parameters>
@@ -3147,6 +3991,7 @@ notify signals.
 </parameters>
 <return> a #guint which is the handler id used in 
 atk_object_remove_property_change_handler()
+
 </return>
 </function>
 
@@ -3205,6 +4050,25 @@ in object registries.
 </parameter>
 </parameters>
 <return></return>
+</function>
+
+<function name="atk_object_get_accessible_id">
+<description>
+Gets the accessible id of the accessible.
+
+Since: 2.34
+
+
+</description>
+<parameters>
+<parameter name="accessible">
+<parameter_description> an #AtkObject
+</parameter_description>
+</parameter>
+</parameters>
+<return> a character string representing the accessible id of the object, or
+NULL if no such string was set.
+</return>
 </function>
 
 <function name="atk_object_get_attributes">
@@ -3529,9 +4393,9 @@ set of the accessible
 
 <function name="atk_object_remove_property_change_handler">
 <description>
-Deprecated: Since 2.12.
-
 Removes a property change handler.
+
+Deprecated: 2.12: See atk_object_connect_property_change_handler()
 
 </description>
 <parameters>
@@ -3569,6 +4433,30 @@ Removes a relationship of the specified type with the specified target.
 </parameters>
 <return> TRUE if the relationship is removed.
 </return>
+</function>
+
+<function name="atk_object_set_accessible_id">
+<description>
+Sets the accessible ID of the accessible.  This is not meant to be presented
+to the user, but to be an ID which is stable over application development.
+Typically, this is the gtkbuilder ID. Such an ID will be available for
+instance to identify a given well-known accessible object for tailored screen
+reading, or for automatic regression testing.
+
+Since: 2.34
+
+</description>
+<parameters>
+<parameter name="accessible">
+<parameter_description> an #AtkObject
+</parameter_description>
+</parameter>
+<parameter name="name">
+<parameter_description> a character string to be set as the accessible id
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
 </function>
 
 <function name="atk_object_set_description">
@@ -3670,6 +4558,20 @@ Since: 1.30
 </parameter>
 </parameters>
 <return> the unique ID for the plug
+
+</return>
+</function>
+
+<function name="atk_plug_new">
+<description>
+Creates a new #AtkPlug instance.
+
+Since: 1.30
+
+</description>
+<parameters>
+</parameters>
+<return> the newly created #AtkPlug
 
 </return>
 </function>
@@ -4199,12 +5101,13 @@ Associate @name with a new #AtkRelationType
 
 <function name="atk_remove_focus_tracker">
 <description>
-Deprecated: 2.9.4: Focus tracking has been dropped as a feature
-to be implemented by ATK itself. If you need focus tracking on your
-implementation, subscribe to the #AtkObject::state-change &quot;focused&quot; signal.
-
 Removes the specified focus tracker from the list of functions
 to be called when any object receives focus.
+
+Deprecated: 2.9.4: Focus tracking has been dropped as a feature
+to be implemented by ATK itself. If you need focus tracking on your
+implementation, subscribe to the #AtkObject::state-change &quot;focused&quot;
+signal.
 
 </description>
 <parameters>
@@ -4522,6 +5425,18 @@ Since: 1.30
 </parameters>
 <return> TRUE if a plug is embedded in the socket
 
+</return>
+</function>
+
+<function name="atk_socket_new">
+<description>
+Creates a new #AtkSocket.
+
+
+</description>
+<parameters>
+</parameters>
+<return> the newly created #AtkSocket instance
 </return>
 </function>
 
@@ -5705,7 +6620,7 @@ Adds a selection bounded by the specified offsets.
 </parameter_description>
 </parameter>
 </parameters>
-<return> %TRUE if success, %FALSE otherwise
+<return> %TRUE if successful, %FALSE otherwise
 </return>
 </function>
 
@@ -5722,8 +6637,8 @@ Get the #AtkTextAttribute type corresponding to a text attribute name.
 </parameter>
 </parameters>
 <return> the #AtkTextAttribute enumerated type corresponding to the specified
-name,
-or #ATK_TEXT_ATTRIBUTE_INVALID if no matching text attribute is found.
+name, or #ATK_TEXT_ATTRIBUTE_INVALID if no matching text attribute
+is found.
 </return>
 </function>
 
@@ -5847,7 +6762,9 @@ Gets the offset of the position of the caret (cursor).
 </parameter_description>
 </parameter>
 </parameters>
-<return> the character offset of position of the caret (cursor).
+<return> the character offset of the position of the caret or -1 if
+the caret is not located inside the element or in the case of
+any other failure.
 </return>
 </function>
 
@@ -5867,7 +6784,7 @@ Gets the specified text.
 </parameter_description>
 </parameter>
 </parameters>
-<return> the character at @offset.
+<return> the character at @offset or 0 in the case of failure.
 </return>
 </function>
 
@@ -5883,7 +6800,7 @@ Gets the character count.
 </parameter_description>
 </parameter>
 </parameters>
-<return> the number of characters.
+<return> the number of characters or -1 in case of failure.
 </return>
 </function>
 
@@ -5941,8 +6858,8 @@ returned.
 </parameter_description>
 </parameter>
 </parameters>
-<return> an #AtkAttributeSet which contains the default
-values of attributes.  at @offset. this #atkattributeset should be freed by
+<return> an #AtkAttributeSet which contains the default text
+attributes for this #AtkText. This #AtkAttributeSet should be freed by
 a call to atk_attribute_set_free().
 </return>
 </function>
@@ -5959,8 +6876,7 @@ Gets the number of selected regions.
 </parameter_description>
 </parameter>
 </parameters>
-<return> The number of selected regions, or -1 if a failure
-occurred.
+<return> The number of selected regions, or -1 in the case of failure.
 </return>
 </function>
 
@@ -5991,8 +6907,8 @@ widget window
 </parameter_description>
 </parameter>
 </parameters>
-<return> the offset to the character which is located at
-the specified @x and @y coordinates.
+<return> the offset to the character which is located at  the specified
+@x and @y coordinates of -1 in case of failure.
 </return>
 </function>
 
@@ -6062,8 +6978,8 @@ the character to be inserted at the caret location.
 </parameter>
 </parameters>
 <return> an #AtkAttributeSet which contains the attributes
-explicitly set at @offset. This #AtkAttributeSet should be freed by a call
-to atk_attribute_set_free().
+explicitly set at @offset. This #AtkAttributeSet should be freed by
+a call to atk_attribute_set_free().
 </return>
 </function>
 
@@ -6153,19 +7069,19 @@ Since: 2.10
 </parameter>
 <parameter name="start_offset">
 <parameter_description> the starting character offset of the returned string, or -1
-if an error has occurred (e.g. invalid offset, not implemented)
+in the case of error (e.g. invalid offset, not implemented)
 </parameter_description>
 </parameter>
 <parameter name="end_offset">
 <parameter_description> the offset of the first character after the returned string,
-or -1 if an error has occurred (e.g. invalid offset, not implemented)
+or -1 in the case of error (e.g. invalid offset, not implemented)
 </parameter_description>
 </parameter>
 </parameters>
-<return> a newly allocated string containing the text
-at the @offset bounded by the specified @granularity. Use
-g_free() to free the returned string.  Returns %NULL if the
-offset is invalid or no implementation is available.
+<return> a newly allocated string containing the text at
+the @offset bounded by the specified @granularity. Use g_free()
+to free the returned string.  Returns %NULL if the offset is invalid
+or no implementation is available.
 </return>
 </function>
 
@@ -6190,7 +7106,8 @@ Gets the specified text.
 </parameter>
 </parameters>
 <return> a newly allocated string containing the text from @start_offset up
-to, but not including @end_offset. Use g_free() to free the returned string.
+to, but not including @end_offset. Use g_free() to free the returned
+string.
 </return>
 </function>
 
@@ -6226,7 +7143,8 @@ returned substring
 </parameter>
 </parameters>
 <return> a newly allocated string containing the text after @offset bounded
-by the specified @boundary_type. Use g_free() to free the returned string.
+by the specified @boundary_type. Use g_free() to free the returned
+string.
 </return>
 </function>
 
@@ -6285,8 +7203,9 @@ returned substring
 </parameter_description>
 </parameter>
 </parameters>
-<return> a newly allocated string containing the text at @offset bounded by
-the specified @boundary_type. Use g_free() to free the returned string.
+<return> a newly allocated string containing the text at @offset bounded
+by the specified @boundary_type. Use g_free() to free the returned
+string.
 </return>
 </function>
 
@@ -6322,7 +7241,8 @@ returned substring
 </parameter>
 </parameters>
 <return> a newly allocated string containing the text before @offset bounded
-by the specified @boundary_type. Use g_free() to free the returned string.
+by the specified @boundary_type. Use g_free() to free the returned
+string.
 </return>
 </function>
 
@@ -6346,7 +7266,81 @@ moving or deleting a selected region can change the numbering.
 </parameter_description>
 </parameter>
 </parameters>
-<return> %TRUE if success, %FALSE otherwise
+<return> %TRUE if successful, %FALSE otherwise
+</return>
+</function>
+
+<function name="atk_text_scroll_substring_to">
+<description>
+Makes @text visible on the screen by scrolling all necessary parents.
+
+Contrary to atk_text_set_position, this does not actually move
+@text in its parent, this only makes the parents scroll so that the
+object shows up on the screen, given its current position within the parents.
+
+Since: 2.32
+
+
+</description>
+<parameters>
+<parameter name="text">
+<parameter_description> an #AtkText
+</parameter_description>
+</parameter>
+<parameter name="start_offset">
+<parameter_description> start position
+</parameter_description>
+</parameter>
+<parameter name="end_offset">
+<parameter_description> end position, or -1 for the end of the string.
+</parameter_description>
+</parameter>
+<parameter name="type">
+<parameter_description> specify where the object should be made visible.
+</parameter_description>
+</parameter>
+</parameters>
+<return> whether scrolling was successful.
+</return>
+</function>
+
+<function name="atk_text_scroll_substring_to_point">
+<description>
+Makes an object visible on the screen at a given position by scrolling all
+necessary parents.
+
+Since: 2.32
+
+
+</description>
+<parameters>
+<parameter name="text">
+<parameter_description> an #AtkText
+</parameter_description>
+</parameter>
+<parameter name="start_offset">
+<parameter_description> start position
+</parameter_description>
+</parameter>
+<parameter name="end_offset">
+<parameter_description> end position, or -1 for the end of the string.
+</parameter_description>
+</parameter>
+<parameter name="coords">
+<parameter_description> specify whether coordinates are relative to the screen or to the
+parent object.
+</parameter_description>
+</parameter>
+<parameter name="x">
+<parameter_description> x-position where to scroll to
+</parameter_description>
+</parameter>
+<parameter name="y">
+<parameter_description> y-position where to scroll to
+</parameter_description>
+</parameter>
+</parameters>
+<return> whether scrolling was successful.
 </return>
 </function>
 
@@ -6366,7 +7360,7 @@ Sets the caret (cursor) position to the specified @offset.
 </parameter_description>
 </parameter>
 </parameters>
-<return> %TRUE if success, %FALSE otherwise.
+<return> %TRUE if successful, %FALSE otherwise.
 </return>
 </function>
 
@@ -6399,7 +7393,7 @@ the selection
 </parameter_description>
 </parameter>
 </parameters>
-<return> %TRUE if success, %FALSE otherwise
+<return> %TRUE if successful, %FALSE otherwise
 </return>
 </function>
 
