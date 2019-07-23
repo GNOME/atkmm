@@ -78,6 +78,10 @@ public:
   _WRAP_METHOD(bool add_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_add_relationship)
   _WRAP_METHOD(bool remove_relationship(Relation::Type relationship, const Glib::RefPtr<Object>& target), atk_object_remove_relationship)
 
+  _WRAP_METHOD(Glib::ustring get_object_locale() const, atk_object_get_object_locale)
+  _WRAP_METHOD(Glib::ustring get_accessible_id() const, atk_object_get_accessible_id)
+  _WRAP_METHOD(void set_accessible_id(const Glib::ustring& name), atk_object_set_accessible_id)
+
   _WRAP_SIGNAL(void children_changed(guint change_index, gpointer changed_child), "children_changed", detail_name add_or_remove)
   _WRAP_SIGNAL(void focus_event(bool focus_in), "focus_event")
   _WRAP_SIGNAL(void property_change(AtkPropertyValues* values), "property_change", detail_name property_name)
@@ -103,6 +107,8 @@ public:
   _WRAP_PROPERTY("accessible-table-row-description", Glib::ustring)
   _WRAP_PROPERTY("accessible-table-row-header", Glib::RefPtr<Atk::Object>)
   _WRAP_PROPERTY("accessible-table-summary", Glib::RefPtr<Atk::Object>)
+  _WRAP_PROPERTY("accessible-table-caption-object", Glib::RefPtr<Atk::Object>)
+  _WRAP_PROPERTY("accessible-hypertext-nlinks", int)
 };
 
 } // namespace Atk

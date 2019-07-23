@@ -163,8 +163,15 @@ public:
                                                  ClipType x_clip_type, ClipType y_clip_type), atk_text_get_bounded_ranges)
 
   // AtkObject::text-changed is deprecated in favor of text-insert and text-remove,
-  // but gtk+ still emits text-changed. /Kjell 2017-09-14
+  // but code in gtk+/gtk/a11y still emits text-changed, 2019-07-23.
+  // Deprecation of a signal probably means "don't emit" rather than "don't listen",
+  // so let's keep it here.
+  // Two no_default_handler because the wrapped C signals have no default handlers.
   _WRAP_SIGNAL(void text_changed(int position, int length), "text_changed", detail_name insert_or_delete)
+  _WRAP_SIGNAL(void text_insert(int position, int length, const Glib::ustring& text),
+    "text_insert", detail_name system, no_default_handler)
+  _WRAP_SIGNAL(void text_remove(int position, int length, const Glib::ustring& text),
+    "text_remove", detail_name system, no_default_handler)
   _WRAP_SIGNAL(void text_caret_moved(int location), "text_caret_moved")
   _WRAP_SIGNAL(void text_selection_changed(), "text_selection_changed")
   _WRAP_SIGNAL(void text_attributes_changed(), "text_attributes_changed")

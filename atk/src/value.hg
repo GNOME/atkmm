@@ -63,10 +63,12 @@ public:
 
   _WRAP_METHOD(void set_value(const gdouble new_value), atk_value_set_value)
 
-  _IGNORE(atk_value_get_minimum_increment)
+  _IGNORE(atk_value_get_minimum_increment) dnl// deprecated
+  //TODO: atk_value_get_sub_ranges()
 
-  //TODO: atk_value_get_sub_ranges ()
-
+  // no_default_handler because the wrapped C signal has no default handler.
+  _WRAP_SIGNAL(void value_changed(double value, const Glib::ustring& text),
+    "value-changed", no_default_handler)
 
 protected:
   _WRAP_VFUNC(void get_current_value(Glib::ValueBase& value) const, get_current_value)
