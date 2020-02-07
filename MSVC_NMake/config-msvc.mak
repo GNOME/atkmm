@@ -27,6 +27,10 @@ ATKMM_BASE_CFLAGS =			\
 	/wd4530 /EHsc	\
 	/FImsvc_recommended_pragmas.h
 
+!if $(PDBVER) > 12
+ATKMM_BASE_CFLAGS = $(ATKMM_BASE_CFLAGS) /utf-8
+!endif
+
 ATKMM_EXTRA_INCLUDES =	\
 	/I$(PREFIX)\include\atk-$(ATK_API_VERSION)	\
 	/I$(PREFIX)\include\glibmm-$(GLIBMM_MAJOR_VERSION).$(GLIBMM_MINOR_VERSION)	\
