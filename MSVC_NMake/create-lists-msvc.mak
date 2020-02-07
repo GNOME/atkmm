@@ -42,13 +42,13 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat header atkmm.mak atkmm_OBJS]
 !endif
 
-!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak ^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
 !endif
 
-!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak ^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
 !endif
 
-!if [@call create-lists.bat file atkmm.mak ^$(CFG)\^$(PLAT)\atkmm\atkmm.res]
+!if [@call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\atkmm.res]
 !endif
 
 !if [call create-lists.bat footer atkmm.mak]
