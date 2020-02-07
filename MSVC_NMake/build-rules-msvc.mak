@@ -13,12 +13,12 @@
 # 	$(CC)|$(CXX) $(cflags) /Fo$(destdir) /c @<<
 # $<
 # <<
-{..\atk\atkmm\}.cc{$(CFG)\$(PLAT)\atkmm\}.obj::
-	$(CXX) $(LIBATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(CFG)\$(PLAT)\atkmm\ /c @<<
+{..\atk\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
+	$(CXX) $(LIBATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
 $<
 <<
 
-{.\atkmm\}.rc{$(CFG)\$(PLAT)\atkmm\}.res:
+{.\atkmm\}.rc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.res:
 	rc /fo$@ $<
 
 # Rules for building .lib files
@@ -31,8 +31,8 @@ $(ATKMM_LIB): $(ATKMM_DLL)
 # $(dependent_objects)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
-$(ATKMM_DLL): $(CFG)\$(PLAT)\atkmm\atkmm.def $(atkmm_OBJS)
-	link /DLL $(LDFLAGS_NOLTCG) $(ATKMM_DEP_LIBS) /implib:$(ATKMM_LIB) /def:$(CFG)\$(PLAT)\atkmm\atkmm.def -out:$@ @<<
+$(ATKMM_DLL): vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def $(atkmm_OBJS)
+	link /DLL $(LDFLAGS_NOLTCG) $(ATKMM_DEP_LIBS) /implib:$(ATKMM_LIB) /def:vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def -out:$@ @<<
 $(atkmm_OBJS)
 <<
 
@@ -47,21 +47,22 @@ $(atkmm_OBJS)
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
 # For the gendef tool
-{.\gendef\}.cc{$(CFG)\$(PLAT)\}.exe:
-	@if not exist $(CFG)\$(PLAT)\gendef\ $(MAKE) -f Makefile.vc CFG=$(CFG) $(CFG)\$(PLAT)\gendef
-	$(CXX) $(ATKMM_BASE_CFLAGS) $(CFLAGS) /Fo$(CFG)\$(PLAT)\gendef\ $< /link $(LDFLAGS) /out:$@
+{.\gendef\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\}.exe:
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\gendef\ $(MAKE) -f Makefile.vc CFG=$(CFG) vs$(VSVER)\$(CFG)\$(PLAT)\gendef
+	$(CXX) $(ATKMM_BASE_CFLAGS) $(CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gendef\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gendef\ $< /link $(LDFLAGS) /out:$@
 
 clean:
-	@-del /f /q $(CFG)\$(PLAT)\*.exe
-	@-del /f /q $(CFG)\$(PLAT)\*.dll
-	@-del /f /q $(CFG)\$(PLAT)\*.pdb
-	@-del /f /q $(CFG)\$(PLAT)\*.ilk
-	@-del /f /q $(CFG)\$(PLAT)\*.exp
-	@-del /f /q $(CFG)\$(PLAT)\*.lib
-	@-del /f /q $(CFG)\$(PLAT)\atkmm\*.def
-	@-del /f /q $(CFG)\$(PLAT)\atkmm\*.res
-	@-del /f /q $(CFG)\$(PLAT)\atkmm\*.obj
-	@-del /f /q $(CFG)\$(PLAT)\gendef\*.obj
-	@-rd $(CFG)\$(PLAT)\atkmm
-	@-rd $(CFG)\$(PLAT)\gendef
-	@-del /f /q vc$(PDBVER)0.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exe
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.dll
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.ilk
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exp
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.lib
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.def
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.res
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.obj
+	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
+	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\gendef
