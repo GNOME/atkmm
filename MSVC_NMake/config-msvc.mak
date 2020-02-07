@@ -25,6 +25,7 @@ DEBUG_SUFFIX =
 ATKMM_BASE_CFLAGS =		\
 	/I..\atk /I.\atkmm	\
 	/wd4530 /std:c++17	\
+	/utf-8	\
 	/FImsvc_recommended_pragmas.h
 
 ATKMM_EXTRA_INCLUDES =	\
