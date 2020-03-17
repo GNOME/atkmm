@@ -51,18 +51,18 @@ MM_AX_CXX_COMPILE_STDCXX([17], [noext], [mandatory])
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
 
-AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.64 >= 2.63.1'])
+AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.66 >= 2.65.1'])
 PKG_CHECK_MODULES([ATKMM], [$ATKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GTHREAD_CFLAGS], [--cflags-only-other gthread-2.0])
-MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.64])
+MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.66])
 
 MM_ARG_DISABLE_DEPRECATED_API
 
 MM_ARG_ENABLE_DOCUMENTATION
 MM_ARG_WITH_TAGFILE_DOC([libstdc++.tag], [mm-common-libstdc++])
 MM_ARG_WITH_TAGFILE_DOC([libsigc++-3.0.tag], [sigc++-3.0])
-MM_ARG_WITH_TAGFILE_DOC([glibmm-2.64.tag], [glibmm-2.64])
+MM_ARG_WITH_TAGFILE_DOC([glibmm-2.66.tag], [glibmm-2.66])
 
 AC_LANG([C++])
 MM_ARG_ENABLE_WARNINGS([ATKMM_WXXFLAGS],
