@@ -22,7 +22,12 @@ DEBUG_SUFFIX = -d
 DEBUG_SUFFIX =
 !endif
 
+!ifndef GMMPROC_DIR
+GMMPROC_DIR=$(PREFIX)\share\glibmm-$(GLIBMM_MAJOR_VERSION).$(GLIBMM_MINOR_VERSION)\proc
+!endif
+
 ATKMM_BASE_CFLAGS =			\
+	/Ivs$(PDBVER)\$(CFG)\$(PLAT)	\
 	/I..\atk /I.\atkmm		\
 	/wd4530 /EHsc	\
 	/FImsvc_recommended_pragmas.h

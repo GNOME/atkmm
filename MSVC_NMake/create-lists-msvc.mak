@@ -54,6 +54,15 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat footer atkmm.mak]
 !endif
 
+!if [call create-lists.bat header atkmm.mak atkmm_real_hg]
+!endif
+
+!if [for %c in ($(atkmm_files_hg)) do @call create-lists.bat file atkmm.mak ..\atk\src\%c]
+!endif
+
+!if [call create-lists.bat footer atkmm.mak]
+!endif
+
 !include atkmm.mak
 
 !if [del /f /q atkmm.mak]
