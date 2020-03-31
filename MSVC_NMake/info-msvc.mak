@@ -12,7 +12,7 @@ help:
 	@echo ============================
 	@echo Building cairomm Using NMake
 	@echo ============================
-	@echo nmake /f Makefile.vc CFG=[release^|debug] ^<PREFIX=PATH^> <option1=xxx option2=xxx>
+	@echo nmake /f Makefile.vc CFG=[release^|debug] ^<PREFIX=PATH^> ^<option1=xxx option2=xxx^>
 	@echo.
 	@echo Where:
 	@echo ------
