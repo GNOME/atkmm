@@ -5,6 +5,7 @@ install: all
 	@if not exist $(PREFIX)\bin\ mkdir $(PREFIX)\bin
 	@if not exist $(PREFIX)\lib\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\include\ mkdir $(PREFIX)\lib\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\include
 	@if not exist $(PREFIX)\include\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\atkmm\private\ @mkdir $(PREFIX)\include\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\atkmm\private
+	@if not exist $(PREFIX)\share\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\proc\ md $(PREFIX)\share\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\proc
 	@copy /b vs$(VSVER)\$(CFG)\$(PLAT)\$(ATKMM_LIBNAME).dll $(PREFIX)\bin
 	@copy /b vs$(VSVER)\$(CFG)\$(PLAT)\$(ATKMM_LIBNAME).pdb $(PREFIX)\bin
 	@copy /b vs$(VSVER)\$(CFG)\$(PLAT)\$(ATKMM_LIBNAME).lib $(PREFIX)\lib
@@ -12,3 +13,4 @@ install: all
 	@for %h in ($(atkmm_files_built_h) $(atkmm_files_extra_h)) do @copy ..\atk\atkmm\%h "$(PREFIX)\include\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\atkmm\%h"
 	@for %h in ($(atkmm_generated_private_headers)) do @copy ..\atk\atkmm\private\%h "$(PREFIX)\include\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\atkmm\private\%h"
 	@copy ".\atkmm\atkmmconfig.h" "$(PREFIX)\lib\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\include\"
+	@copy ..\codegen\m4\*.m4 $(PREFIX)\share\atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)\proc
