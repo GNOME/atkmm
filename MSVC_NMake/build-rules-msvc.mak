@@ -42,8 +42,8 @@ $(ATKMM_LIB): $(ATKMM_DLL)
 # $(dependent_objects)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
-$(ATKMM_DLL): vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def $(atkmm_OBJS)
-	link /DLL $(LDFLAGS_NOLTCG) $(ATK_LIBS) $(GLIBMM_LIB) $(LIBSIGC_LIB) /implib:$(ATKMM_LIB) /def:vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def -out:$@ @<<
+$(ATKMM_DLL): $(ATKMM_INT_TARGET) $(atkmm_OBJS)
+	link /DLL $(LDFLAGS_NOLTCG) $(ATK_LIBS) $(GLIBMM_LIB) $(LIBSIGC_LIB) /implib:$(ATKMM_LIB) $(ATKMM_DEF_LDFLAG) -out:$@ @<<
 $(atkmm_OBJS)
 <<
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2

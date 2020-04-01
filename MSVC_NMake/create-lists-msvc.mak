@@ -63,7 +63,22 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat footer atkmm.mak]
 !endif
 
+!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist vs$(PDBVER)\$(CFG)\$(PLAT)\%f (md vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(PDBVER)/$(CFG)/$(PLAT)/atkmm)]
+!endif
+
+!if [for %d in (vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>atkmm.mak]
+!endif
+
 !include atkmm.mak
 
 !if [del /f /q atkmm.mak]
+!endif
+
+!if "$(GMMPROC_VER)" >= "2.64.3"
+ATKMM_INT_TARGET = vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm
+ATKMM_DEF_LDFLAG =
+!else
+ATKMM_INT_TARGET = vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def
+ATKMM_DEF_LDFLAG = /def:$(ATKMM_INT_TARGET)
+ATKMM_BASE_CFLAGS = $(ATKMM_BASE_CFLAGS) /DATKMM_USE_GENDEF
 !endif
