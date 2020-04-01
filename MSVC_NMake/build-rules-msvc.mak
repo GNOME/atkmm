@@ -13,10 +13,21 @@
 # 	$(CC)|$(CXX) $(cflags) /Fo$(destdir) /c @<<
 # $<
 # <<
-{..\atk\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
-	$(CXX) $(LIBATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
+{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
+	$(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
 $<
 <<
+
+{..\atk\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
+	$(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
+$<
+<<
+
+{..\atk\src\}.ccg{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj:
+	@if not exist $(@D)\private\ $(MAKE) /f Makefile.vc CFG=$(CFG) $(@D)\private
+	@for %%s in ($(<D)\*.ccg) do @if not exist ..\atk\atkmm\%%~ns.cc if not exist $(@D)\%%~ns.cc $(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../codegen/m4 --defs $(<D:\=/) %%~ns $(<D:\=/) $(@D)
+	@if exist $(@D)\$(<B).cc $(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(@D)\ /Fd$(@D)\ /c $(@D)\$(<B).cc
+	@if exist ..\atk\atkmm\$(<B).cc $(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(@D)\ /Fd$(@D)\ /c ..\atk\atkmm\$(<B).cc
 
 {.\atkmm\}.rc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.res:
 	rc /fo$@ $<
@@ -62,7 +73,13 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private\*.h
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.h
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.cc
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.obj
+	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private
 	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
 	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\gendef
+
+.SUFFIXES: .cc .h .ccg .hg .obj

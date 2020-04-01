@@ -5,12 +5,17 @@
 
 # Create the build directories
 vs$(VSVER)\$(CFG)\$(PLAT)\gendef	\
-vs$(VSVER)\$(CFG)\$(PLAT)\atkmm:
-	@-mkdir $@
+vs$(VSVER)\$(CFG)\$(PLAT)\atkmm		\
+vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private:
+	@-md $@
 
 # Generate .def files
 vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def: $(GENDEF) vs$(VSVER)\$(CFG)\$(PLAT)\atkmm $(atkmm_OBJS)
 	vs$(VSVER)\$(CFG)\$(PLAT)\gendef.exe $@ $(ATKMM_LIBNAME) vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
+
+# Generate wrap_init.cc files
+vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\wrap_init.cc: $(atkmm_real_hg)
+	@if not exist ..\atk\atkmm\wrap_init.cc $(PERL) -- "$(GMMPROC_DIR)/generate_wrap_init.pl" --namespace=Atk --parent_dir=atkmm $(atkmm_real_hg:\=/)>$@
 
 # Generate pre-generated resources and configuration headers (builds from GIT)
 prep-git-build: pkg-ver.mak
