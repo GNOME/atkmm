@@ -42,11 +42,10 @@ $(ATKMM_LIB): $(ATKMM_DLL)
 # $(dependent_objects)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
-$(ATKMM_DLL): vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def $(atkmm_OBJS)
-	link /DLL $(LDFLAGS_NOLTCG) $(ATKMM_DEP_LIBS) /implib:$(ATKMM_LIB) /def:vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def -out:$@ @<<
+$(ATKMM_DLL): vs$(VSVER)\$(CFG)\$(PLAT)\atkmm $(atkmm_OBJS)
+	link /DLL $(LDFLAGS_NOLTCG) $(ATKMM_DEP_LIBS) /implib:$(ATKMM_LIB) -out:$@ @<<
 $(atkmm_OBJS)
 <<
-
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
 
 # Rules for linking Executables
@@ -57,29 +56,19 @@ $(atkmm_OBJS)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
-# For the gendef tool
-{.\gendef\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\}.exe:
-	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\gendef\ $(MAKE) -f Makefile.vc CFG=$(CFG) vs$(VSVER)\$(CFG)\$(PLAT)\gendef
-	$(CXX) $(ATKMM_BASE_CFLAGS) $(CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gendef\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gendef\ $< /link $(LDFLAGS) /out:$@
-
 clean:
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exe
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.dll
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.ilk
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exp
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.lib
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.def
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private\*.h
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.h
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.cc
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.pdb
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gendef\*.obj
 	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private
 	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
-	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\gendef
 
 .SUFFIXES: .cc .h .ccg .hg .obj
