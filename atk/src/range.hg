@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 #include <glibmm/value.h>
 #include <atk/atk.h>
 
@@ -30,9 +32,9 @@ namespace Atk
  *
  * @newin{2,24}
  */
-class Range
+class ATKMM_API Range
 {
-  _CLASS_BOXEDTYPE(Range, AtkRange, NONE, atk_range_copy, atk_range_free)
+  _CLASS_BOXEDTYPE(Range, AtkRange, NONE, atk_range_copy, atk_range_free, ATKMM_API)
   _IGNORE(atk_range_copy, atk_range_free)
 public:
  

@@ -18,6 +18,8 @@
  */
 
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
@@ -28,17 +30,17 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(RelationType, AtkRelationType)
+_WRAP_ENUM(RelationType, AtkRelationType, decl_prefix ATKMM_API)
 
-class Object;
+class ATKMM_API Object;
 
 /** An Atk::Relation describes a relation between an object and one or more other objects.
  * The actual relations that an object has with other objects are defined as an Atk::RelationSet,
  * which is a set of Atk::Relations.
  */
-class Relation : public Glib::Object
+class ATKMM_API Relation : public Glib::Object
 {
-  _CLASS_GOBJECT(Relation, AtkRelation, ATK_RELATION, Glib::Object, GObject)
+  _CLASS_GOBJECT(Relation, AtkRelation, ATK_RELATION, Glib::Object, GObject, , , ATKMM_API)
 
 protected:
   explicit Relation(const Glib::ArrayHandle< Glib::RefPtr<Atk::Object> >& targets,

@@ -17,6 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(atk/atkobject.h)
 
@@ -35,7 +37,7 @@ extern "C"
 namespace Atk
 {
 
-class Object;
+class ATKMM_API Object;
 
 /** The ATK interface implemented for UI components which contain tabular or row/column information.
  * This should be implemented by components which present elements ordered via rows and columns. It may also be used to
@@ -50,9 +52,9 @@ class Object;
  * well as row and column headers and captions. Headers and captions are AtkObjects which may implement other interfaces
  * (Atk::Text, Atk::Image, etc.) as appropriate. Atk::Table summaries may themselves be (simplified) Atk::Tables, etc. 
  */
-class Table : public Glib::Interface
+class ATKMM_API Table : public Glib::Interface
 {
-  _CLASS_INTERFACE(Table, AtkTable, ATK_TABLE, AtkTableIface)
+  _CLASS_INTERFACE(Table, AtkTable, ATK_TABLE, AtkTableIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(Glib::RefPtr<Atk::Object> get_at(int row, int column), atk_table_ref_at)

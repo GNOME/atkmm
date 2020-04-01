@@ -40,9 +40,9 @@ namespace Atk
  * should have Atk::Object representations which implement Atk::Value on the component's behalf. Atk::Values may be
  * read-only, in which case attempts to alter the value return false to indicate failure.
  */
-class Value : public Glib::Interface
+class ATKMM_API Value : public Glib::Interface
 {
-  _CLASS_INTERFACE(Value, AtkValue, ATK_VALUE, AtkValueIface)
+  _CLASS_INTERFACE(Value, AtkValue, ATK_VALUE, AtkValueIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(void get_current_value(Glib::ValueBase& value) const, atk_value_get_current_value, deprecated "Use get_value_and_text() instead.")
