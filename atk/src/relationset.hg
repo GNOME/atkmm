@@ -29,9 +29,9 @@ namespace Atk
 
 /** A set of Atk::Relations, normally the set of AtkRelations which an Atk::Object has.
  */
-class RelationSet : public Glib::Object
+class ATKMM_API RelationSet : public Glib::Object
 {
-  _CLASS_GOBJECT(RelationSet, AtkRelationSet, ATK_RELATION_SET, Glib::Object, GObject)
+  _CLASS_GOBJECT(RelationSet, AtkRelationSet, ATK_RELATION_SET, Glib::Object, GObject, , , ATKMM_API)
 protected:
   _CTOR_DEFAULT
 

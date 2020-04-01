@@ -40,9 +40,9 @@ namespace Atk
  * EditableText is a subclass of AtkText, and as such, an object which implements EditableText is by definition
  * an Atk::Text implementor as well. 
  */
-class EditableText : public Glib::Interface
+class ATKMM_API EditableText : public Glib::Interface
 {
-  _CLASS_INTERFACE(EditableText, AtkEditableText, ATK_EDITABLE_TEXT, AtkEditableTextIface)
+  _CLASS_INTERFACE(EditableText, AtkEditableText, ATK_EDITABLE_TEXT, AtkEditableTextIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(bool set_run_attributes(const std::vector<Attribute>& attrib_set, int start_offset, int end_offset), atk_editable_text_set_run_attributes)

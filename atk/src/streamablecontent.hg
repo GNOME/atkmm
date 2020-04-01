@@ -18,6 +18,8 @@
  */
 
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
@@ -36,13 +38,13 @@ extern "C"
 namespace Atk
 {
 
-class Object;
+class ATKMM_API Object;
 
 /** The ATK interface which provides access to streamable content.
  */
-class StreamableContent : public Glib::Interface
+class ATKMM_API StreamableContent : public Glib::Interface
 {
-  _CLASS_INTERFACE(StreamableContent, AtkStreamableContent, ATK_STREAMABLE_CONTENT, AtkStreamableContentIface)
+  _CLASS_INTERFACE(StreamableContent, AtkStreamableContent, ATK_STREAMABLE_CONTENT, AtkStreamableContentIface, , , ATKMM_API)
 public:
 
   _WRAP_METHOD(int get_n_mime_types() const, atk_streamable_content_get_n_mime_types)

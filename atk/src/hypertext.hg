@@ -36,12 +36,12 @@ extern "C"
 namespace Atk
 {
 
-class Object;
+class ATKMM_API Object;
 
 
-class Hypertext : public Glib::Interface
+class ATKMM_API Hypertext : public Glib::Interface
 {
-  _CLASS_INTERFACE(Hypertext, AtkHypertext, ATK_HYPERTEXT, AtkHypertextIface)
+  _CLASS_INTERFACE(Hypertext, AtkHypertext, ATK_HYPERTEXT, AtkHypertextIface, , , ATKMM_API)
 public:
 
   _WRAP_METHOD(Glib::RefPtr<Hyperlink> get_link(int link_index), atk_hypertext_get_link)

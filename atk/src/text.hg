@@ -24,7 +24,7 @@ _DEFS(atkmm,atk)
 namespace Atk
 {
 
-class Attribute
+class ATKMM_API Attribute
 {
   _CLASS_GENERIC(Attribute, AtkAttribute)
 
@@ -69,9 +69,9 @@ struct AttributeTraits
 };
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(BuiltinTextAttribute, AtkTextAttribute)
+_WRAP_ENUM(BuiltinTextAttribute, AtkTextAttribute, decl_prefix ATKMM_API)
 
-class TextAttribute
+class ATKMM_API TextAttribute
 {
 private:
   int attribute_;
@@ -96,7 +96,7 @@ namespace Glib
 {
 
 template <>
-class Value<Atk::TextAttribute> : public Glib::Value_Enum<Atk::TextAttribute>
+class ATKMM_API Value<Atk::TextAttribute> : public Glib::Value_Enum<Atk::TextAttribute>
 {
 public:
   static GType value_type() G_GNUC_CONST;
@@ -121,13 +121,13 @@ namespace Atk
  * multi-byte, and caret-to-byte offset mapping makes no assumptions about the character length; also bounding box
  * glyph-to-offset mapping may be complex for languages which use ligatures.
  */
-class Text : public Glib::Interface
+class ATKMM_API Text : public Glib::Interface
 {
-  _CLASS_INTERFACE(Text, AtkText, ATK_TEXT, AtkTextIface)
+  _CLASS_INTERFACE(Text, AtkText, ATK_TEXT, AtkTextIface, , , ATKMM_API)
 
 public:
-  _WRAP_ENUM(ClipType, AtkTextClipType)
-  _WRAP_ENUM(Granularity, AtkTextGranularity)
+  _WRAP_ENUM(ClipType, AtkTextClipType, decl_prefix ATKMM_API)
+  _WRAP_ENUM(Granularity, AtkTextGranularity, decl_prefix ATKMM_API)
 
   _WRAP_METHOD(Glib::ustring get_text(int start_offset, int end_offset) const, atk_text_get_text)
   _WRAP_METHOD(gunichar get_character_at_offset(int offset) const, atk_text_get_character_at_offset)

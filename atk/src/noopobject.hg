@@ -38,7 +38,7 @@ namespace Atk
  * It is the type of Atk::Object which is created if an accessible object is requested for an object type for which no
  * factory type is specified.
  */
-class NoOpObject
+class ATKMM_API NoOpObject
 :
   public Atk::Object,
   public Atk::Component,
@@ -51,7 +51,7 @@ class NoOpObject
   public Atk::Hypertext,
   public Atk::Value
 {
-  _CLASS_GOBJECT(NoOpObject, AtkNoOpObject, ATK_NO_OP_OBJECT, Atk::Object, AtkObject)
+  _CLASS_GOBJECT(NoOpObject, AtkNoOpObject, ATK_NO_OP_OBJECT, Atk::Object, AtkObject, , , ATKMM_API)
   _IMPLEMENTS_INTERFACE(Component)
   _IMPLEMENTS_INTERFACE(Action)
   _IMPLEMENTS_INTERFACE(EditableText)
@@ -63,7 +63,7 @@ class NoOpObject
   _IMPLEMENTS_INTERFACE(Value)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-  friend class Atk::Object_Class;
+  friend ATKMM_API class Atk::Object_Class;
 #endif
 };
 
