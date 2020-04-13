@@ -17,6 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(atk/atkobject.h)
 
@@ -34,7 +36,7 @@ extern "C"
 namespace Atk
 {
 
-class Object;
+class ATKMM_API Object;
 
 /** The ATK interface implemented by container objects whose Atk::Object children can be selected.
  * This should be implemented by UI components with children which are exposed by Atk::Object::ref_child and
@@ -44,9 +46,9 @@ class Object;
  * Note that other types of "selection" (for instance text selection) are accomplished a other ATK interfaces -
  * Atk::Selection is limited to the selection/deselection of children. 
  */
-class Selection : public Glib::Interface
+class ATKMM_API Selection : public Glib::Interface
 {
-  _CLASS_INTERFACE(Selection, AtkSelection, ATK_SELECTION, AtkSelectionIface)
+  _CLASS_INTERFACE(Selection, AtkSelection, ATK_SELECTION, AtkSelectionIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(bool add_selection(int i), atk_selection_add_selection)

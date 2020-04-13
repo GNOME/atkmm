@@ -17,6 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(atk/atkcomponent.h)
 
@@ -37,10 +39,10 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(CoordType, AtkCoordType)
-_WRAP_ENUM(Layer, AtkLayer)
+_WRAP_ENUM(CoordType, AtkCoordType, decl_prefix ATKMM_API)
+_WRAP_ENUM(Layer, AtkLayer, decl_prefix ATKMM_API)
 
-class Object;
+class ATKMM_API Object;
 
 
 /** The ATK interface provided by UI components which occupy a physical area on the screen.
@@ -52,9 +54,9 @@ class Object;
  * A possible exception might be textual information with a transparent background, in which case text glyph bounding
  * box information is provided by Atk::Text.
  */
-class Component : public Glib::Interface
+class ATKMM_API Component : public Glib::Interface
 {
-  _CLASS_INTERFACE(Component, AtkComponent, ATK_COMPONENT, AtkComponentIface)
+  _CLASS_INTERFACE(Component, AtkComponent, ATK_COMPONENT, AtkComponentIface, , , ATKMM_API)
   
 public:
   _WRAP_METHOD(guint add_focus_handler(AtkFocusHandler handler), atk_component_add_focus_handler, deprecated "If you need to track when an object gains or lose the focus, use Atk::Object::signal_state_change() and check for focused notification instead.")

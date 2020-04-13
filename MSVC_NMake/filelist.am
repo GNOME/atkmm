@@ -10,6 +10,7 @@ msvc_nmake_data =			\
 	create-lists.bat		\
 	detectenv-msvc.mak		\
 	generate-msvc.mak		\
+	get-gmmproc-ver.bat		\
 	info-msvc.mak			\
 	install.mak			\
 	Makefile.vc

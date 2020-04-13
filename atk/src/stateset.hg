@@ -17,6 +17,9 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
@@ -28,14 +31,14 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(StateType, AtkStateType)
+_WRAP_ENUM(StateType, AtkStateType, decl_prefix ATKMM_API)
 
 /** An AtkStateSet determines a component's state set.
  * It is composed of a set of Atk::States.
  */
-class StateSet : public Glib::Object
+class ATKMM_API StateSet : public Glib::Object
 {
-  _CLASS_GOBJECT(StateSet, AtkStateSet, ATK_STATE_SET, Glib::Object, GObject)
+  _CLASS_GOBJECT(StateSet, AtkStateSet, ATK_STATE_SET, Glib::Object, GObject, , , ATKMM_API)
 
 protected:
   _CTOR_DEFAULT()

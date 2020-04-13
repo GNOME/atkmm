@@ -27,7 +27,7 @@ _DEFS(atkmm,atk)
 namespace Atk
 {
 
-class Attribute
+class ATKMM_API Attribute
 {
   _CLASS_GENERIC(Attribute, AtkAttribute)
 
@@ -75,9 +75,9 @@ typedef Glib::SListHandle<Attribute, AttributeTraits> AttributeSet;
 
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(BuiltinTextAttribute, AtkTextAttribute)
+_WRAP_ENUM(BuiltinTextAttribute, AtkTextAttribute, decl_prefix ATKMM_API)
 
-class TextAttribute
+class ATKMM_API TextAttribute
 {
 private:
   int attribute_;
@@ -102,7 +102,7 @@ namespace Glib
 {
 
 template <>
-class Value<Atk::TextAttribute> : public Glib::Value_Enum<Atk::TextAttribute>
+class ATKMM_API Value<Atk::TextAttribute> : public Glib::Value_Enum<Atk::TextAttribute>
 {
 public:
   static GType value_type() G_GNUC_CONST;
@@ -114,9 +114,9 @@ public:
 namespace Atk
 {
 
-_WRAP_ENUM(TextBoundary, AtkTextBoundary)
-_WRAP_ENUM(TextClipType, AtkTextClipType)
-_WRAP_ENUM(TextGranularity, AtkTextGranularity)
+_WRAP_ENUM(TextBoundary, AtkTextBoundary, decl_prefix ATKMM_API)
+_WRAP_ENUM(TextClipType, AtkTextClipType, decl_prefix ATKMM_API)
+_WRAP_ENUM(TextGranularity, AtkTextGranularity, decl_prefix ATKMM_API)
 
 /** The ATK interface implemented by components with text content.
  * This should be implemented by Atk::Objects on behalf of widgets that have text content which is either attributed
@@ -131,9 +131,9 @@ _WRAP_ENUM(TextGranularity, AtkTextGranularity)
  * multi-byte, and caret-to-byte offset mapping makes no assumptions about the character length; also bounding box
  * glyph-to-offset mapping may be complex for languages which use ligatures.
  */
-class Text : public Glib::Interface
+class ATKMM_API Text : public Glib::Interface
 {
-  _CLASS_INTERFACE(Text, AtkText, ATK_TEXT, AtkTextIface)
+  _CLASS_INTERFACE(Text, AtkText, ATK_TEXT, AtkTextIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(Glib::ustring get_text(int start_offset, int end_offset) const, atk_text_get_text)

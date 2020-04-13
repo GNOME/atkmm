@@ -33,9 +33,9 @@ extern "C"
 namespace Atk
 {
 
-class Implementor : public Glib::Interface
+class ATKMM_API Implementor : public Glib::Interface
 {
-  _CLASS_INTERFACE(Implementor, AtkImplementor, ATK_IMPLEMENTOR, AtkImplementorIface)
+  _CLASS_INTERFACE(Implementor, AtkImplementor, ATK_IMPLEMENTOR, AtkImplementorIface, , , ATKMM_API)
 
 protected:
   _WRAP_VFUNC(Glib::RefPtr<Object> ref_accessibile(), ref_accessible, refreturn)

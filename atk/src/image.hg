@@ -43,9 +43,9 @@ namespace Atk
  * screenreaders, and for use by onscreen magnifiers), and descriptive information. The descriptive information is
  * provided for alternative, text-only presentation of the most significant information present in the image. 
  */
-class Image : public Glib::Interface
+class ATKMM_API Image : public Glib::Interface
 {
-  _CLASS_INTERFACE(Image, AtkImage, ATK_IMAGE, AtkImageIface)
+  _CLASS_INTERFACE(Image, AtkImage, ATK_IMAGE, AtkImageIface, , , ATKMM_API)
 
 public:
   _WRAP_METHOD(bool set_image_description(const Glib::ustring& description), atk_image_set_image_description)
