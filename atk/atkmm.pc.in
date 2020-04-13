@@ -18,4 +18,4 @@ Version: @PACKAGE_VERSION@
 URL: http://www.gtkmm.org/
 Requires: @ATKMM_MODULES@
 Libs: -L${libdir} -latkmm-@ATKMM_API_VERSION@
-Cflags: -I${includedir}/@ATKMM_MODULE_NAME@
+Cflags: -I${includedir}/@ATKMM_MODULE_NAME@ -I${libdir}/atkmm-@ATKMM_API_VERSION@/include
