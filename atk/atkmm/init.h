@@ -21,6 +21,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+#include <atkmmconfig.h>
+
 namespace Atk
 {
 
@@ -29,7 +31,7 @@ namespace Atk
  * You do not need to call this if you are using Gtk::Main,
  * because it calls this for you.
  */
-void init();
+ATKMM_API void init();
 
 } // namespace Atk
 

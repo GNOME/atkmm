@@ -31,11 +31,11 @@ namespace Atk
 {
 
 _CC_INCLUDE(atk/atk-enum-types.h)
-_WRAP_ENUM(Role, AtkRole)
+_WRAP_ENUM(Role, AtkRole, decl_prefix ATKMM_API)
 
-class RelationSet;
-class Relation;
-class StateSet;
+class ATKMM_API RelationSet;
+class ATKMM_API Relation;
+class ATKMM_API StateSet;
 
 typedef guint64 State;
 
@@ -51,9 +51,9 @@ typedef guint64 State;
  * ATK support built into the toolkit for the widget class or ancestor class, or in the case of custom widgets, if the
  * inherited Atk::Object implementation is insufficient, via instances of a new Atk::Object subclass. 
  */
-class Object : public Glib::Object
+class ATKMM_API Object : public Glib::Object
 {
-  _CLASS_GOBJECT(Object, AtkObject, ATK_OBJECT, Glib::Object, GObject)
+  _CLASS_GOBJECT(Object, AtkObject, ATK_OBJECT, Glib::Object, GObject, , , ATKMM_API)
   _CUSTOM_WRAP_NEW() // see wrap_new() implementation in object.ccg
   _IGNORE(atk_object_initialize, atk_object_get_layer, atk_object_get_mdi_zorder)
 public:

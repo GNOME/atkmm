@@ -68,7 +68,6 @@ ATKMM_LIBNAME = atkmm-vc$(VSVER)0$(DEBUG_SUFFIX)-$(ATKMM_MAJOR_VERSION)_$(ATKMM_
 ATKMM_DLL = vs$(VSVER)\$(CFG)\$(PLAT)\$(ATKMM_LIBNAME).dll
 ATKMM_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\$(ATKMM_LIBNAME).lib
 
-GENDEF = vs$(VSVER)\$(CFG)\$(PLAT)\gendef.exe
 GOBJECT_LIBS = gobject-2.0.lib gmodule-2.0.lib glib-2.0.lib
 
 ATK_LIBS = atk-1.0.lib $(GOBJECT_LIBS)

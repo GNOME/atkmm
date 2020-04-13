@@ -8,7 +8,6 @@ msvc_nmake_data =		\
 	create-lists-msvc.mak	\
 	create-lists.bat	\
 	detectenv-msvc.mak	\
-	gendef/gendef.cc	\
 	generate-msvc.mak	\
 	info-msvc.mak		\
 	install.mak		\

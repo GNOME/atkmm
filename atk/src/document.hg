@@ -18,6 +18,8 @@
  */
 
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
 
@@ -34,15 +36,15 @@ extern "C"
 namespace Atk
 {
 
-class Object;
+class ATKMM_API Object;
 
 /** The ATK interface which allows access to a DOM associated with on object.
  * This interface should be supported by any object that has an associated document object model (DOM). This interface
  * provides the standard mechanism allowing an assistive technology access to the DOM.
  */
-class Document : public Glib::Interface
+class ATKMM_API Document : public Glib::Interface
 {
-  _CLASS_INTERFACE(Document, AtkDocument, ATK_DOCUMENT, AtkDocumentIface)
+  _CLASS_INTERFACE(Document, AtkDocument, ATK_DOCUMENT, AtkDocumentIface, , , ATKMM_API)
 public:
 
   _IGNORE(atk_document_get_document_type)

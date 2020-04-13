@@ -30,9 +30,9 @@ namespace Atk
  * This can be used as a basis for implementing accessible objects for Glib::Objects which are not derived from
  * Gtk::Widget. One example of its use is in providing an accessible object for GnomeCanvasItem in the GAIL library.
  */
-class ObjectAccessible : public Atk::Object
+class ATKMM_API ObjectAccessible : public Atk::Object
 {
-   _CLASS_GOBJECT(ObjectAccessible, AtkGObjectAccessible, ATK_GOBJECT_ACCESSIBLE, Atk::Object, AtkObject)
+   _CLASS_GOBJECT(ObjectAccessible, AtkGObjectAccessible, ATK_GOBJECT_ACCESSIBLE, Atk::Object, AtkObject, , , ATKMM_API)
 protected:
 
   _WRAP_METHOD(Glib::RefPtr<Glib::Object> get_object(), atk_gobject_accessible_get_object, refreturn)

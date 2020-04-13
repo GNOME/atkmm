@@ -17,6 +17,8 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+_CONFIGINCLUDE(atkmmconfig.h)
+
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/interface_p.h)
 
@@ -46,9 +48,9 @@ namespace Atk
  * actions are redundant in effect, Atk::Action should expose only one action rather than exposing redundant actions if
  * possible. By convention we have been using "mouse centric" terminology for Atk::Action names. 
  */
-class Action : public Glib::Interface
+class ATKMM_API Action : public Glib::Interface
 {
-  _CLASS_INTERFACE(Action, AtkAction, ATK_ACTION, AtkActionIface)
+  _CLASS_INTERFACE(Action, AtkAction, ATK_ACTION, AtkActionIface, , , ATKMM_API)
 
 public:
 
