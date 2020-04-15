@@ -32,3 +32,7 @@ stamp-h?
 /MSVC_NMake/atkmm/atkmm.rc
 /MSVC_NMake/atkmm/atkmmconfig.h
 /MSVC_NMake/pkg-ver.mak
+
+untracked/build_scripts/
+untracked/doc/
+untracked/atk/
