@@ -49,5 +49,18 @@ dist_noinst_SCRIPTS = autogen.sh
 
 DISTCLEANFILES = $(filter %mmconfig.h,$(msvc_files))
 
+# Distribute files needed when building atkmm with Meson.
+EXTRA_DIST = \
+  meson.build \
+  meson_options.txt \
+  MSVC_NMake/atkmm/meson.build \
+  doc/reference/meson.build \
+  atk/meson.build \
+  atk/atkmm/meson.build \
+  atk/atkmmconfig.h.meson \
+  codegen/dummy-header.py \
+  codegen/extradefs/meson.build \
+  untracked/README
+
 # Auto-generate the ChangeLog file from the git log on make dist
 include $(top_srcdir)/build/dist-changelog.am
