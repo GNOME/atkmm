@@ -28,6 +28,7 @@ GMMPROC_DIR=$(PREFIX)\share\glibmm-$(GLIBMM_MAJOR_VERSION).$(GLIBMM_MINOR_VERSIO
 
 ATKMM_BASE_CFLAGS =		\
 	/Ivs$(VSVER)\$(CFG)\$(PLAT)	\
+	/I..\untracked\atk	\
 	/I..\atk /I.\atkmm	\
 	/wd4530 /wd4251	\
 	/wd4275 /std:c++17	\
