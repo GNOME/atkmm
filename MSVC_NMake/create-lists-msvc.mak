@@ -63,7 +63,7 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat footer atkmm.mak]
 !endif
 
-!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist vs$(PDBVER)\$(CFG)\$(PLAT)\%f (md vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(PDBVER)/$(CFG)/$(PLAT)/atkmm)]
+!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist vs$(PDBVER)\$(CFG)\$(PLAT)\%f (md vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(PDBVER)/$(CFG)/$(PLAT)/atkmm)]
 !endif
 
 !if [for %d in (vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>atkmm.mak]
