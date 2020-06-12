@@ -42,13 +42,13 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat header atkmm.mak atkmm_OBJS]
 !endif
 
-!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
 !endif
 
-!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
 !endif
 
-!if [@call create-lists.bat file atkmm.mak vs^$(PDBVER)\^$(CFG)\^$(PLAT)\atkmm\atkmm.res]
+!if [@call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\atkmm.res]
 !endif
 
 !if [call create-lists.bat footer atkmm.mak]
@@ -63,10 +63,10 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !if [call create-lists.bat footer atkmm.mak]
 !endif
 
-!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist vs$(PDBVER)\$(CFG)\$(PLAT)\%f (md vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(PDBVER)/$(CFG)/$(PLAT)/atkmm)]
+!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist vs$(VSVER)\$(CFG)\$(PLAT)\%f (md vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(VSVER)/$(CFG)/$(PLAT)/atkmm)]
 !endif
 
-!if [for %d in (vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>atkmm.mak]
+!if [for %d in (vs$(VSVER)\$(CFG)\$(PLAT)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>atkmm.mak]
 !endif
 
 !include atkmm.mak
@@ -75,10 +75,10 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 !endif
 
 !if "$(GMMPROC_VER)" >= "2.64.3"
-ATKMM_INT_TARGET = vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm
+ATKMM_INT_TARGET = vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
 ATKMM_DEF_LDFLAG =
 !else
-ATKMM_INT_TARGET = vs$(PDBVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def
+ATKMM_INT_TARGET = vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def
 ATKMM_DEF_LDFLAG = /def:$(ATKMM_INT_TARGET)
 ATKMM_BASE_CFLAGS = $(ATKMM_BASE_CFLAGS) /DATKMM_USE_GENDEF
 !endif
