@@ -100,77 +100,14 @@ atk_dep = dependency('atk', version: atk_req)
 # so check for them manually
 glibmm_req_minor_ver = '66'
 
-glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req, required: not is_msvc)
+glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req)
 
-if is_msvc
-  # We must have Visual Studio 2017 15.7 or later...
-  assert(cpp_compiler.version().split('.')[0].to_int() >= 19 and cpp_compiler.version().split('.')[1].to_int() >= 15, 'Visual Studio 2017 15.7 or later is required')
+atkmm_build_dep = [glibmm_dep, atk_dep]
+atkmm_requires = ' '.join([
+  'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
+  'atk', atk_req,
+])
 
-  sigc_major_ver = '3'
-
-  if not glibmm_dep.found()
-    assert(cpp_compiler.has_header('sigc++-@0@.0/sigc++/sigc++.h'.format(sigc_major_ver)) and \
-           cpp_compiler.has_header('sigc++-@0@.0/include/sigc++config.h'.format(sigc_major_ver)),
-           'sigc++-@0@.x headers are required')
-    assert(cpp_compiler.has_header('glibmm-2.@0@/glibmm.h'.format(glibmm_req_minor_ver)) and cpp_compiler.has_header('glibmm-2.@0@/include/glibmmconfig.h'.format(glibmm_req_minor_ver)),
-           'glibmm-2.@0@ headers are required'.format(glibmm_req_minor_ver))
-  else
-    sigc_dep = dependency ('', required: false) # glibmm covers for libsigc++ in its pkg-config file
-  endif
-  message('Ensure your INCLUDE and LIB contain the paths that lead to the appropriate headers and .lib\'s for glibmm-2.@0@ and libsigc++-@1@.x'.format(glibmm_req_minor_ver, sigc_major_ver))
-
-  # Visual Studio 2019 can consume libraries built with 2017, so check for
-  # 2017-built libraries as well if 2019-built libraries cannot be found
-  msvc_check_range = [15]
-  msvc_minor = cpp_compiler.version().split('.')[1].to_int()
-  if msvc_minor >= 20
-    msvc_check_range = [16, 15]
-  endif
-
-  debugsuffix = ''
-  if get_option('buildtype') == 'debug'
-    debugsuffix = '-d'
-  endif
-
-  # We can be looking for MSVC 2017-built libraries on 2019 builds as well,
-  # so we can't just assume that libraries exist, but check that compatible
-  # versions are really found
-  foreach v : msvc_check_range
-    glibmm_dep = glibmm_dep.found() ? glibmm_dep : cpp_compiler.find_library('glibmm-vc@0@0@1@-2_@2@'.format(v.to_string(), debugsuffix, glibmm_req_minor_ver), required: false)
-  endforeach
-
-  if glibmm_dep.type_name() == 'library'
-    warning('Note: Be sure to check that this finds the same libsigc++ .lib your glibmm is linked to')
-    sigc_dep = cpp_compiler.find_library('sigc-@0@.0'.format(sigc_major_ver), required: false)
-    foreach v : msvc_check_range
-      sigc_dep = sigc_dep.found() ? sigc_dep : cpp_compiler.find_library('sigc-vc@0@0@1@-@2@_0'.format(v.to_string(), debugsuffix, sigc_major_ver), required: false)
-    endforeach
-  endif
-
-  # Now make sure the appropriate -mm libraries are found
-  assert(glibmm_dep.found() and (glibmm_dep.type_name() == 'pkgconfig' or sigc_dep.found()), 'Appropriate glibmm-vcxx0@0@-2_@1@.lib and sigc-vcxx0@0@-@2@_0.lib are required'.format(debugsuffix, glibmm_req_minor_ver, sigc_major_ver))
-
-  # Put glibmm in the required packages if we find it by pkg-config
-  mm_lib_requires = ''
-  if glibmm_dep.type_name() == 'pkgconfig'
-    mm_lib_requires += ' '.join([
-      'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
-    ]) + ' '
-  endif
-
-  atkmm_requires = mm_lib_requires + ' '.join([
-    'atk', atk_req,
-  ])
-
-  atkmm_build_dep = [glibmm_dep, sigc_dep, atk_dep]
-else
-  # not MSVC
-  atkmm_build_dep = [glibmm_dep, atk_dep]
-  atkmm_requires = ' '.join([
-    'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
-    'atk', atk_req,
-  ])
-endif
 
 # Some dependencies are required only in maintainer mode and/or if
 # reference documentation shall be built.
@@ -185,11 +122,7 @@ dot = find_program('dot', required: build_documentation) # Used by Doxygen
 xsltproc = find_program('xsltproc', required: build_documentation)
 
 # Where to find gmmproc and generate_wrap_init.pl.
-if glibmm_dep.type_name() == 'pkgconfig'
-  gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
-else
-  gmmproc_dir = get_option('gmmproc-dir')
-endif
+gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
 
 # Script files copied to 'untracked' by mm-common-get.
 script_dir = project_source_root / 'untracked' / 'build_scripts'
