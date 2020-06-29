@@ -3,7 +3,8 @@
 # Input: install_prefix, install_datadir, install_includedir,
 #        atkmm_pcname, atkmm_api_version, atkmm_requires,
 #        install_pkgconfigdir, install_libdir, build_deprecated_api,
-#        atkmm_major_version, atkmm_minor_version, atkmm_micro_version
+#        atkmm_major_version, atkmm_minor_version, atkmm_micro_version,
+#        msvc14x_toolset_ver
 # Output: pkg_conf_data, install_includeconfigdir, atkmmconfig_h
 
 pkg_conf_data = configuration_data()
@@ -25,6 +26,7 @@ endif
 pkg_conf_data.set('ATKMM_MAJOR_VERSION', atkmm_major_version)
 pkg_conf_data.set('ATKMM_MINOR_VERSION', atkmm_minor_version)
 pkg_conf_data.set('ATKMM_MICRO_VERSION', atkmm_micro_version)
+pkg_conf_data.set('MSVC_TOOLSET_VER', msvc14x_toolset_ver)
 
 library_build_type = get_option('default_library')
 

@@ -8,3 +8,5 @@ option('build-deprecated-api', type: 'boolean', value: true,
   description: 'Build deprecated API and include it in the library')
 option('build-documentation', type: 'combo', choices: ['false', 'if-maintainer-mode', 'true'],
   value: 'if-maintainer-mode', description: 'Build and install the documentation')
+option('msvc14x-parallel-installable', type: 'boolean', value: true,
+  description: 'Use separate DLL and LIB filenames for Visual Studio 2017 and 2019')

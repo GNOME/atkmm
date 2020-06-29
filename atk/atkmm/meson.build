@@ -2,7 +2,7 @@
 
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
-#        python3, atkmm_rc, dummy_header_py, gmmproc_dir
+#        python3, atkmm_rc, dummy_header_py, gmmproc_dir, msvc14x_toolset_ver
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_dep
 
@@ -69,6 +69,8 @@ if host_machine.system() == 'windows'
   atkmm_res = windows.compile_resources(atkmm_rc)
   extra_atkmm_objects += atkmm_res
 endif
+
+atkmm_libname = meson.project_name() + msvc14x_toolset_ver + '-' + atkmm_api_version
 
 if maintainer_mode
 
@@ -145,7 +147,7 @@ if maintainer_mode
 
   extra_include_dirs = ['..']
 
-  atkmm_library = library(atkmm_pcname, extra_atkmm_objects,
+  atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     built_cc_file_targets, extra_cc_files, built_dummy_h_file_target,
     version: atkmm_libversion,
     include_directories: extra_include_dirs,
@@ -188,7 +190,7 @@ else # not maintainer_mode
 
   extra_include_dirs = [ '..', '..' / '..' / 'untracked' / 'atk' ]
 
-  atkmm_library = library(atkmm_pcname, extra_atkmm_objects,
+  atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     built_cc_files, extra_cc_files,
     version: atkmm_libversion,
     include_directories: extra_include_dirs,
@@ -198,7 +200,6 @@ else # not maintainer_mode
   )
 
   built_h_cc_dir = src_untracked_atkmm
-
 endif
 
 # Install built .h and _p.h files.

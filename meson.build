@@ -151,6 +151,23 @@ endif
 atkmm_script_dir = project_source_root / 'codegen'
 dummy_header_py = atkmm_script_dir / 'dummy-header.py'
 
+# Whether to include toolset version in .lib and DLL file names
+# on Visual Studio 2017 and later (default: yes)
+use_msvc14x_toolset_ver = get_option('msvc14x-parallel-installable')
+
+# Add toolset version in builds done with Visual Studio 2017 or later
+msvc14x_toolset_ver = ''
+
+if is_msvc
+  if use_msvc14x_toolset_ver
+    if cpp_compiler.version().version_compare('>=19.20')
+      msvc14x_toolset_ver = '-vc142'
+    elif cpp_compiler.version().version_compare('>=19.10')
+      msvc14x_toolset_ver = '-vc141'
+    endif
+  endif
+endif
+
 # Set compiler warnings.
 warning_flags = []
 if warning_level == 'min'
