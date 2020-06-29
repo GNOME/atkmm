@@ -1,8 +1,8 @@
 # doc/reference
 
-# Input: built_files_root, project_source_root, atkmm_pcname, perl,
-#        hg_ccg_basenames, extra_h_files, built_h_file_targets, install_datadir,
-#        python3, doc_reference_py
+# Input: built_files_root, project_source_root, atkmm_pcname, hg_ccg_basenames,
+#        extra_h_files, built_h_file_targets, install_datadir, python3,
+#        doc_reference_py
 # Output: install_docdir, install_devhelpdir
 
 tag_file_modules = [
@@ -24,10 +24,13 @@ foreach module : tag_file_modules
       htmlrefdir = htmlrefpub
     endif
     doxygen_tagfiles += ' "' + doxytagfile + '=' + htmlrefpub + '"'
-    if not htmlrefdir.endswith('/')
-      htmlrefdir += '/'
-    endif
+
+    # Doxygen <= 1.8.15
     docinstall_flags += ['-l', doxytagfile.split('/')[-1] + '@' + htmlrefdir]
+    if htmlrefpub != htmlrefdir
+      # Doxygen >= 1.8.16
+      docinstall_flags += ['-l', 's@' + htmlrefpub + '@' + htmlrefdir]
+    endif
   endif
 endforeach
 
@@ -44,7 +47,6 @@ doc_conf_data.set('abs_top_builddir', built_files_root)
 doc_conf_data.set('abs_top_srcdir', project_source_root)
 doc_conf_data.set('ATKMM_MODULE_NAME', book_name)
 doc_conf_data.set('DOXYGEN_TAGFILES', doxygen_tagfiles)
-doc_conf_data.set('PERL', perl.found() ? perl.path() : '')
 
 configure_file(
   input: 'Doxyfile.in',
