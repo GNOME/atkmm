@@ -2,7 +2,8 @@
 
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
-#        python3, atkmm_rc, dummy_header_py, gmmproc_dir, build_shared_libs_directly
+#        python3, atkmm_rc, dummy_header_py, gmmproc_dir, build_shared_libs_directly,
+#        msvc14x_toolset_ver
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_dep
 
@@ -192,8 +193,10 @@ if host_machine.system() == 'windows'
   extra_atkmm_objects += atkmm_res
 endif
 
+atkmm_libname = meson.project_name() + msvc14x_toolset_ver + '-' + atkmm_api_version
+
 if build_shared_libs_directly
-  atkmm_library = library(atkmm_pcname, extra_atkmm_objects,
+  atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     atk_gen_sources, built_dummy_h_file_target, extra_cc_files,
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
@@ -219,14 +222,14 @@ else
     depends: atk_int_lib,
     command: [ gendef,
       '@OUTPUT@',
-      '@0@-@1@.dll'.format(atkmm_pcname, atkmm_libversion.split('.')[0]),
+      '@0@-@1@.dll'.format(atkmm_libname, atkmm_libversion.split('.')[0]),
       atk_int_lib.full_path(),
     ],
     install: false,
   )
   atkmm_extra_link_args = ['/def:@0@'.format(atkmm_def.full_path())]
 
-  atkmm_library = library(atkmm_pcname, extra_atkmm_objects,
+  atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     objects: atk_int_lib.extract_all_objects(),
     version: atkmm_libversion,
     dependencies: atkmm_build_dep,
