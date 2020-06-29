@@ -100,95 +100,24 @@ atk_dep = dependency('atk', version: atk_req)
 # so check for them manually
 glibmm_req_minor_ver = '4'
 
-glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req, required: not is_msvc)
+glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req)
 
-# Where to find gmmproc and generate_wrap_init.pl.
-if glibmm_dep.found() and glibmm_dep.type_name() == 'pkgconfig'
-  gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
-else
-  # We don't have a pkg-config file for glibmm, so use build option.
-  gmmproc_dir = get_option('gmmproc-dir')
-endif
+gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
 
 if is_msvc
-  # We must have Visual Studio 2013 or later...
-  assert(cpp_compiler.version().split('.')[0].to_int() >= 18, 'Visual Studio 2013 or later is required')
-
-  sigc_major_ver = '2'
-
-  if not glibmm_dep.found()
-    assert(cpp_compiler.has_header('sigc++-@0@.0/sigc++/sigc++.h'.format(sigc_major_ver)) and cpp_compiler.has_header('sigc++-@0@.0/include/sigc++config.h'.format(sigc_major_ver)),
-           'sigc++-@0@.x headers are required'.format(sigc_major_ver))
-    assert(cpp_compiler.has_header('glibmm-2.@0@/glibmm.h'.format(glibmm_req_minor_ver)) and cpp_compiler.has_header('glibmm-2.@0@/include/glibmmconfig.h'.format(glibmm_req_minor_ver)),
-           'glibmm-2.@0@ headers are required'.format(glibmm_req_minor_ver))
-
-  else
-    sigc_dep = dependency('', required: false) # glibmm covers for libsigc++ in its pkg-config file
-  endif
-  message('Ensure your INCLUDE and LIB contain the paths that lead to the appropriate headers and .lib\'s for glibmm-2.@0@ and libsigc++-2.x'.format(glibmm_req_minor_ver))
-
-  # We need to look for appropriate versions of Visual
-  # Studio since those built by NMake and the former
-  # Visual Studio projects are versioned by the VS versions
-  if cpp_compiler.version().split('.')[0].to_int() == 18
-    msvc_check_range = [12] # Visual Studio 2013
-    warning('Visual Studio 2013 must configure without -Dwarnings=fatal, which is the default')
-  elif cpp_compiler.version().split('.')[0].to_int() == 19
-    # Visual Studio 2019 can consume libraries built with 2017 and 2015
-    # and Visual Studio 2017 can consume libraries built with 2015
-    msvc_check_range = [14] # Visual Studio 2015, 2017, 2019
-    message('It is safe to ignore warnings from Meson that MSVC does not support C++11')
-  endif
-
-  debugsuffix = ''
-  if get_option('buildtype') == 'debug'
-    debugsuffix = '-d'
-  endif
-
-  # We can be looking for MSVC 2015-built libraries on 2017 and 2019 builds as well,
-  # as well as 2017-built libraries on 2019 as well, so we can't just assume that
-  # libraries exist, but check that compatible versions are really found
-  foreach v : msvc_check_range
-    glibmm_dep = glibmm_dep.found() ? glibmm_dep : cpp_compiler.find_library('glibmm-vc@0@0@1@-2_@2@'.format(v.to_string(), debugsuffix, glibmm_req_minor_ver), required: false)
-  endforeach
-
   # Check whether we compile atkmm without using gendef
   build_shared_libs_directly = false
-
-  if glibmm_dep.type_name() == 'library'
-    warning('Note: Be sure to check that this finds the same libsigc++ .lib your glibmm is linked to')
-    sigc_dep = cpp_compiler.find_library('sigc-@0@.0'.format(sigc_major_ver), required: false)
-    foreach v : msvc_check_range
-      sigc_dep = sigc_dep.found() ? sigc_dep : cpp_compiler.find_library('sigc-vc@0@0@1@-2_0'.format(v.to_string(), debugsuffix), required: false)
-    endforeach
-  endif
-
-  # Now make sure the appropriate -mm libraries are found
-  assert(glibmm_dep.found() and (glibmm_dep.type_name() == 'pkgconfig' or sigc_dep.found()), 'Appropriate glibmm-vcxx0@0@-2_@1@.lib and sigc-vcxx0@0@-@2@_0.lib are required'.format(debugsuffix, glibmm_req_minor_ver, sigc_major_ver))
-
-  # Put glibmm in the required packages if we find it by pkg-config
-  mm_lib_requires = ''
-  if glibmm_dep.type_name() == 'pkgconfig'
-    mm_lib_requires += ' '.join([
-      'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
-    ]) + ' '
-  endif
-
-  atkmm_requires = mm_lib_requires + ' '.join([
-    'atk', atk_req,
-  ])
-
-  atkmm_build_dep = [glibmm_dep, sigc_dep, atk_dep]
 else
-  # not MSVC
-  atkmm_build_dep = [glibmm_dep, atk_dep]
-  atkmm_requires = ' '.join([
-    'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
-    'atk', atk_req,
-  ])
-
+  # not MSVC: gendef is not used at all
   build_shared_libs_directly = true
 endif
+
+atkmm_build_dep = [glibmm_dep, atk_dep]
+atkmm_requires = ' '.join([
+  'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
+  'atk', atk_req,
+])
+
 
 # Some dependencies are required only in maintainer mode and/or if
 # reference documentation shall be built.
