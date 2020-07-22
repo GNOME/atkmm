@@ -20,25 +20,29 @@ vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\wrap_init.cc: $(atkmm_real_hg)
 # Generate pre-generated resources and configuration headers (builds from GIT)
 prep-git-build: pkg-ver.mak
 
-atkmm\atkmm.rc: pkg-ver.mak atkmm\atkmm.rc.in
-	@echo Generating $@...
-	@copy $@.in $@
-	@$(PERL) -pi.bak -e "s/\@ATKMM_MAJOR_VERSION\@/$(PKG_MAJOR_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\@ATKMM_MINOR_VERSION\@/$(PKG_MINOR_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\@ATKMM_MICRO_VERSION\@/$(PKG_MICRO_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\@PACKAGE_VERSION\@/$(PKG_MAJOR_VERSION).$(PKG_MINOR_VERSION).$(PKG_MICRO_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\@ATKMM_MODULE_NAME\@/atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)/g" $@
-	@del $@.bak
+atkmm\atkmm.rc: ..\configure.ac atkmm\atkmm.rc.in
+	@if not "$(DO_REAL_GEN)" == "1" if exist pkg-ver.mak del pkg-ver.mak
+	@if not exist pkg-ver.mak $(MAKE) /f Makefile.vc CFG=$(CFG) prep-git-build
+	@if "$(DO_REAL_GEN)" == "1" echo Generating $@...
+	@if "$(DO_REAL_GEN)" == "1" copy $@.in $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MAJOR_VERSION\@/$(PKG_MAJOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MINOR_VERSION\@/$(PKG_MINOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MICRO_VERSION\@/$(PKG_MICRO_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@PACKAGE_VERSION\@/$(PKG_MAJOR_VERSION).$(PKG_MINOR_VERSION).$(PKG_MICRO_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MODULE_NAME\@/atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" del $@.bak
 
 # You may change ATKMM_STATIC_LIB if you know what you are doing
-atkmm\atkmmconfig.h: pkg-ver.mak ..\atk\atkmmconfig.h.in
-	@echo Generating $@...
-	@copy ..\atk\$(@F).in $@
-	@$(PERL) -pi.bak -e "s/\#undef ATKMM_STATIC_LIB/\/\* \#undef ATKMM_STATIC_LIB \*\//g" $@
-	@$(PERL) -pi.bak -e "s/\#undef ATKMM_MAJOR_VERSION/\#define ATKMM_MAJOR_VERSION $(PKG_MAJOR_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\#undef ATKMM_MINOR_VERSION/\#define ATKMM_MINOR_VERSION $(PKG_MINOR_VERSION)/g" $@
-	@$(PERL) -pi.bak -e "s/\#undef ATKMM_MICRO_VERSION/\#define ATKMM_MICRO_VERSION $(PKG_MICRO_VERSION)/g" $@
-	@del $@.bak
+atkmm\atkmmconfig.h: ..\configure.ac ..\atk\atkmmconfig.h.in
+	@if not "$(DO_REAL_GEN)" == "1" if exist pkg-ver.mak del pkg-ver.mak
+	@if not exist pkg-ver.mak $(MAKE) /f Makefile.vc CFG=$(CFG) prep-git-build
+	@if "$(DO_REAL_GEN)" == "1" echo Generating $@...
+	@if "$(DO_REAL_GEN)" == "1" copy ..\atk\$(@F).in $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\#undef ATKMM_STATIC_LIB/\/\* \#undef ATKMM_STATIC_LIB \*\//g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\#undef ATKMM_MAJOR_VERSION/\#define ATKMM_MAJOR_VERSION $(PKG_MAJOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\#undef ATKMM_MINOR_VERSION/\#define ATKMM_MINOR_VERSION $(PKG_MINOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\#undef ATKMM_MICRO_VERSION/\#define ATKMM_MICRO_VERSION $(PKG_MICRO_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" del $@.bak
 
 pkg-ver.mak: ..\configure.ac
 	@echo Generating version info Makefile Snippet...
