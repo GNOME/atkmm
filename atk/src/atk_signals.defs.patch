@@ -1,0 +1,28 @@
+--- ./../atk/src/atk_signals.defs.orig	2020-08-30 15:10:52.445683000 +0200
++++ ./../atk/src/atk_signals.defs	2020-08-30 15:12:22.427058526 +0200
+@@ -24,11 +24,11 @@
+   (of-object "AtkObject")
+   (return-type "void")
+   (flags "Run Last")
+   (detailed #t)
+   (parameters
+-    '("gpointer" "p0")
++    '("AtkPropertyValues*" "p0")
+   )
+ )
+ 
+ (define-signal state-change
+   (of-object "AtkObject")
+@@ -51,11 +51,11 @@
+   (of-object "AtkObject")
+   (return-type "void")
+   (flags "Run Last")
+   (detailed #t)
+   (parameters
+-    '("gpointer" "p0")
++    '("gpointer*" "p0")
+   )
+ )
+ 
+ (define-property accessible-name
+   (of-object "AtkObject")
