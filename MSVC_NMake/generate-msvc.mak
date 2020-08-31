@@ -11,7 +11,7 @@ vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private:
 
 # Generate .def files
 vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def: $(GENDEF) vs$(VSVER)\$(CFG)\$(PLAT)\atkmm $(atkmm_OBJS)
-	vs$(VSVER)\$(CFG)\$(PLAT)\gendef.exe $@ $(ATKMM_LIBNAME) vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
+	vs$(VSVER)\$(CFG)\$(PLAT)\gendef.exe $@ $(ATKMM_DLLNAME).dll vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
 
 # Generate wrap_init.cc files
 vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\wrap_init.cc: $(atkmm_real_hg)
