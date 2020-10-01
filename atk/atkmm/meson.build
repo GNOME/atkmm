@@ -3,7 +3,7 @@
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
 #        python3, atkmm_rc, dummy_header_py, gmmproc_dir, build_shared_libs_directly,
-#        msvc14x_toolset_ver
+#        msvc14x_toolset_ver, macos_darwin_versions
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_dep
 
@@ -201,6 +201,7 @@ if build_shared_libs_directly
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
     version: atkmm_libversion,
+    darwin_versions: macos_darwin_versions,
     dependencies: atkmm_build_dep,
     install: true,
   )
@@ -232,6 +233,7 @@ else
   atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     objects: atk_int_lib.extract_all_objects(),
     version: atkmm_libversion,
+    darwin_versions: macos_darwin_versions,
     dependencies: atkmm_build_dep,
     link_depends: atkmm_def,
     link_args: atkmm_extra_link_args,
