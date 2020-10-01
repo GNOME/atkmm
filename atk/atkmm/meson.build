@@ -2,7 +2,8 @@
 
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
-#        python3, atkmm_rc, dummy_header_py, gmmproc_dir, msvc14x_toolset_ver
+#        python3, atkmm_rc, dummy_header_py, gmmproc_dir, msvc14x_toolset_ver,
+#        macos_darwin_versions
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_dep
 
@@ -150,6 +151,7 @@ if maintainer_mode
   atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     built_cc_file_targets, extra_cc_files, built_dummy_h_file_target,
     version: atkmm_libversion,
+    darwin_versions: macos_darwin_versions,
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
     dependencies: atkmm_build_dep,
@@ -193,6 +195,7 @@ else # not maintainer_mode
   atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     built_cc_files, extra_cc_files,
     version: atkmm_libversion,
+    darwin_versions: macos_darwin_versions,
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
     dependencies: atkmm_build_dep,
