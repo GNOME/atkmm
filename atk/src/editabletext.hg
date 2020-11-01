@@ -1,5 +1,3 @@
-/* $Id: editabletext.hg,v 1.2 2004/01/02 09:56:43 murrayc Exp $ */
-
 /* Copyright (C) 2002 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -33,12 +31,12 @@ extern "C"
 namespace Atk
 {
 
-//TODO: I see no evidence that AtkEditableText is actually a subclass of AtkText, as the C docs say. murrayc.
-/* The ATK interface implemented by components containing user-editable text content.
+/** The ATK interface implemented by components containing user-editable text content.
+ *
  * This should be implemented by UI components which contain text which the user can edit, via the Atk::Object
  * corresponding to that component (see Atk::Object).
- * EditableText is a subclass of AtkText, and as such, an object which implements EditableText is by definition
- * an Atk::Text implementor as well. 
+ *
+ * An object which implements %EditableText shall also implement Atk::Text.
  */
 class ATKMM_API EditableText : public Glib::Interface
 {
@@ -67,4 +65,3 @@ protected:
 };
 
 } // namespace Atk
-

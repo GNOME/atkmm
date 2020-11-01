@@ -1,6 +1,3 @@
-// -*- c++ -*-
-/* $Id: relation.ccg,v 1.2 2003/09/30 14:28:09 murrayc Exp $ */
-
 /* Copyright 1998-2002 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -26,7 +23,6 @@
 namespace Atk
 {
 
-//TODO: Implement this with the new GValue array thingy. See bug #74246.
 Relation::Relation(const Glib::ArrayHandle< Glib::RefPtr<Atk::Object> >& targets,
                    RelationType relationship)
 :
@@ -51,4 +47,3 @@ Glib::ArrayHandle< Glib::RefPtr<const Atk::Object> > Relation::get_target() cons
 }
 
 } // namespace Atk
-
