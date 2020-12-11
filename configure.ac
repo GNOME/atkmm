@@ -19,7 +19,7 @@
 # pkg-config name as before and is meant to be binary compatible.  Thus for the
 # time being, the version number cannot be brought in line with ATK, since that
 # would break compatibility.
-AC_INIT([atkmm], [2.29.1], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
+AC_INIT([atkmm], [2.35.1], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
         [atkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
 
@@ -36,7 +36,7 @@ AM_MAINTAINER_MODE
 AC_ARG_VAR([ACLOCAL_FLAGS], [aclocal flags, e.g. -I <macro dir>])
 
 MM_PREREQ([0.9.12])
-MM_INIT_MODULE([atkmm-2.30])
+MM_INIT_MODULE([atkmm-2.36])
 
 # Copy the mm-common .pl scripts into doc/, and use them from there,
 # so we can dist them to avoid a tarball-build dependency.
@@ -52,18 +52,18 @@ MM_AX_CXX_COMPILE_STDCXX([17], [noext], [mandatory])
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
 
-AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.66 >= 2.65.1'])
+AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.68 >= 2.67.1'])
 PKG_CHECK_MODULES([ATKMM], [$ATKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GTHREAD_CFLAGS], [--cflags-only-other gthread-2.0])
-MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.66])
+MM_PKG_CONFIG_SUBST([GMMPROC_DIR], [--variable=gmmprocdir glibmm-2.68])
 
 MM_ARG_DISABLE_DEPRECATED_API
 
 MM_ARG_ENABLE_DOCUMENTATION
 MM_ARG_WITH_TAGFILE_DOC([libstdc++.tag], [mm-common-libstdc++])
 MM_ARG_WITH_TAGFILE_DOC([libsigc++-3.0.tag], [sigc++-3.0])
-MM_ARG_WITH_TAGFILE_DOC([glibmm-2.66.tag], [glibmm-2.66])
+MM_ARG_WITH_TAGFILE_DOC([glibmm-2.68.tag], [glibmm-2.68])
 
 AC_LANG([C++])
 MM_ARG_ENABLE_WARNINGS([ATKMM_WXXFLAGS],

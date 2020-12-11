@@ -1,7 +1,7 @@
 # This file is part of atkmm.
 
 project('atkmm', 'cpp',
-  version: '2.29.1',
+  version: '2.35.1',
   license: 'LGPLv2.1+',
   default_options: [
     'cpp_std=c++17'
@@ -9,7 +9,7 @@ project('atkmm', 'cpp',
   meson_version: '>= 0.50.0', # required for python3.path()
 )
 
-atkmm_api_version = '2.30'
+atkmm_api_version = '2.36'
 atkmm_pcname = meson.project_name() + '-' + atkmm_api_version
 
 atkmm_version_array = meson.project_version().split('.')
@@ -95,7 +95,7 @@ install_pkgconfigdir = install_libdir / 'pkgconfig'
 
 # glibmm recently gained Meson build support, so we can try looking
 # for its pkg-config files on Visual Studio as well
-glibmm_req = '>= 2.65.1'
+glibmm_req = '>= 2.67.1'
 
 # Atk supported pkg-config files on MSVC files for a good while, so just use that
 atk_req = '>= 1.18.0'
@@ -103,7 +103,7 @@ atk_dep = dependency('atk', version: atk_req)
 
 # The -mm libraries do not yet have pkg-config files for MSVC builds,
 # so check for them manually
-glibmm_req_minor_ver = '66'
+glibmm_req_minor_ver = '68'
 
 glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req)
 

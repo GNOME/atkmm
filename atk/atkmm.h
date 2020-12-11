@@ -37,11 +37,26 @@
  * compilation, but suffices for this simple example. Assuming that your
  * program source file is @c program.cc, compile it with:
  * @code
- * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-2.30`
+ * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-2.36`
  * @endcode
+ * If your version of g++ is not C++17-compliant by default,
+ * add the @c -std=c++17 option.
+ *
+ * If you use <a href="https://mesonbuild.com/">Meson</a>, include the following
+ * in @c meson.build:
+ * @code
+ * atkmm_dep = dependency('atkmm-2.36')
+ * program_name = 'program'
+ * cpp_sources = [ 'program.cc' ]
+ * executable(program_name,
+ *   cpp_sources,
+ *   dependencies: [ atkmm_dep ]
+ * )
+ * @endcode
+ *
  * Alternatively, if using autoconf, use the following in @c configure.ac:
  * @code
- * PKG_CHECK_MODULES([ATKMM], [atkmm-2.30])
+ * PKG_CHECK_MODULES([ATKMM], [atkmm-2.36])
  * @endcode
  * Then use the generated @c ATKMM_CFLAGS and @c ATKMM_LIBS variables in
  * the project @c Makefile.am files. For example:

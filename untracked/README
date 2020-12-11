@@ -31,6 +31,6 @@ mm-common-get may copy more files, but they are not used by atkmm.
 untracked/atk/atkmm/*.h
                     *.cc
                     private/*_p.h
-untracked/doc/reference/atkmm-2.30.devhelp2
-                        atkmm-2.30.tag
+untracked/doc/reference/atkmm-2.36.devhelp2
+                        atkmm-2.36.tag
                         html/*
