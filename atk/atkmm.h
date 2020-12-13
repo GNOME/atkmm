@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /* atkmm - a C++ wrapper for the GLib toolkit
  *
  * Copyright 2002 The gtkmm Development Team
@@ -41,6 +39,21 @@
  * @code
  * g++ program.cc -o program  `pkg-config --cflags --libs atkmm-1.6`
  * @endcode
+ * If your version of g++ is not C++11-compliant by default,
+ * add the @c -std=c++11 option.
+ *
+ * If you use <a href="https://mesonbuild.com/">Meson</a>, include the following
+ * in @c meson.build:
+ * @code
+ * atkmm_dep = dependency('atkmm-1.6')
+ * program_name = 'program'
+ * cpp_sources = [ 'program.cc' ]
+ * executable(program_name,
+ *   cpp_sources,
+ *   dependencies: [ atkmm_dep ]
+ * )
+ * @endcode
+ *
  * Alternatively, if using autoconf, use the following in @c configure.ac:
  * @code
  * PKG_CHECK_MODULES([ATKMM], [atkmm-1.6])
