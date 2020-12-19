@@ -171,6 +171,8 @@
 ;;   ATK_ROLE_FOOTNOTE,
 ;;   ATK_ROLE_CONTENT_DELETION,
 ;;   ATK_ROLE_CONTENT_INSERTION,
+;;   ATK_ROLE_MARK,
+;;   ATK_ROLE_SUGGESTION,
 ;;   ATK_ROLE_LAST_DEFINED
 ;; } AtkRole;
 
@@ -303,7 +305,9 @@
     '("footnote" "ATK_ROLE_FOOTNOTE" "122")
     '("content-deletion" "ATK_ROLE_CONTENT_DELETION" "123")
     '("content-insertion" "ATK_ROLE_CONTENT_INSERTION" "124")
-    '("last-defined" "ATK_ROLE_LAST_DEFINED" "125")
+    '("mark" "ATK_ROLE_MARK" "125")
+    '("suggestion" "ATK_ROLE_SUGGESTION" "126")
+    '("last-defined" "ATK_ROLE_LAST_DEFINED" "127")
   )
 )
 
@@ -528,6 +532,7 @@
 ;;   ATK_TEXT_ATTR_STRETCH,
 ;;   ATK_TEXT_ATTR_VARIANT,
 ;;   ATK_TEXT_ATTR_STYLE,
+;;   ATK_TEXT_ATTR_TEXT_POSITION,
 ;;   ATK_TEXT_ATTR_LAST_DEFINED
 ;; } AtkTextAttribute;
 
@@ -563,7 +568,8 @@
     '("stretch" "ATK_TEXT_ATTR_STRETCH" "25")
     '("variant" "ATK_TEXT_ATTR_VARIANT" "26")
     '("style" "ATK_TEXT_ATTR_STYLE" "27")
-    '("last-defined" "ATK_TEXT_ATTR_LAST_DEFINED" "28")
+    '("text-position" "ATK_TEXT_ATTR_TEXT_POSITION" "28")
+    '("last-defined" "ATK_TEXT_ATTR_LAST_DEFINED" "29")
   )
 )
 

@@ -344,6 +344,8 @@
     '("footnote" "ATK_ROLE_FOOTNOTE")
     '("content-deletion" "ATK_ROLE_CONTENT_DELETION")
     '("content-insertion" "ATK_ROLE_CONTENT_INSERTION")
+    '("mark" "ATK_ROLE_MARK")
+    '("suggestion" "ATK_ROLE_SUGGESTION")
     '("last-defined" "ATK_ROLE_LAST_DEFINED")
   )
 )
@@ -479,6 +481,7 @@
     '("stretch" "ATK_TEXT_ATTR_STRETCH")
     '("variant" "ATK_TEXT_ATTR_VARIANT")
     '("style" "ATK_TEXT_ATTR_STYLE")
+    '("text-position" "ATK_TEXT_ATTR_TEXT_POSITION")
     '("last-defined" "ATK_TEXT_ATTR_LAST_DEFINED")
   )
 )
@@ -637,6 +640,10 @@
     '("gint" "i")
   )
 )
+
+
+
+;; From atk-autocleanups.h
 
 
 
@@ -1483,6 +1490,15 @@
   (return-type "AtkObject*")
 )
 
+(define-method set_child
+  (of-object "AtkPlug")
+  (c-name "atk_plug_set_child")
+  (return-type "none")
+  (parameters
+    '("AtkObject*" "child")
+  )
+)
+
 (define-method get_id
   (of-object "AtkPlug")
   (c-name "atk_plug_get_id")
@@ -1830,7 +1846,7 @@
   (c-name "atk_socket_embed")
   (return-type "none")
   (parameters
-    '("gchar*" "plug_id")
+    '("const-gchar*" "plug_id")
   )
 )
 
