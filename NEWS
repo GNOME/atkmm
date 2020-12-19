@@ -1,3 +1,37 @@
+atkmm 2.36.0 (stable):
+
+This is the first stable release in the atkmm-2.36 ABI series.
+It is parallel-installable with the atkmm-1.6 ABI.
+
+The tarball for 2.36.0 has been created with 'meson dist'.
+If you build with Autotools from the tarball, please read the relevant
+part of the README file.
+
+* Object: Add get_object_locale(), get/set_accessible_id(),
+  property_accessible_table_caption_object() and
+  property_accessible_hypertext_nlinks().
+* Text: Add signal_text_insert() and signal_text_remove().
+* Value: Add signal_value_changed().
+  (Kjell Ahlstedt)
+* Hyperlink, Object: Remove deprecated properties
+  (Kjell Ahlstedt)
+
+Build:
+* Use glibmm-2.68 instead of glibmm-2.60
+  (Kjell Ahlstedt)
+* Improve NMake support
+  (Chun-wei Fan)
+* Use __declspec(dllexport) when building with Visual Studio
+  Drop gendef.exe
+  (Chun-wei Fan) Merge request !4
+* Add Meson support
+  (Chun-wei Fan, Kjell Ahlstedt) Merge request !7
+* doc/reference/: Update for Doxygen >= 1.8.16
+  (Kjell Ahlstedt)
+* Change the ABI to atkmm-2.36
+  (Kjell Ahlstedt)
+
+
 atkmm 2.29.1 (unstable):
 Distro packagers should probably not package this yet.
 

@@ -1,7 +1,7 @@
 # This file is part of atkmm.
 
 project('atkmm', 'cpp',
-  version: '2.35.1',
+  version: '2.36.0',
   license: 'LGPLv2.1+',
   default_options: [
     'cpp_std=c++17'
@@ -95,7 +95,7 @@ install_pkgconfigdir = install_libdir / 'pkgconfig'
 
 # glibmm recently gained Meson build support, so we can try looking
 # for its pkg-config files on Visual Studio as well
-glibmm_req = '>= 2.67.1'
+glibmm_req = '>= 2.68.0'
 
 # Atk supported pkg-config files on MSVC files for a good while, so just use that
 atk_req = '>= 1.18.0'
