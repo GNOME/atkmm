@@ -58,6 +58,7 @@ install_headers('..' / 'atkmm.h', subdir: atkmm_pcname)
 install_headers(extra_h_files, subdir: atkmm_pcname / 'atkmm')
 
 untracked_atkmm = 'untracked' / 'atk' / 'atkmm'
+rel_untracked_atkmm = '..' / '..' / untracked_atkmm
 src_untracked_atkmm = project_source_root / untracked_atkmm
 
 atkmm_cpp_args = [ '-DATKMM_BUILD=1' ]
@@ -170,9 +171,9 @@ else # not maintainer_mode
     hg_ccg_basenames,
   )
 
-  built_cc_files = [ src_untracked_atkmm / 'wrap_init.cc' ]
+  built_cc_files = [ rel_untracked_atkmm / 'wrap_init.cc' ]
   foreach file : hg_ccg_basenames
-    built_cc_files += src_untracked_atkmm / file + '.cc'
+    built_cc_files += rel_untracked_atkmm / file + '.cc'
   endforeach
 
   atk_gen_sources = built_cc_files
