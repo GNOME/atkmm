@@ -28,8 +28,10 @@
 #ifdef ATKMM_DLL
 # ifdef ATKMM_BUILD
 #  define ATKMM_API __declspec(dllexport)
-# else
+# elif !defined (__GNUC__)
 #  define ATKMM_API __declspec(dllimport)
+# else /* don't dllimport classes/methods on GCC/MinGW */
+#  define ATKMM_API
 # endif
 #else
 # define ATKMM_API
