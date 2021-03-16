@@ -6,7 +6,8 @@ project('atkmm', 'cpp',
   default_options: [
     'cpp_std=c++17'
   ],
-  meson_version: '>= 0.50.0', # required for python3.path()
+  meson_version: '>= 0.54.0', # required for meson.override_dependency()
+                              # and dep.get_variable(internal:)
 )
 
 atkmm_api_version = '2.36'
@@ -100,7 +101,6 @@ glibmm_req = '>= 2.68.0'
 # Atk supported pkg-config files on MSVC files for a good while, so just use that
 atk_req = '>= 1.18.0'
 atk_dep = dependency('atk', version: atk_req)
-
 # The -mm libraries do not yet have pkg-config files for MSVC builds,
 # so check for them manually
 glibmm_req_minor_ver = '68'
@@ -127,7 +127,7 @@ dot = find_program('dot', required: build_documentation) # Used by Doxygen
 xsltproc = find_program('xsltproc', required: build_documentation)
 
 # Where to find gmmproc and generate_wrap_init.pl.
-gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
+gmmproc_dir = glibmm_dep.get_variable(pkgconfig: 'gmmprocdir', internal: 'gmmprocdir')
 
 # Script files copied to 'untracked' by mm-common-get.
 script_dir = project_source_root / 'untracked' / 'build_scripts'
@@ -232,6 +232,20 @@ if not meson.is_subproject()
     project_source_root,
     'untracked' / 'build_scripts',
   )
+else
+  # This is a subproject.
+  atkmm_dep = declare_dependency(
+    dependencies: atkmm_own_dep,
+    variables: {
+      'gmmprocm4dir': project_source_root / 'codegen' / 'm4',
+      'doxytagfile': tag_file.full_path(),
+      'htmlrefdir': install_prefix / install_docdir / 'reference' / 'html',
+      'htmlrefpub': 'http://library.gnome.org/devel/' + pkg_conf_data.get_unquoted('PACKAGE_TARNAME') + '/unstable/'
+    }
+  )
+
+  # A main project that looks for atkmm_pcname.pc shall find atkmm_dep.
+  meson.override_dependency(atkmm_pcname, atkmm_dep)
 endif
 
 # Print a summary.

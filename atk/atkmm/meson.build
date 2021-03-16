@@ -5,7 +5,7 @@
 #        python3, atkmm_rc, dummy_header_py, gmmproc_dir, msvc14x_toolset_ver,
 #        macos_darwin_versions
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
-#         atkmm_dep
+#         atkmm_own_dep
 
 defs_basefiles = [
   'atk.defs',
@@ -225,9 +225,9 @@ if not meson.is_subproject()
   )
 endif
 
-# This is useful in the main project when atkmm is used as a subproject.
+# This is part of atkmm_dep, when atkmm is a subproject.
 # It can also be used if there are example programs and test programs to build.
-atkmm_dep = declare_dependency(
+atkmm_own_dep = declare_dependency(
   sources: built_h_file_targets,
   link_with: atkmm_library,
   include_directories: extra_include_dirs,

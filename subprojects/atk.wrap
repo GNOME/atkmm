@@ -1,0 +1,8 @@
+[wrap-git]
+directory=atk
+url=https://gitlab.gnome.org/GNOME/atk.git
+revision=master
+depth=1
+
+[provide]
+atk = libatk_dep
