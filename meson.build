@@ -6,7 +6,8 @@ project('atkmm', 'cpp',
   default_options: [
     'cpp_std=c++11'
   ],
-  meson_version: '>= 0.50.0', # required for python3.path()
+  meson_version: '>= 0.54.0', # required for meson.override_dependency()
+                              # and dep.get_variable(internal:)
 )
 
 atkmm_api_version = '1.6'
@@ -107,7 +108,8 @@ glibmm_req_minor_ver = '4'
 
 glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req)
 
-gmmproc_dir = glibmm_dep.get_pkgconfig_variable('gmmprocdir')
+# Where to find gmmproc and generate_wrap_init.pl.
+gmmproc_dir = glibmm_dep.get_variable(pkgconfig: 'gmmprocdir', internal: 'gmmprocdir')
 
 if is_msvc
   # Check whether we compile atkmm without using gendef
@@ -266,6 +268,20 @@ if not meson.is_subproject()
     project_source_root,
     'untracked' / 'build_scripts',
   )
+else
+  # This is a subproject.
+  atkmm_dep = declare_dependency(
+    dependencies: atkmm_own_dep,
+    variables: {
+      'gmmprocm4dir': project_source_root / 'codegen' / 'm4',
+      'doxytagfile': tag_file.full_path(),
+      'htmlrefdir': install_prefix / install_docdir / 'reference' / 'html',
+      'htmlrefpub': 'http://library.gnome.org/devel/' + pkg_conf_data.get_unquoted('PACKAGE_TARNAME') + '/unstable/'
+    }
+  )
+
+  # A main project that looks for atkmm_pcname.pc shall find atkmm_dep.
+  meson.override_dependency(atkmm_pcname, atkmm_dep)
 endif
 
 # Print a summary.

@@ -5,7 +5,7 @@
 #        python3, atkmm_rc, dummy_header_py, gmmproc_dir, build_shared_libs_directly,
 #        msvc14x_toolset_ver, macos_darwin_versions
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
-#         atkmm_dep
+#         atkmm_own_dep
 
 defs_basefiles = [
   'atk.defs',
@@ -199,6 +199,7 @@ atkmm_libname = meson.project_name() + msvc14x_toolset_ver + '-' + atkmm_api_ver
 if build_shared_libs_directly
   atkmm_library = library(atkmm_libname, extra_atkmm_objects,
     atk_gen_sources, built_dummy_h_file_target, extra_cc_files,
+    implicit_include_directories: false,
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
     version: atkmm_libversion,
@@ -213,6 +214,7 @@ else
   # needed for obtaining the .lib file for the atkmm DLL
   atk_int_lib = static_library('atkmm-int',
     atk_gen_sources, built_dummy_h_file_target, extra_cc_files,
+    implicit_include_directories: false,
     include_directories: extra_include_dirs,
     cpp_args: atkmm_cpp_args,
     dependencies: atkmm_build_dep,
@@ -235,6 +237,7 @@ else
     objects: atk_int_lib.extract_all_objects(),
     version: atkmm_libversion,
     darwin_versions: macos_darwin_versions,
+    implicit_include_directories: false,
     dependencies: atkmm_build_dep,
     link_depends: atkmm_def,
     link_args: atkmm_extra_link_args,
@@ -261,9 +264,9 @@ if not meson.is_subproject()
   )
 endif
 
-# This is useful in the main project when atkmm is used as a subproject.
+# This is part of atkmm_dep, when atkmm is a subproject.
 # It can also be used if there are example programs and test programs to build.
-atkmm_dep = declare_dependency(
+atkmm_own_dep = declare_dependency(
   sources: built_h_file_targets,
   link_with: atkmm_library,
   include_directories: extra_include_dirs,

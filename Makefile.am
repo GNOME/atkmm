@@ -61,6 +61,8 @@ EXTRA_DIST = \
   atk/atkmmconfig.h.meson \
   codegen/dummy-header.py \
   codegen/extradefs/meson.build \
+  subprojects/atk.wrap \
+  subprojects/glibmm-2.4.wrap \
   untracked/README
 
 # Auto-generate the ChangeLog file from the git log on make dist
