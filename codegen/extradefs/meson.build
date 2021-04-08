@@ -16,6 +16,7 @@ endif
 
 executable('generate_extra_defs', 'generate_extra_defs_atk.cc',
   dependencies: [atkmm_build_dep, glibmm_generate_extra_defs_dep],
+  implicit_include_directories: false,
   install: false,
 )
 
