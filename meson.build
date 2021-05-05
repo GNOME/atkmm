@@ -212,15 +212,17 @@ if is_msvc
   endforeach
 endif
 
+# add_dist_script() is not allowed in a subproject if meson.version() < 0.58.0.
+can_add_dist_script = not meson.is_subproject() or meson.version().version_compare('>= 0.58.0')
+
 subdir('codegen/extradefs')
 subdir('atk')
 subdir('MSVC_NMake/atkmm')
 subdir('atk/atkmm')
 subdir('doc/reference')
 
-if not meson.is_subproject()
+if can_add_dist_script
   # Add a ChangeLog file to the distribution directory.
-  # (add_dist_script() is not allowed in a subproject)
   meson.add_dist_script(
     python3.path(), dist_changelog_py,
     project_source_root,
@@ -232,8 +234,9 @@ if not meson.is_subproject()
     project_source_root,
     'untracked' / 'build_scripts',
   )
-else
-  # This is a subproject.
+endif
+
+if meson.is_subproject()
   atkmm_dep = declare_dependency(
     dependencies: atkmm_own_dep,
     variables: {
