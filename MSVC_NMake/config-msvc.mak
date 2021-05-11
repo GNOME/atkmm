@@ -30,9 +30,7 @@ ATKMM_BASE_CFLAGS =		\
 	/Ivs$(VSVER)\$(CFG)\$(PLAT)	\
 	/I..\untracked\atk	\
 	/I..\atk /I.\atkmm	\
-	/wd4530 /wd4251	\
-	/wd4275 /std:c++17	\
-	/utf-8	\
+	/std:c++17 /utf-8 /EHsc	\
 	/FImsvc_recommended_pragmas.h
 
 ATKMM_EXTRA_INCLUDES =	\
