@@ -268,7 +268,7 @@ if can_add_dist_script
     project_source_root,
   )
   # Add build scripts to the distribution directory, and delete .gitignore
-  # files and an empty $MESON_DIST_ROOT/build/ directory.
+  # files and an empty $MESON_PROJECT_DIST_ROOT/build/ directory.
   meson.add_dist_script(
     python3.path(), dist_build_scripts_py,
     project_source_root,
@@ -284,6 +284,8 @@ if meson.is_subproject()
   }
   if build_documentation
     pkgconfig_vars += {'doxytagfile': tag_file.full_path()}
+    # May be used in a main project.
+    global_tag_file_target = tag_file
   endif
   atkmm_dep = declare_dependency(
     dependencies: atkmm_own_dep,
