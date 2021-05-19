@@ -280,7 +280,7 @@ if meson.is_subproject()
   pkgconfig_vars = {
     'gmmprocm4dir': project_source_root / 'codegen' / 'm4',
     'htmlrefdir': install_prefix / install_docdir / 'reference' / 'html',
-    'htmlrefpub': 'http://library.gnome.org/devel/' + pkg_conf_data.get_unquoted('PACKAGE_TARNAME') + '/unstable/'
+    'htmlrefpub': 'http://library.gnome.org/devel/' + pkg_conf_data.get_unquoted('PACKAGE_TARNAME') + '/2.28/'
   }
   if build_documentation
     pkgconfig_vars += {'doxytagfile': tag_file.full_path()}

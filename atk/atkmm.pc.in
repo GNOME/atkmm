@@ -10,7 +10,7 @@ gmmprocm4dir=${libdir}/@ATKMM_MODULE_NAME@/proc/m4
 docdir=${datarootdir}/doc/@ATKMM_MODULE_NAME@
 doxytagfile=${docdir}/reference/@ATKMM_MODULE_NAME@.tag
 htmlrefdir=${docdir}/reference/html
-htmlrefpub=http://library.gnome.org/devel/@PACKAGE_TARNAME@/unstable/
+htmlrefpub=http://library.gnome.org/devel/@PACKAGE_TARNAME@/2.28/
 
 Name: atkmm
 Description: C++ binding for the ATK accessibility toolkit
