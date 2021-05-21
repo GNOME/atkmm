@@ -1,7 +1,7 @@
 # This file is part of atkmm.
 
 project('atkmm', 'cpp',
-  version: '2.28.1',
+  version: '2.28.2',
   license: 'LGPLv2.1+',
   default_options: [
     'cpp_std=c++11'
