@@ -169,7 +169,9 @@ msvc14x_toolset_ver = ''
 
 if is_msvc
   if use_msvc14x_toolset_ver
-    if cpp_compiler.version().version_compare('>=19.20')
+    if cpp_compiler.version().version_compare('>=19.30')
+      msvc14x_toolset_ver = '-vc143'
+    elif cpp_compiler.version().version_compare('>=19.20')
       msvc14x_toolset_ver = '-vc142'
     elif cpp_compiler.version().version_compare('>=19.10')
       msvc14x_toolset_ver = '-vc141'
