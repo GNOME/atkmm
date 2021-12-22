@@ -20,12 +20,13 @@
 #ifndef _ATKMM_H
 #define _ATKMM_H
 
-
 /** @mainpage atkmm Reference Manual
  *
  * @section description Description
  *
- * atkmm is the official C++ interface for the <a href="http://library.gnome.org/devel/atk/stable/">ATK</a> accessibility toolkit library. It may be used, for instance, by user interfaces implemented with gtkmm.
+ * atkmm is the official C++ interface for the
+ * <a href="http://library.gnome.org/devel/atk/stable/">ATK</a>
+ * accessibility toolkit library.
  *
  * @section basics Basic usage
  *
