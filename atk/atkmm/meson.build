@@ -169,6 +169,7 @@ else # not maintainer_mode
     meson.current_build_dir(),
     src_untracked_atkmm,
     hg_ccg_basenames,
+    check: true,
   )
 
   built_cc_files = [ rel_untracked_atkmm / 'wrap_init.cc' ]
