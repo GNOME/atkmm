@@ -53,17 +53,17 @@ build_deps:
     - git clone --branch 3.0.7 --depth 1 https://github.com/libsigcplusplus/libsigcplusplus.git libsigc
     - cd libsigc
     - mkdir _build && cd _build
-    - meson --prefix=/usr --libdir=lib -Dwarnings=fatal -Dbuild-examples=false -Dbuildtype=release
+    - meson --prefix=/usr --libdir=lib -Dbuild-examples=false -Dbuildtype=release
     - meson compile
     - meson install
     - cd ../..
     - fi
     # Build glibmm-2.68
     - if test ! -d glibmm; then
-    - git clone --branch 2.68.1 --depth 1 https://gitlab.gnome.org/GNOME/glibmm.git glibmm
+    - git clone --branch 2.70.0 --depth 1 https://gitlab.gnome.org/GNOME/glibmm.git glibmm
     - cd glibmm
     - mkdir _build && cd _build
-    - meson --prefix=/usr --libdir=lib -Dwarnings=fatal -Dbuild-examples=false -Dbuildtype=release
+    - meson --prefix=/usr --libdir=lib -Dbuild-examples=false -Dbuildtype=release
     - meson compile
     - cd ../..
     - fi
