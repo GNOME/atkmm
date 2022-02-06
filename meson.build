@@ -6,8 +6,8 @@ project('atkmm', 'cpp',
   default_options: [
     'cpp_std=c++17'
   ],
-  meson_version: '>= 0.54.0', # required for meson.override_dependency()
-                              # and dep.get_variable(internal:)
+  meson_version: '>= 0.55.0', # required for meson.add_dist_script(python3, ...)
+                              # and meson.add_install_script(python3, ...)
 )
 
 atkmm_api_version = '2.36'
@@ -232,13 +232,13 @@ subdir('doc/reference')
 if can_add_dist_script
   # Add a ChangeLog file to the distribution directory.
   meson.add_dist_script(
-    python3.path(), dist_changelog_py,
+    python3, dist_changelog_py,
     project_source_root,
   )
   # Add build scripts to the distribution directory, and delete .gitignore
   # files and an empty $MESON_PROJECT_DIST_ROOT/build/ directory.
   meson.add_dist_script(
-    python3.path(), dist_build_scripts_py,
+    python3, dist_build_scripts_py,
     project_source_root,
     'untracked' / 'build_scripts',
   )
