@@ -44,7 +44,7 @@ project_build_root = meson.current_build_dir()
 
 cpp_compiler = meson.get_compiler('cpp')
 is_msvc = cpp_compiler.get_id() == 'msvc'
-python3 = import('python').find_installation('python3')
+python3 = import('python').find_installation()
 
 python_version = python3.language_version()
 python_version_req = '>= 3.5'
@@ -198,7 +198,7 @@ if is_msvc
 
   # Enable __declspec(dllexport) if the atkmm headers generated from the .hg files
   # were generated using a recent enough gmmproc
-  build_shared_libs_directly = run_command(check_gmmproc_ver_cmd).returncode() == 0
+  build_shared_libs_directly = run_command(check_gmmproc_ver_cmd, check: false).returncode() == 0
   message('Using __declspec(dllexport) to build atkmm: @0@'.format(build_shared_libs_directly ? 'YES' : 'NO'))
 
   if use_msvc14x_toolset_ver
