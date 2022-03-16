@@ -75,6 +75,14 @@ build_deps:
       - libsigc/
       - glibmm/
     policy: pull-push
+  # Transfer the built dependencies to later stages as artifacts.
+  # The cache does not always work.
+  # https://gitlab.gnome.org/Infrastructure/Infrastructure/-/issues/775
+  artifacts:
+    paths:
+      - libsigc/
+      - glibmm/
+    expire_in: 1 day
 
 release_gcc_build:
   extends: .build_default
@@ -90,12 +98,6 @@ release_gcc_build:
     - meson compile
     - meson test
     - meson install
-  cache:
-    key: build-deps
-    paths:
-      - libsigc/
-      - glibmm/
-    policy: pull
   artifacts:
     when: always
     paths:
@@ -116,12 +118,6 @@ release_clang_build:
     - meson test
     - meson install
   allow_failure: true
-  cache:
-    key: build-deps
-    paths:
-      - libsigc/
-      - glibmm/
-    policy: pull
   artifacts:
     when: on_failure
     paths:
