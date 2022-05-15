@@ -1,6 +1,6 @@
-# 2022-02-27: ubuntu:latest = 20.04, ubuntu:rolling = 21.10, ubuntu:devel = 22.04
+# 2022-05-11: ubuntu:latest = 22.04, ubuntu:rolling = 22.04, ubuntu:devel = 22.10
 # See https://hub.docker.com/_/ubuntu
-image: ubuntu:devel
+image: ubuntu:rolling
 
 stages:
   - deps
@@ -47,7 +47,7 @@ build_deps:
   extends: .build_default
   stage: deps
   variables:
-    DEPENDENCIES: $MESON_GCC_DEPS
+    DEPENDENCIES: $MESON_GCC_DEPS docbook5-xml docbook-xsl
   script:
     # Build and cache dependencies that can't be installed with apt.
     # Install to ./installdir, with the contents of the installed files
@@ -66,7 +66,7 @@ build_deps:
     - cp -r installdir/usr /
     # Build glibmm-2.68
     - if test ! -d glibmm; then
-    - git clone --branch 2.70.0 --depth 1 https://gitlab.gnome.org/GNOME/glibmm.git glibmm
+    - git clone --branch 2.72.1 --depth 1 https://gitlab.gnome.org/GNOME/glibmm.git glibmm
     - cd glibmm
     - mkdir _build && cd _build
     - meson --prefix=/usr --libdir=lib -Dbuild-examples=false -Dbuildtype=release
@@ -97,7 +97,7 @@ release_gcc_build:
     - cp -r installdir/usr /
     - mkdir _build && cd _build
     # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
-    - meson --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal
+    - meson --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal -Dwarning_level=3 -Dwerror=true
     - meson compile
     - meson test
     - meson install
@@ -115,7 +115,7 @@ release_clang_build:
     - cp -r installdir/usr /
     - mkdir _build && cd _build
     # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
-    - CC=clang CXX=clang++ meson --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal
+    - CC=clang CXX=clang++ meson --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal -Dwarning_level=3 -Dwerror=true
     - meson compile
     - meson test
     - meson install
