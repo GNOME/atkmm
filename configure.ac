@@ -52,7 +52,7 @@ MM_AX_CXX_COMPILE_STDCXX([17], [noext], [mandatory])
 AC_DISABLE_STATIC
 LT_INIT([win32-dll])
 
-AC_SUBST([ATKMM_MODULES], ['atk >= 1.18 glibmm-2.68 >= 2.68.0'])
+AC_SUBST([ATKMM_MODULES], ['atk >= 2.33.3 glibmm-2.68 >= 2.68.0'])
 PKG_CHECK_MODULES([ATKMM], [$ATKMM_MODULES])
 
 MM_PKG_CONFIG_SUBST([GTHREAD_CFLAGS], [--cflags-only-other gthread-2.0])
