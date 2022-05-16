@@ -102,7 +102,7 @@ install_pkgconfigdir = install_libdir / 'pkgconfig'
 glibmm_req = '>= 2.46.2'
 
 # Atk supported pkg-config files on MSVC files for a good while, so just use that
-atk_req = '>= 1.18.0'
+atk_req = '>= 2.12.0'
 atk_dep = dependency('atk', version: atk_req)
 
 # The -mm libraries do not yet have pkg-config files for MSVC builds,
