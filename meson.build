@@ -197,7 +197,6 @@ use_msvc14x_toolset_ver = get_option('msvc14x-parallel-installable')
 msvc14x_toolset_ver = ''
 
 if is_msvc
-  add_project_arguments(cpp_compiler.get_supported_arguments([ '/utf-8', '/wd4828']), language: 'cpp')
 
   # Check for the first line in a file generated with gmmproc,
   # to see which gmmproc version was used
@@ -267,7 +266,7 @@ add_project_arguments(warning_flags, language: 'cpp')
 # MSVC: Ignore warnings that aren't really harmful, but make those
 #       that should not be overlooked stand out.
 if is_msvc
-  foreach wd : ['/FImsvc_recommended_pragmas.h', '/wd4267', '/EHsc']
+  foreach wd : ['/FImsvc_recommended_pragmas.h', '/utf-8', '/wd4267', '/EHsc']
     disabled_warning = cpp_compiler.get_supported_arguments(wd)
     add_project_arguments(disabled_warning, language: 'cpp')
   endforeach
