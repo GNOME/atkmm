@@ -52,15 +52,14 @@ gen_methods="$GMMPROC_GEN_SOURCE_DIR/glibmm-2.4/tools/defs_gen/h2def.py"
 gen_enums="$GMMPROC_GEN_SOURCE_DIR/glibmm-2.4/tools/enum.pl"
 
 # Where to find the executable that generates extra defs (signals and properties).
-# atkmm-1.6 is built with autotools.
-# autotools support, but don't require, non-source-dir builds.
+# atkmm-1.6 is built with meson or autotools. Don't require, non-source-dir builds.
 extra_defs_gen_dir="$GMMPROC_GEN_BUILD_DIR/atkmm-1.6/codegen/extradefs"
 
-source_prefix="$GMMPROC_GEN_SOURCE_DIR/atk"
-build_prefix="$GMMPROC_GEN_BUILD_DIR/atk"
+source_prefix="$GMMPROC_GEN_SOURCE_DIR/at-spi2-core"
+build_prefix="$GMMPROC_GEN_BUILD_DIR/at-spi2-core"
 if [ "$source_prefix" == "$build_prefix" ]; then
   # atk is built with meson, which requires non-source-dir builds.
-  # This is what jhbuild does, if neccesary, to force non-source-dir builds.
+  # This is what jhbuild does, if necessary, to force non-source-dir builds.
   build_prefix="$build_prefix/build"
 fi
 
