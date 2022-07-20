@@ -36,7 +36,7 @@ files used by Autotools.
   $ cd your_builddir
 ```
 If the tarball was made with Autotools, you must enable maintainer-mode:
-```  
+```
   $ meson configure -Dmaintainer-mode=true
 ```
 
@@ -52,7 +52,7 @@ If the tarball was made with Autotools:
   $ ./configure --prefix=/some_directory
 ```
 If the tarball was made with Meson, you must enable maintainer-mode:
-```  
+```
   $ ./autogen.sh --prefix=/some_directory
 ```
 Then, regardless of how the tarball was made:
@@ -66,8 +66,9 @@ Building from git can be difficult so you should prefer building from
 a release tarball unless you need to work on the atkmm code itself.
 
 jhbuild can be a good help
-  https://gitlab.gnome.org/GNOME/jhbuild
-  https://wiki.gnome.org/Projects/Jhbuild
+- https://gitlab.gnome.org/GNOME/jhbuild
+- https://wiki.gnome.org/Projects/Jhbuild
+- https://gnome.pages.gitlab.gnome.org/jhbuild
 
 ### Building from git with Meson
 
@@ -82,8 +83,8 @@ files used by Autotools.
   $ ninja install
 ```
 You can create a tarball like so:
-``` 
- $ ninja dist
+```
+  $ ninja dist
 ```
 ### Building from git with Autotools
 ```
