@@ -19,7 +19,7 @@
 # pkg-config name as before and is meant to be binary compatible.  Thus for the
 # time being, the version number cannot be brought in line with ATK, since that
 # would break compatibility.
-AC_INIT([atkmm], [2.28.2], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
+AC_INIT([atkmm], [2.28.3], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
         [atkmm], [http://www.gtkmm.org/])
 AC_PREREQ([2.59])
 
