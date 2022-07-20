@@ -66,8 +66,9 @@ Building from git can be difficult so you should prefer building from
 a release tarball unless you need to work on the atkmm code itself.
 
 jhbuild can be a good help
-  https://gitlab.gnome.org/GNOME/jhbuild
-  https://wiki.gnome.org/Projects/Jhbuild
+- https://gitlab.gnome.org/GNOME/jhbuild
+- https://wiki.gnome.org/Projects/Jhbuild
+- https://gnome.pages.gitlab.gnome.org/jhbuild
 
 ### Building from git with Meson
 
@@ -83,7 +84,7 @@ files used by Autotools.
 ```
 You can create a tarball like so:
 ```
- $ ninja dist
+  $ ninja dist
 ```
 ### Building from git with Autotools
 ```
