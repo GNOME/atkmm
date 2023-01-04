@@ -1,6 +1,6 @@
 # MSVC_NMake/atkmm
 
-# Input: pkg_conf_data, atkmmconfig_h
+# Input: pkg_conf_data, atkmmconfig_h_meson
 # Output: atkmm_rc
 
 atkmm_rc = configure_file(
@@ -9,9 +9,9 @@ atkmm_rc = configure_file(
   configuration: pkg_conf_data,
 )
 
-# Copy the generated configuration header into the MSVC project directory.
+# Make a copy of the generated configuration header in the MSVC project directory.
 configure_file(
-  input: atkmmconfig_h,
+  input: atkmmconfig_h_meson,
   output: 'atkmmconfig.h',
-  copy: true,
+  configuration: pkg_conf_data,
 )
