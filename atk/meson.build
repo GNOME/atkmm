@@ -5,7 +5,7 @@
 #        install_pkgconfigdir, install_libdir, build_deprecated_api,
 #        atkmm_major_version, atkmm_minor_version, atkmm_micro_version,
 #        msvc14x_toolset_ver
-# Output: pkg_conf_data, install_includeconfigdir, atkmmconfig_h
+# Output: pkg_conf_data, install_includeconfigdir, atkmmconfig_h_meson
 
 pkg_conf_data = configuration_data()
 pkg_conf_data.set('prefix', install_prefix)
@@ -53,9 +53,10 @@ configure_file(
   configuration: pkg_conf_data,
 )
 
+atkmmconfig_h_meson = files('atkmmconfig.h.meson')
 install_includeconfigdir = install_libdir / atkmm_pcname / 'include'
-atkmmconfig_h = configure_file(
-  input: 'atkmmconfig.h.meson',
+configure_file(
+  input: atkmmconfig_h_meson,
   output: 'atkmmconfig.h',
   configuration: pkg_conf_data,
   install_dir: install_includeconfigdir,
