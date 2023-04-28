@@ -25,7 +25,7 @@
  * @section description Description
  *
  * atkmm is the official C++ interface for the
- * <a href="http://library.gnome.org/devel/atk/stable/">ATK</a>
+ * <a href="https://gnome.pages.gitlab.gnome.org/at-spi2-core/atk">ATK</a>
  * accessibility toolkit library. It may be used, for instance, by user interfaces
  * implemented with gtkmm-3.0.
  *
