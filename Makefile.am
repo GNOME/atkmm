@@ -41,7 +41,7 @@ pkgconfig_DATA = atk/$(ATKMM_MODULE_NAME).pc
 
 include $(srcdir)/MSVC_NMake/filelist.am
 
-text_files = COPYING.tools
+text_files = COPYING.tools README.win32.md
 msvc_files = $(addprefix MSVC_NMake/,$(msvc_nmake_data))
 
 dist_noinst_DATA = $(text_files) $(msvc_files)
