@@ -28,7 +28,7 @@ AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build])
 AC_CONFIG_HEADERS([build/config.h atk/atkmmconfig.h])
 
-AM_INIT_AUTOMAKE([1.9 -Wno-portability dist-bzip2 no-define nostdinc tar-pax])
+AM_INIT_AUTOMAKE([1.9 -Wno-portability dist-bzip2 no-define nostdinc tar-pax foreign])
 # Support silent build rules.
 # Disable by either passing --disable-silent-rules to configure or passing V=1 to make.
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
