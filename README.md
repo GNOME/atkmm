@@ -1,6 +1,36 @@
 # atkmm
 atkmm is the C++ binding for the ATK library.
-This module is part of the GNOME C++ bindings effort <http://www.gtkmm.org/>.
+This module is part of the GNOME C++ bindings effort.
+
+# General information
+
+atkmm-1.6 and atkmm-2.36 are different parallel-installable ABIs.
+This file describes atkmm-2.36.
+
+Web site
+ - https://www.gtkmm.org
+
+Download location
+ - https://download.gnome.org/sources/atkmm
+
+Reference documentation
+ - https://gnome.pages.gitlab.gnome.org/atkmm
+
+Tarballs contain reference documentation. In tarballs generated with Meson,
+see the untracked/doc/reference/html directory.
+
+Discussion on GNOME's discourse forum
+ - https://discourse.gnome.org/tag/cplusplus
+ - https://discourse.gnome.org/c/platform
+
+Git repository
+ - https://gitlab.gnome.org/GNOME/atkmm
+
+Bugs can be reported to
+ - https://gitlab.gnome.org/GNOME/atkmm/issues
+
+Patches can be submitted to
+ - https://gitlab.gnome.org/GNOME/atkmm/merge_requests
 
 # Building
 
@@ -9,7 +39,7 @@ supplier of your operating system, such as your Linux distribution.
 
 ## Building on Windows
 
-See README.win32.md
+See [README.win32](README.win32.md)
 
 ## Building from a release tarball
 
