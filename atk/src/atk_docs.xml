@@ -1395,7 +1395,7 @@ the ATK type (interface or object), &lt;atk_event&gt; is the name of the
 signal defined on that interface and &lt;atk_event_detail&gt; is the
 gsignal detail of that signal. You can find more info about gsignal
 details here:
-http://developer.gnome.org/gobject/stable/gobject-Signals.html
+https://docs.gtk.org/gobject/signals.html
 
 The first three parameters are mandatory. The last one is optional.
 

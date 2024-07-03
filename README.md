@@ -14,8 +14,12 @@ Download location
  - https://download.gnome.org/sources/atkmm
 
 Reference documentation
- - Download a tarball. Tarballs contain reference documentation.
-In tarballs generated with Meson, see the untracked/doc/reference/html directory.
+ - https://gnome.pages.gitlab.gnome.org/atkmm
+
+The documentation on the web describes atkmm-2.36.
+If you want documentation of atkmm-1.6, download a tarball.
+Tarballs contain reference documentation. In tarballs generated with Meson,
+see the untracked/doc/reference/html directory.
 
 Discussion on GNOME's discourse forum
  - https://discourse.gnome.org/tag/cplusplus

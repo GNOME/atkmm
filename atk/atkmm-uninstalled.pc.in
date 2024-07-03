@@ -1,5 +1,5 @@
 doxytagfile=${docdir}/reference/@ATKMM_MODULE_NAME@.tag
-htmlrefpub=http://library.gnome.org/devel/@PACKAGE_TARNAME@/2.28/
+htmlrefpub=https://gnome.pages.gitlab.gnome.org/@PACKAGE_TARNAME@/
 
 Name: atkmm
 Description: C++ binding for the ATK accessibility toolkit, uninstalled
