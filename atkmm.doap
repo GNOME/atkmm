@@ -12,7 +12,7 @@ atkmm is a C++ interface for the ATK accessibility toolkit library.
 It may be used, for instance, by user interfaces implemented with gtkmm3.
 It is not used by gtkmm4.
   </description>
-  <homepage rdf:resource="https://www.gtkmm.org/" />
+  <homepage rdf:resource="https://gtkmm.gnome.org/" />
   <developer-forum rdf:resource="https://discourse.gnome.org/tag/cplusplus/" />
   <download-page rdf:resource="https://download.gnome.org/sources/atkmm/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/atkmm/issues/" />
@@ -28,6 +28,7 @@ It is not used by gtkmm4.
   </maintainer>
   <!-- murrayc and daniel are not members of the gnomecvs group
        Rejected by https://gitlab.gnome.org/Infrastructure/sysadmin-bin/-/blob/master/git/validate-doap
+       Moved to https://gitlab.gnome.org/Infrastructure/gitaly-custom-hooks/-/blob/main/bin/validate-doap
   <maintainer>
     <foaf:Person>
       <foaf:name>Murray Cumming</foaf:name>

@@ -15,7 +15,7 @@ htmlrefpub=https://gnome.pages.gitlab.gnome.org/@PACKAGE_TARNAME@/
 Name: atkmm
 Description: C++ binding for the ATK accessibility toolkit
 Version: @PACKAGE_VERSION@
-URL: https://www.gtkmm.org/
+URL: https://gtkmm.gnome.org/
 Requires: @ATKMM_MODULES@
 Libs: -L${libdir} -latkmm@MSVC_TOOLSET_VER@-@ATKMM_API_VERSION@
 Cflags: -I${includedir}/@ATKMM_MODULE_NAME@ -I${libdir}/@ATKMM_MODULE_NAME@/include

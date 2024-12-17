@@ -8,7 +8,7 @@ atkmm-1.6 and atkmm-2.36 are different parallel-installable ABIs.
 This file describes atkmm-2.36.
 
 Web site
- - https://www.gtkmm.org
+ - https://gtkmm.gnome.org
 
 Download location
  - https://download.gnome.org/sources/atkmm

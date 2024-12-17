@@ -20,7 +20,7 @@
 # time being, the version number cannot be brought in line with ATK, since that
 # would break compatibility.
 AC_INIT([atkmm], [2.36.3], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
-        [atkmm], [http://www.gtkmm.org/])
+        [atkmm], [https://gtkmm.gnome.org/])
 AC_PREREQ([2.59])
 
 AC_CONFIG_SRCDIR([atk/atkmm.h])
