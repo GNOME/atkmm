@@ -7,8 +7,8 @@ project('atkmm', 'cpp',
     'cpp_std=c++11',
     'warning_level=1',
   ],
-  meson_version: '>= 0.55.0', # required for meson.add_dist_script(python3, ...)
-                              # and meson.add_install_script(python3, ...)
+  meson_version: '>= 0.58.0', # required for meson.add_dist_script() in subproject
+                              # and dependency().get_variable('varname')
 )
 
 atkmm_api_version = '1.6'
@@ -119,7 +119,7 @@ glibmm_req_minor_ver = '4'
 glibmm_dep = dependency('glibmm-2.@0@'.format(glibmm_req_minor_ver), version: glibmm_req)
 
 # Where to find gmmproc and generate_wrap_init.pl.
-gmmproc_dir = glibmm_dep.get_variable(pkgconfig: 'gmmprocdir', internal: 'gmmprocdir')
+gmmproc_dir = glibmm_dep.get_variable('gmmprocdir')
 
 if is_msvc
   # Check whether we compile atkmm without using gendef
@@ -281,9 +281,6 @@ if is_msvc
   )
 endif
 
-# add_dist_script() is not allowed in a subproject if meson.version() < 0.58.0.
-can_add_dist_script = not meson.is_subproject() or meson.version().version_compare('>= 0.58.0')
-
 subdir('codegen/extradefs')
 subdir('MSVC_NMake/gendef')
 subdir('atk')
@@ -291,20 +288,25 @@ subdir('MSVC_NMake/atkmm')
 subdir('atk/atkmm')
 subdir('doc/reference')
 
-if can_add_dist_script
-  # Add a ChangeLog file to the distribution directory.
-  meson.add_dist_script(
-    python3, dist_changelog_py,
-    project_source_root,
-  )
-  # Add build scripts to the distribution directory, and delete .gitignore
-  # files and an empty $MESON_PROJECT_DIST_ROOT/build/ directory.
-  meson.add_dist_script(
-    python3, dist_build_scripts_py,
-    project_source_root,
-    'untracked' / 'build_scripts',
-  )
-endif
+# Add a ChangeLog file to the distribution directory.
+meson.add_dist_script(
+  python3, dist_changelog_py,
+  project_source_root,
+)
+
+# Don't distribute these files.
+dont_distribute = [
+  'atkmm.doap',
+  '.gitlab-ci.yml',
+]
+# Add build scripts to the distribution directory, and delete .gitignore
+# files and an empty $MESON_PROJECT_DIST_ROOT/build/ directory.
+meson.add_dist_script(
+  python3, dist_build_scripts_py,
+  project_source_root,
+  'untracked' / 'build_scripts',
+  dont_distribute,
+)
 
 if meson.is_subproject()
   pkgconfig_vars = {
