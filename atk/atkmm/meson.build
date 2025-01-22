@@ -3,7 +3,7 @@
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
 #        python3, atkmm_rc, dummy_header_py, gmmproc_dir, msvc14x_toolset_ver,
-#        macos_darwin_versions, can_add_dist_script
+#        macos_darwin_versions
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_own_dep
 
@@ -217,15 +217,13 @@ meson.add_install_script(
   hg_ccg_basenames
 )
 
-if can_add_dist_script
-  # Distribute built files.
-  meson.add_dist_script(
-    python3, generate_binding_py, 'dist_built_files',
-    built_h_cc_dir,
-    untracked_atkmm,
-    hg_ccg_basenames,
-  )
-endif
+# Distribute built files.
+meson.add_dist_script(
+  python3, generate_binding_py, 'dist_built_files',
+  built_h_cc_dir,
+  untracked_atkmm,
+  hg_ccg_basenames,
+)
 
 # This is part of atkmm_dep, when atkmm is a subproject.
 # It can also be used if there are example programs and test programs to build.
