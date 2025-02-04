@@ -43,7 +43,7 @@ release_gcc_build:
   extends: .build_default
   stage: build
   variables:
-    DEPENDENCIES: $MESON_GCC_DEPS
+    DEPENDENCIES: $MESON_GCC_DEPS apt-file
   script:
     - apt-file list libpangomm-2.48-doc
     - mkdir _build && cd _build
