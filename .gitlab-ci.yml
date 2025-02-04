@@ -43,10 +43,15 @@ release_gcc_build:
   extends: .build_default
   stage: build
   variables:
-    DEPENDENCIES: $MESON_GCC_DEPS apt-file
+    DEPENDENCIES: $MESON_GCC_DEPS apt-file libglibmm-2.68-doc
   script:
     - apt-file update
-    - apt-file list libpangomm-2.48-doc
+    - apt-file list libglibmm-2.68-doc
+    - pkg-config --variable=doxytagfile glibmm-2.68
+    - ls -l /usr/share/doc/glibmm-2.68
+    - ls -l /usr/share/doc/glibmm-2.68/reference
+    - ls -l /usr/share/doc/libglibmm-2.68-doc
+    - ls -l /usr/share/doc/libglibmm-2.68-doc/reference
     - mkdir _build && cd _build
     # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
     - meson setup --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal -Dwarning_level=3 -Dwerror=true
