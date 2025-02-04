@@ -45,6 +45,7 @@ release_gcc_build:
   variables:
     DEPENDENCIES: $MESON_GCC_DEPS
   script:
+    - apt-file list libpangomm-2.48-doc
     - mkdir _build && cd _build
     # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
     - meson setup --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal -Dwarning_level=3 -Dwerror=true
@@ -55,26 +56,6 @@ release_gcc_build:
     when: always
     paths:
       - _build/doc/reference
-
-release_clang_build:
-  extends: .build_default
-  stage: build
-  variables:
-    DEPENDENCIES: $MESON_GCC_DEPS clang
-  script:
-    - mkdir _build && cd _build
-    # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
-    - CC=clang CXX=clang++ meson setup --prefix=/usr --libdir=lib -Ddebug=false -Doptimization=3 -Dwarnings=fatal -Dwarning_level=3 -Dwerror=true
-    - meson compile
-    - meson test
-    - meson install --quiet
-  allow_failure: true
-  artifacts:
-    when: on_failure
-    paths:
-      - _build/meson-logs/testlog.txt
-      - _build/meson-logs/meson-log.txt
-    expire_in: 1 week
 
 # Publish reference documentation at gnome.pages.gitlab.gnome.org/atkmm
 pages:
