@@ -45,6 +45,7 @@ release_gcc_build:
   variables:
     DEPENDENCIES: $MESON_GCC_DEPS apt-file
   script:
+    - apt-file update
     - apt-file list libpangomm-2.48-doc
     - mkdir _build && cd _build
     # -Ddebug=false + -Doptimization=3 correspond to -Dbuildtype=release
