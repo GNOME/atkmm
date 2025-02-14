@@ -44,7 +44,9 @@ configure_file(
   input: 'atkmm.pc.in',
   output: atkmm_pcname + '.pc',
   configuration: pkg_conf_data,
+  install: true,
   install_dir: install_pkgconfigdir,
+  install_tag: 'devel',
 )
 
 configure_file(
@@ -59,5 +61,7 @@ configure_file(
   input: atkmmconfig_h_meson,
   output: 'atkmmconfig.h',
   configuration: pkg_conf_data,
+  install: true,
   install_dir: install_includeconfigdir,
+  install_tag: 'devel',
 )
