@@ -1,5 +1,3 @@
-/* $Id: hypertext.hg,v 1.3 2006/04/12 11:11:24 murrayc Exp $ */
-
 /* Copyright (C) 2003 The gtkmm Development Team
  *
  * This library is free software; you can redistribute it and/or
@@ -13,10 +11,8 @@
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free
- * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * License along with this library; if not, see <https://www.gnu.org/licenses/>.
  */
-
 
 _DEFS(atkmm,atk)
 _PINCLUDE(glibmm/private/object_p.h)
@@ -58,4 +54,3 @@ public:
 };
 
 } // namespace Atk
-
