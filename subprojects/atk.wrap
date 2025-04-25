@@ -1,8 +1,9 @@
 [wrap-git]
 directory=atk
-url=https://gitlab.gnome.org/GNOME/atk.git
-revision=master
+url=https://gitlab.gnome.org/GNOME/at-spi2-core.git
+revision=main
 depth=1
 
 [provide]
 atk = libatk_dep
+atk-bridge-2.0 = libatk_bridge_dep
