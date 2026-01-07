@@ -70,13 +70,16 @@ and .lib that corresponds to the Visual Studio version used
   * 2017: `15`, `atkmm-vc141-2_36.[dll|pdb|lib]`
   * 2019: `16`, `atkmm-vc142-2_36.[dll|pdb|lib]`
   * 2022: `17`: `atkmm-vc143-2_36.[dll|pdb|lib]`
+  * 2026: `18`: `atkmm-vc145-2_36.[dll|pdb|lib]`
 
 For Meson, the DLL/PDB filenames and .lib filenames will be like:
   * 2017: `atkmm-vc141-2.36-1.[dll|pdb]`, `atkmm-vc141-2.36.lib`
   * 2019: `atkmm-vc142-2.36-1.[dll|pdb]`, `atkmm-vc142-2.36.lib`
   * 2022: `atkmm-vc143-2.36-1.[dll|pdb]`, `atkmm-vc143-2.36.lib`
+  * 2026: `atkmm-vc145-2.36-1.[dll|pdb]`, `atkmm-vc145-2.36.lib`
 
-Notice that this is no longer always the `vc$(VSVER)0` that was used before, to be consistent with other common C++ libraries such as Boost.
+Notice that this is no longer always the `vc$(VSVER)0` that was used before, to be consistent
+with other common C++ libraries such as Boost.
 Earlier gtkmm versions may still use the former `vc$(VSVER)0` naming scheme, so for 
 situations like where rebuilding code using atkmm became
 inconvenient, a `USE_COMPAT_LIBS=1` NMake option is provided to use the older naming scheme.
