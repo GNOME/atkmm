@@ -37,31 +37,31 @@ atkmm_generated_private_headers = $(atkmm_files_hg:.hg=_p.h)
 
 # For atkmm
 
-!if [call create-lists.bat header atkmm.mak atkmm_OBJS]
+!if [call create-lists.bat header $(BUILD_MKFILE_SNIPPET) atkmm_OBJS]
 !endif
 
-!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak ^$(OUTDIR)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\%~nc.obj]
 !endif
 
-!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak ^$(OUTDIR)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\%~nc.obj]
 !endif
 
-!if [@call create-lists.bat file atkmm.mak ^$(OUTDIR)\atkmm\atkmm.res]
+!if [@call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\atkmm.res]
 !endif
 
-!if [call create-lists.bat footer atkmm.mak]
+!if [call create-lists.bat footer $(BUILD_MKFILE_SNIPPET)]
 !endif
 
-!if [call create-lists.bat header atkmm.mak atkmm_real_hg]
+!if [call create-lists.bat header $(BUILD_MKFILE_SNIPPET) atkmm_real_hg]
 !endif
 
-!if [for %c in ($(atkmm_files_hg)) do @call create-lists.bat file atkmm.mak ..\atk\src\%c]
+!if [for %c in ($(atkmm_files_hg)) do @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ..\atk\src\%c]
 !endif
 
-!if [call create-lists.bat footer atkmm.mak]
+!if [call create-lists.bat footer $(BUILD_MKFILE_SNIPPET)]
 !endif
 
-!include atkmm.mak
+!include $(BUILD_MKFILE_SNIPPET)
 
-!if [del /f /q atkmm.mak]
+!if [del /f /q $(BUILD_MKFILE_SNIPPET)]
 !endif
