@@ -13,29 +13,32 @@
 # 	$(CC)|$(CXX) $(cflags) /Fo$(destdir) /c @<<
 # $<
 # <<
-{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
-	$(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
+{$(OUTDIR)\atkmm\}.cc{$(OUTDIR)\atkmm\}.obj::
+	$(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(OUTDIR)\atkmm\ /Fd$(OUTDIR)\atkmm\ /c @<<
 $<
 <<
 
-{..\untracked\atk\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
-	$(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
+{..\untracked\atk\atkmm\}.cc{$(OUTDIR)\atkmm\}.obj::
+	$(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(OUTDIR)\atkmm\ /Fd$(OUTDIR)\atkmm\ /c @<<
 $<
 <<
 
-{..\atk\atkmm\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj::
-	$(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fovs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\atkmm\ /c @<<
+{..\atk\atkmm\}.cc{$(OUTDIR)\atkmm\}.obj::
+	$(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(OUTDIR)\atkmm\ /Fd$(OUTDIR)\atkmm\ /c @<<
 $<
 <<
 
-{..\atk\src\}.ccg{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.obj:
+{..\atk\src\}.ccg{$(OUTDIR)\atkmm\}.obj:
 	@if not exist $(@D)\private\ $(MAKE) /f Makefile.vc CFG=$(CFG) $(@D)\private
+	@if not exist atkmm\atkmmconfig.h $(MAKE) /f Makefile.vc CFG=$(CFG) prep-git-build
+	@if "$(UNIX_TOOLS_BINDIR_CHECKED)" == "" echo Warning: m4 is not in %PATH% or specified M4 or UNIX_TOOLS_BINDIR is not valid. Builds may fail!
+	@set PATH=$(PATH);$(UNIX_TOOLS_BINDIR_CHECKED)
 	@for %%s in ($(<D)\*.ccg) do @if not exist ..\atk\atkmm\%%~ns.cc if not exist $(@D)\%%~ns.cc $(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../codegen/m4 --defs $(<D:\=/) %%~ns $(<D:\=/) $(@D)
-	@if exist $(@D)\$(<B).cc $(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(@D)\ /Fd$(@D)\ /c $(@D)\$(<B).cc
-	@if exist ..\untracked\atk\atkmm\$(<B).cc $(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(@D)\ /Fd$(@D)\ /c ..\untracked\atk\atkmm\$(<B).cc
-	@if exist ..\atk\atkmm\$(<B).cc $(CXX) $(ATKMM_CFLAGS) $(CFLAGS_NOGL) /Fo$(@D)\ /Fd$(@D)\ /c ..\atk\atkmm\$(<B).cc
+	@if exist $(@D)\$(<B).cc $(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(@D)\ /Fd$(@D)\ /c $(@D)\$(<B).cc
+	@if exist ..\untracked\atk\atkmm\$(<B).cc $(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(@D)\ /Fd$(@D)\ /c ..\untracked\atk\atkmm\$(<B).cc
+	@if exist ..\atk\atkmm\$(<B).cc $(CXX) $(CFLAGS) $(ATKMM_CFLAGS) $(ATKMM_INCLUDES) /Fo$(@D)\ /Fd$(@D)\ /c ..\atk\atkmm\$(<B).cc
 
-{.\atkmm\}.rc{vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\}.res:
+{.\atkmm\}.rc{$(OUTDIR)\atkmm\}.res:
 	rc /fo$@ $<
 
 # Rules for building .lib files
@@ -48,8 +51,8 @@ $(ATKMM_LIB): $(ATKMM_DLL)
 # $(dependent_objects)
 # <<
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
-$(ATKMM_DLL): vs$(VSVER)\$(CFG)\$(PLAT)\atkmm $(atkmm_OBJS)
-	link /DLL $(LDFLAGS_NOLTCG) $(ATKMM_DEP_LIBS) /implib:$(ATKMM_LIB) -out:$@ @<<
+$(ATKMM_DLL): $(OUTDIR)\atkmm $(atkmm_OBJS)
+	link /DLL $(LDFLAGS) $(DEP_LDFLAGS) /implib:$(ATKMM_LIB) -out:$@ @<<
 $(atkmm_OBJS)
 <<
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
@@ -63,18 +66,18 @@ $(atkmm_OBJS)
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
 clean:
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.dll
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.pdb
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.ilk
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.exp
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\*.lib
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.res
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.pdb
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private\*.h
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.h
-	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.cc
-	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private
-	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
+	@-del /f /q $(OUTDIR)\*.dll
+	@-del /f /q $(OUTDIR)\*.pdb
+	@-del /f /q $(OUTDIR)\*.ilk
+	@-del /f /q $(OUTDIR)\*.exp
+	@-del /f /q $(OUTDIR)\*.lib
+	@-del /f /q $(OUTDIR)\atkmm\*.res
+	@-del /f /q $(OUTDIR)\atkmm\*.pdb
+	@-del /f /q $(OUTDIR)\atkmm\*.obj
+	@-del /f /q $(OUTDIR)\atkmm\private\*.h
+	@-del /f /q $(OUTDIR)\atkmm\*.h
+	@-del /f /q $(OUTDIR)\atkmm\*.cc
+	@-rd $(OUTDIR)\atkmm\private
+	@-rd $(OUTDIR)\atkmm
 
 .SUFFIXES: .cc .h .ccg .hg .obj
