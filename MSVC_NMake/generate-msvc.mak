@@ -4,17 +4,17 @@
 # one is maintaining the NMake build files.
 
 # Create the build directories
-vs$(VSVER)\$(CFG)\$(PLAT)\gendef	\
-vs$(VSVER)\$(CFG)\$(PLAT)\atkmm	\
-vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private:
+$(OUTDIR)\gendef	\
+$(OUTDIR)\atkmm	\
+$(OUTDIR)\atkmm\private:
 	@-md $@
 
 # Generate .def files
-vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def: $(GENDEF) vs$(VSVER)\$(CFG)\$(PLAT)\atkmm $(atkmm_OBJS)
-	vs$(VSVER)\$(CFG)\$(PLAT)\gendef.exe $@ $(ATKMM_DLLNAME).dll vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\*.obj
+$(OUTDIR)\atkmm\atkmm.def: $(GENDEF) $(OUTDIR)\atkmm $(atkmm_OBJS)
+	$(OUTDIR)\gendef.exe $@ $(ATKMM_DLLNAME).dll $(OUTDIR)\atkmm\*.obj
 
 # Generate wrap_init.cc files
-vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\wrap_init.cc: $(atkmm_real_hg)
+$(OUTDIR)\atkmm\wrap_init.cc: $(atkmm_real_hg)
 	@if not exist ..\atk\atkmm\wrap_init.cc $(PERL) -- "$(GMMPROC_DIR)/generate_wrap_init.pl" --namespace=Atk --parent_dir=atkmm $(atkmm_real_hg:\=/)>$@
 
 # Generate pre-generated resources and configuration headers (builds from GIT)
@@ -29,7 +29,7 @@ atkmm\atkmm.rc: ..\configure.ac atkmm\atkmm.rc.in
 	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MINOR_VERSION\@/$(PKG_MINOR_VERSION)/g" $@
 	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MICRO_VERSION\@/$(PKG_MICRO_VERSION)/g" $@
 	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@PACKAGE_VERSION\@/$(PKG_MAJOR_VERSION).$(PKG_MINOR_VERSION).$(PKG_MICRO_VERSION)/g" $@
-	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MODULE_NAME\@/atkmm-$(ATKMM_MAJOR_VERSION).$(ATKMM_MINOR_VERSION)/g" $@
+	@if "$(DO_REAL_GEN)" == "1" $(PERL) -pi.bak -e "s/\@ATKMM_MODULE_NAME\@/atkmm-$(ATKMM_API_VERSION)/g" $@
 	@if "$(DO_REAL_GEN)" == "1" del $@.bak
 
 # You may change ATKMM_STATIC_LIB if you know what you are doing
