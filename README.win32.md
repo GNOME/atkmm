@@ -71,22 +71,23 @@ in your NMake command line.
 
 The following list lists the `$(VSVER)` and the `vc1xx` in the NMake-built DLL
 and .lib that corresponds to the Visual Studio version used
-(Visual Studio versions at or before 2012 are not supported):
-  * 2013: `12`, `atkmm-vc120-1_6.[dll|pdb|lib]`
+(Visual Studio versions at or before 2013 are not supported):
   * 2015: `14`, `atkmm-vc140-1_6.[dll|pdb|lib]`
   * 2017: `15`, `atkmm-vc141-1_6.[dll|pdb|lib]`
   * 2019: `16`, `atkmm-vc142-1_6.[dll|pdb|lib]`
   * 2022: `17`: `atkmm-vc143-1_6.[dll|pdb|lib]`
+  * 2026: `18`: `atkmm-vc145-1_6.[dll|pdb|lib]`
 
 For Meson, the DLL/PDB filenames and .lib filenames will be like:
-  * 2013: `atkmm-vc120-1.6-1.[dll|pdb]`, `atkmm-vc140-1.6.lib`
   * 2015: `atkmm-vc140-1.6-1.[dll|pdb]`, `atkmm-vc140-1.6.lib`
   * 2017: `atkmm-vc141-1.6-1.[dll|pdb]`, `atkmm-vc141-1.6.lib`
   * 2019: `atkmm-vc142-1.6-1.[dll|pdb]`, `atkmm-vc142-1.6.lib`
   * 2022: `atkmm-vc143-1.6-1.[dll|pdb]`, `atkmm-vc143-1.6.lib`
+  * 2026: `atkmm-vc145-1.6-1.[dll|pdb]`, `atkmm-vc145-1.6.lib`
 
-Notice that this is no longer always the `vc$(VSVER)` that was used before, to be consistent with other common C++ libraries such as Boost.
-Earlier gtkmm versions may still use the former `vc140` naming scheme, so for 
+Notice that this is no longer always the `vc$(VSVER)` that was used before, to be
+consistent with other common C++ libraries such as Boost.
+Earlier gtkmm versions may still use the former `vc140` naming scheme, so for
 situations like where rebuilding code using atkmm became
 inconvenient, a `USE_COMPAT_LIBS=1` NMake option is provided to use the older naming scheme.
 (or use `-Dmsvc14x-parallel-installable=false` in the Meson configure command line
