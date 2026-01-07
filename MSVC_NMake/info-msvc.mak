@@ -19,10 +19,44 @@ help:
 	@echo CFG: Required, use CFG=release for an optimized build and CFG=debug
 	@echo for a debug build.  PDB files are generated for all builds.
 	@echo.
+	@echo Optional options:
+	@echo ------
 	@echo PREFIX: Optional, the path where dependent libraries and tools may be
-	@echo found, default is ^$(srcrootdir)\..\vs^$(short_vs_ver)\^$(platform),
-	@echo where ^$(short_vs_ver) is 12 for VS 2013, 14 for VS2015 and so on;
-	@echo and ^$(platform) is Win32 for 32-bit builds and x64 for x64 builds.
+	@echo found, default is $$(srcrootdir)\..\vs$$(short_vs_ver)\$$(platform),
+	@echo where $$(short_vs_ver) is 14 for VS 2015 and so on; and
+	@echo $$(platform) is Win32 for 32-bit builds and x64 for x64 builds.
+	@echo.
+	@echo BASE_INCLUDEDIR: Optional, base directory where headers of various
+	@echo dependencies can be found, default is $$(PREFIX)\include. Can be overridden
+	@echo with [DEP]_INCLUDEDIR, as described below.
+	@echo.
+	@echo BASE_LIBDIR: Optional, base directory where .lib's and architecture-dependent
+	@echo headers of various dependencies can be found, default is $$(PREFIX)\lib.
+	@echo Can be overridden with [DEP]_LIBDIR, as described below.
+	@echo.
+	@echo [DEP]_INCLUDEDIR: Optional, base directories where headers of various
+	@echo dependencies can be found, default is $$(BASE_INCLUDEDIR). DEP includes
+	@echo ATK, GLIBMM, GLIB, and SIGC. Their subdirs, such as 'glib-2.0' for GLib,
+	@echo will be searched for, meaning $$(GLIB_INCLUDEDIR)\glib-2.0
+	@echo will be looked for the GLib headers, and so on.
+	@echo.
+	@echo [DEP]_LIBDIR: Optional, base directories where .libs of various
+	@echo dependencies can be found, along with architecture-dependent headers, default is
+	@echo $$(BASE_LIBDIR). DEP includes ATK, GLIBMM, GLIB and SIGC. The subdirs,
+	@echo for the archtecture-dependent headers, such as 'glib-2.0\include' for GLib, will
+	@echo be searched for, meaning $$(GLIB_LIBDIR)\glib-2.0\include will be looked for the
+	@echo GLib architecture-dependent headers, and so on.
+	@echo.
+	@echo GMMPROC_DIR: Optional, the path where glibmm's 'gmmproc' and 'generate_wrap_init.pl'
+	@echo scripts and their auxiliary scripts can be found, default is
+	@echo $$(GLIB_LIBDIR)\glibmm-$(GLIBMM_API_VERSION)\proc. You need to ensure the paths in the
+	@echo scripts correspond to your system's setup.
+	@echo.
+	@echo PERL, M4: Path to the PERL intepreter and the m4 utility program, if not in %PATH%.
+	@echo PERL is needed for all builds and m4 is needed if building from a GIT checkout. As
+	@echo an alternative to using M4, one can use UNIX_TOOLS_BINDIR instead to point to the
+	@echo directory where m4.exe is located, such as Cygwin's or MSYS2/MSYS64's 'bin' directory,
+	@echo as other UNIXy tools may be used during code generation for a build from a GIT checkout.
 	@echo.
 	@echo ======
 	@echo A 'clean' target is supported to remove all generated files, intermediate
