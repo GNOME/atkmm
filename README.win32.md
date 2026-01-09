@@ -71,22 +71,23 @@ in your NMake command line.
 
 The following list lists the `$(VSVER)` and the `vc1xx` in the NMake-built DLL
 and .lib that corresponds to the Visual Studio version used
-(Visual Studio versions at or before 2012 are not supported):
-  * 2013: `12`, `atkmm-vc120-1_6.[dll|pdb|lib]`
+(Visual Studio versions at or before 2013 are not supported):
   * 2015: `14`, `atkmm-vc140-1_6.[dll|pdb|lib]`
   * 2017: `15`, `atkmm-vc141-1_6.[dll|pdb|lib]`
   * 2019: `16`, `atkmm-vc142-1_6.[dll|pdb|lib]`
   * 2022: `17`: `atkmm-vc143-1_6.[dll|pdb|lib]`
+  * 2026: `18`: `atkmm-vc145-1_6.[dll|pdb|lib]`
 
 For Meson, the DLL/PDB filenames and .lib filenames will be like:
-  * 2013: `atkmm-vc120-1.6-1.[dll|pdb]`, `atkmm-vc140-1.6.lib`
   * 2015: `atkmm-vc140-1.6-1.[dll|pdb]`, `atkmm-vc140-1.6.lib`
   * 2017: `atkmm-vc141-1.6-1.[dll|pdb]`, `atkmm-vc141-1.6.lib`
   * 2019: `atkmm-vc142-1.6-1.[dll|pdb]`, `atkmm-vc142-1.6.lib`
   * 2022: `atkmm-vc143-1.6-1.[dll|pdb]`, `atkmm-vc143-1.6.lib`
+  * 2026: `atkmm-vc145-1.6-1.[dll|pdb]`, `atkmm-vc145-1.6.lib`
 
-Notice that this is no longer always the `vc$(VSVER)` that was used before, to be consistent with other common C++ libraries such as Boost.
-Earlier gtkmm versions may still use the former `vc140` naming scheme, so for 
+Notice that this is no longer always the `vc$(VSVER)` that was used before, to be
+consistent with other common C++ libraries such as Boost.
+Earlier gtkmm versions may still use the former `vc140` naming scheme, so for
 situations like where rebuilding code using atkmm became
 inconvenient, a `USE_COMPAT_LIBS=1` NMake option is provided to use the older naming scheme.
 (or use `-Dmsvc14x-parallel-installable=false` in the Meson configure command line
@@ -100,21 +101,54 @@ For the NMake builds, the following targets are supported:
   * `install`: Copy the built atkmm DLL, .lib and headers to appropriate
 locations under `$(PREFIX)`.
   * `clean`: Remove all the built files.  This includes the generated sources
-if building from a GIT checkout, as noted below.
 
-The NMake Makefiles now support building the atkmm libraries directly from a GIT 
+There are also some options that are supported when building with NMake, use as needed:
+
+ * USE_COMPAT_LIBS: Set this to `1` to use the old `vc150` naming scheme. Use only if
+necessary or when rebuilding code using pangomm is inconvenient.
+ * BASE_INCLUDEDIR: Base directory where headers of needed libraries can be found,
+the default is `$(PREFIX)\include`; can be overridden with [DEP]_INCLUDEDIR as needed,
+as noted below. See [DEP]_INCLUDEDIR for more info.
+ * BASE_LIBDIR: Base directory where .lib's of needed libraries can be found as well as
+their architecture-dependent headers, the default is `$(PREFIX)\lib`; can be overridden
+with [DEP]_LIBDIR as needed, as noted below. See [DEP]_LIBDIR for more info.
+ * [DEP]_INCLUDEDIR: Base directory where headers of [DEP] may be found, default is
+`$(BASE_INCLUDEDIR)`; do not include the subdirectory of the headers here, i.e. use
+`GLIB_INCLUDEDIR=<some_dir>` where the GLib headers are under `<some_dir>\glib-2.0`,
+and so on. [DEP] includes ATK, GLIB, GLIBMM and SIGC. Use as needed.
+ * [DEP]_LIBDIR: Base directory where .lib's and architecture-dependent headers of [DEP]
+may be found, default is `$(BASE_LIBDIR)`; do not include the subdirectory where the
+architecture-dependent headers are, i.e. use `GLIB_LIBDIR=<some_dir>` where the GLib
+architecture-dependent headers (`glibconfig.h`) is located under `<some_dir>\glib-2.0\include`,
+and so on. [DEP] includes ATK, GLIB, GLIBMM and SIGC. Use as needed.
+* GMMPROC_DIR: Directory where glibmm's `gmmproc`/`generate_wrap_init.pl` m4/PERL scripts may
+be found, along with their auxiliary m4/PERL scripts, for building from a GIT checkout, default
+is `$(GLIBMM_LIBDIR)\glibmm-2.68\proc`.
+You need to check that the paths in `gmmproc` and `generate_wrap_init.pl` are correct to
+your system setup; you must use the scripts that come with glibmm-2.68.x or later here.
+* PERL, M4: Full paths to your PERL interpreter and the `m4` tool if they are not in `%PATH%`.
+PERL is needed for all builds; if building from a GIT checkout, the `XML::Parser` module (that
+depends on libexpat) is also required, and you are responsible for ensuring that `XML::Parser`
+does indeed load in your build env. `m4` is needed if building from GIT, and it is recommended
+that this `m4` is a part of your Cygwin or MSYS2/MSYS64 installation, as other UNIXy tools may
+be used. As an alternative to using `M4`, you may use `UNIX_TOOLS_BINDIR` to point to the `bin`
+directory of your Cygwin or MSYS2/MSYS64 installation so that `m4` and the other UNIXy tools can
+can be found as well.
+
+The NMake Makefiles now support building the pangomm libraries directly from a GIT
 checkout with a few manual steps required, namely:
 
   * Ensure that you have a copy of Cygwin or MSYS/MSYS64 installed, including
 `m4.exe` and `sh.exe`.  You should also have a PERL for Windows installation
 as well, and your `%PATH%` should contain the paths to your PERL interpreter
-and the bin\ directory of your Cygwin or MSYS/MSYS64 installation, it is 
-recommended that these paths are towards the end of your `%PATH%`. You need to 
-install the `XML::Parser` PERL module as well for your PERL installation, which 
+and the bin\ directory of your Cygwin or MSYS/MSYS64 installation, or use `PERL`,
+`M4` and/or `UNIX_TOOLS_BINDIR` as noted above. If including these in `%PATH%`, it
+is recommended that these paths are towards the end of your `%PATH%`. You need to
+install the `XML::Parser` PERL module as well for your PERL installation, which
 requires libexpat.
 
   * You may wish to pass in the directory where gmmproc and generate_wrap_init.pl
-from glibmm is found, if they are not in `$(PREFIX)\share\glibmm-2.4\proc`, using 
+from glibmm is found, if they are not in `$(GLIBMM_LIBDIR)\glibmm-2.4\proc`, using
 `GMMPROC_DIR=...` in the NMake commandline.
 
   * Make a new copy of the entire source tree to some location, where the build
@@ -146,13 +180,14 @@ include the location where `glibmm_generate_extra_defs-vc14[x]-2.4.lib` from gli
 is, if not already in there, preferably to the start of your `%LIB%`. glibmm-2.4 
 refers to the C++11 branches of glibmm, where the latest version is glibmm-2.66.x.
 
-When building with Meson, if building from a GIT checkout or if building with 
-`maintainer-mode` enabled, you will also need a PERL interpreter and the `m4.exe` 
-and `sh.exe` from Cygwin or MSYS/MSYS64, and you will need to also install Doxygen,
-LLVM (likely needed by Doxygen) and GraphViz unless you pass in 
-`-Dbuild-documentation=false` in your Meson configure command line.  You will still
-need to have `mm-common` installed with its `bin` directory in your `%PATH%`, along
-with the `gmmproc` items from glibmm, which will be found with `pkg-config`.
+When building with Meson, if building from a GIT checkout or if building with
+`maintainer-mode` enabled, you will also need a PERL interpreter with `XML::Parser`
+and the `m4.exe` and `sh.exe` from Cygwin or MSYS/MSYS64, and you will need to also
+install Doxygen, LLVM (likely needed by Doxygen) and GraphViz unless you pass in
+`-Dbuild-documentation=false` in your Meson configure command line.  You will need
+to have these items in the `%PATH%`, along with an installation of `mm-common` with
+its `bin` directory in your `%PATH%`. You also need the `gmmproc` items from glibmm,
+which will be found with `pkg-config` when glibmm is searched for.
 
 Note also that before building, if using Visual Studio 2013, you will
 need to ensure that 'warnings' is not configured to `fatal` (the

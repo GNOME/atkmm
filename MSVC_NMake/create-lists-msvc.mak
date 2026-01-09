@@ -39,46 +39,54 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 
 # For atkmm
 
-!if [call create-lists.bat header atkmm.mak atkmm_OBJS]
+!if [call create-lists.bat header $(BUILD_MKFILE_SNIPPET) atkmm_OBJS]
 !endif
 
-!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_built_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\%~nc.obj]
 !endif
 
-!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\%~nc.obj]
+!if [for %c in ($(atkmm_files_extra_cc)) do @if "%~xc" == ".cc" @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\%~nc.obj]
 !endif
 
-!if [@call create-lists.bat file atkmm.mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\atkmm\atkmm.res]
+!if [@call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ^$(OUTDIR)\atkmm\atkmm.res]
 !endif
 
-!if [call create-lists.bat footer atkmm.mak]
+!if [call create-lists.bat footer $(BUILD_MKFILE_SNIPPET)]
 !endif
 
-!if [call create-lists.bat header atkmm.mak atkmm_real_hg]
+!if [call create-lists.bat header $(BUILD_MKFILE_SNIPPET) atkmm_real_hg]
 !endif
 
-!if [for %c in ($(atkmm_files_hg)) do @call create-lists.bat file atkmm.mak ..\atk\src\%c]
+!if [for %c in ($(atkmm_files_hg)) do @call create-lists.bat file $(BUILD_MKFILE_SNIPPET) ..\atk\src\%c]
 !endif
 
-!if [call create-lists.bat footer atkmm.mak]
+!if [call create-lists.bat footer $(BUILD_MKFILE_SNIPPET)]
 !endif
 
-!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist vs$(VSVER)\$(CFG)\$(PLAT)\%f (md vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\private) & ($(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src vs$(VSVER)/$(CFG)/$(PLAT)/atkmm)]
+# We need to generate a temporary .bat file to generate $(OUTDIR\pangomm\attributes.h from a GIT checkout
+# so that we can use that to see whether we need to use gendef.exe, as the UNIXy tools might not be in %PATH%
+!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist $(OUTDIR)\%f (echo @echo off>$(GENERATE_CHECK_HEADER_BAT) & echo setlocal EnableDelayedExpansion>>$(GENERATE_CHECK_HEADER_BAT) & echo md $(OUTDIR)\atkmm\private>>$(GENERATE_CHECK_HEADER_BAT) & echo set "PATH=$(PATH);$(UNIX_TOOLS_BINDIR_CHECKED)">>$(GENERATE_CHECK_HEADER_BAT) & echo call $(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src $(OUTDIR:\=/)/atkmm>>$(GENERATE_CHECK_HEADER_BAT))]
 !endif
 
-!if [for %d in (vs$(VSVER)\$(CFG)\$(PLAT)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>atkmm.mak]
+!if [if exist $(GENERATE_CHECK_HEADER_BAT) call $(GENERATE_CHECK_HEADER_BAT) & del $(GENERATE_CHECK_HEADER_BAT)]
 !endif
 
-!include atkmm.mak
+!if [for %d in ($(OUTDIR)\atkmm ..\atk\atkmm ..\untracked\atk\atkmm) do @if exist %d\action.h call get-gmmproc-ver %d\action.h>>$(BUILD_MKFILE_SNIPPET)]
+!endif
 
-!if [del /f /q atkmm.mak]
+!include $(BUILD_MKFILE_SNIPPET)
+
+!if [del /f /q $(BUILD_MKFILE_SNIPPET)]
 !endif
 
 !if "$(GMMPROC_VER)" >= "2.64.3"
-ATKMM_INT_TARGET = vs$(VSVER)\$(CFG)\$(PLAT)\atkmm
+ATKMM_INT_TARGET = $(OUTDIR)\atkmm
 ATKMM_DEF_LDFLAG =
 !else
-ATKMM_INT_TARGET = vs$(VSVER)\$(CFG)\$(PLAT)\atkmm\atkmm.def
+ATKMM_INT_TARGET = $(OUTDIR)\atkmm\atkmm.def
 ATKMM_DEF_LDFLAG = /def:$(ATKMM_INT_TARGET)
 ATKMM_BASE_CFLAGS = $(ATKMM_BASE_CFLAGS) /DATKMM_USE_GENDEF
+CFLAGS = $(CFLAGS: /GL=)
+ARFLAGS = $(ARFLAGS: /LTCG=)
+LDFLAGS = $(LDFLAGS: /LTCG=)
 !endif
