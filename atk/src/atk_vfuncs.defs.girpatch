@@ -1,0 +1,15 @@
+--- atk_vfuncs.defs.orig	2026-04-22 10:08:11.872769859 +0200
++++ atk_vfuncs.defs	2026-04-22 10:15:56.750312645 +0200
+@@ -1,5 +1,12 @@
++; AtkImplementor::ref_accessible_vfunc() is not included in Atk-1.0.gir
++; although AtkImplementor is.
++(define-vfunc ref_accessible
++  (of-object "AtkImplementor")
++  (return-type "AtkObject*")
++)
++
+ (define-vfunc do_action
+   (of-object "AtkAction")
+   (return-type "gboolean")
+   (parameters
+     '("gint" "i")

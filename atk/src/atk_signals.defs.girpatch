@@ -1,0 +1,28 @@
+--- atk_signals.defs.orig	2026-04-22 10:08:11.870769832 +0200
++++ atk_signals.defs	2026-04-22 10:08:11.901770256 +0200
+@@ -460,11 +460,11 @@
+   (of-object "AtkObject")
+   (return-type "void")
+   (flags "Run Last")
+   (detailed #t)
+   (parameters
+-    '("gpointer" "arg1")
++    '("gpointer*" "arg1")
+   )
+ )
+ 
+ (define-signal announcement
+   (of-object "AtkObject")
+@@ -520,11 +520,11 @@
+   (of-object "AtkObject")
+   (return-type "void")
+   (flags "Run Last")
+   (detailed #t)
+   (parameters
+-    '("gpointer" "arg1")
++    '("AtkPropertyValues*" "arg1")
+   )
+ )
+ 
+ (define-signal state-change
+   (of-object "AtkObject")

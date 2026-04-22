@@ -1,0 +1,28 @@
+--- atk_enums.defs.orig	2026-04-22 10:08:11.865769764 +0200
++++ atk_enums.defs	2026-04-22 10:08:11.899921437 +0200
+@@ -79,11 +79,11 @@
+ (define-enum-extended Role
+   (in-module "Atk")
+   (c-name "AtkRole")
+   (values
+     '("invalid" "ATK_ROLE_INVALID" "0")
+-    '("accelerator-label" "ATK_ROLE_ACCEL_LABEL" "1")
++    '("accel-label" "ATK_ROLE_ACCEL_LABEL" "1")
+     '("alert" "ATK_ROLE_ALERT" "2")
+     '("animation" "ATK_ROLE_ANIMATION" "3")
+     '("arrow" "ATK_ROLE_ARROW" "4")
+     '("calendar" "ATK_ROLE_CALENDAR" "5")
+     '("canvas" "ATK_ROLE_CANVAS" "6")
+@@ -153,11 +153,11 @@
+     '("footer" "ATK_ROLE_FOOTER" "70")
+     '("paragraph" "ATK_ROLE_PARAGRAPH" "71")
+     '("ruler" "ATK_ROLE_RULER" "72")
+     '("application" "ATK_ROLE_APPLICATION" "73")
+     '("autocomplete" "ATK_ROLE_AUTOCOMPLETE" "74")
+-    '("edit-bar" "ATK_ROLE_EDITBAR" "75")
++    '("editbar" "ATK_ROLE_EDITBAR" "75")
+     '("embedded" "ATK_ROLE_EMBEDDED" "76")
+     '("entry" "ATK_ROLE_ENTRY" "77")
+     '("chart" "ATK_ROLE_CHART" "78")
+     '("caption" "ATK_ROLE_CAPTION" "79")
+     '("document-frame" "ATK_ROLE_DOCUMENT_FRAME" "80")
