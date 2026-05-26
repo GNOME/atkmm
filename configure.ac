@@ -15,11 +15,7 @@
 ## You should have received a copy of the GNU Lesser General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Although atkmm is no longer part of the gtkmm module, it still has the same
-# pkg-config name as before and is meant to be binary compatible.  Thus for the
-# time being, the version number cannot be brought in line with ATK, since that
-# would break compatibility.
-AC_INIT([atkmm], [2.36.3], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
+AC_INIT([atkmm], [2.36.4], [https://gitlab.gnome.org/GNOME/atkmm/issues/],
         [atkmm], [https://gtkmm.gnome.org/])
 AC_PREREQ([2.59])
 

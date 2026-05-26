@@ -1,3 +1,35 @@
+2.36.4 (stable) 2026-05-26
+
+Documentation:
+* Don't link to removed parts of gnome.org
+* Replace gtkmm.org by gtkmm.gnome.org
+* Remove obsolete FSF (Free Software Foundation) address
+* codegen/extradefs/generate_extra_defs_atk.cc: The license is
+  GNU General Public License, version 2, as said in COPYING.tools.
+  (Kjell Ahlstedt)
+* README.win32.md: Mention Visual Studio 2026
+* Visual Studio builds: Update build information
+  (Chun-wei Fan) Merge request !10
+
+Meson build:
+* Require python3 >= 3.7. That's what Meson requires.
+* Require meson >= 0.60.0.
+* subprojects/atk.wrap points at at-spi2-core.
+  GNOME/atk moved to GNOME/at-spi2-core long ago
+* Use the Python installation that Meson uses.
+  See merge request glibmm!67
+  (Kjell Ahlstedt)
+* Meson and NMake builds: Distinguish Visual Studio 2026 builds
+  from Visual Studio 2022 builds
+* NMake Makefiles: Consolidate items and improve flexibility
+* NMake Makefiles: Make build process more robust
+  (Chun-wei Fan) Merge request !10
+* NMake Makefiles: Update .m4 installation
+  (Chun-wei Fan) Merge request !12
+* Don't require the 'dot' command to build the documentation
+  (Kjell Ahlstedt)
+
+
 atkmm 2.36.3 (stable):
 
 Documentation:
