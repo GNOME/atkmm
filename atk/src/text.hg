@@ -104,7 +104,7 @@ template <>
 class ATKMM_API Value<Atk::TextAttribute> : public Glib::Value_Enum<Atk::TextAttribute>
 {
 public:
-  static GType value_type() G_GNUC_CONST;
+  static GType value_type();
 };
 
 } // namespace Glib
