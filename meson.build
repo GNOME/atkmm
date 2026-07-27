@@ -148,11 +148,6 @@ else
 endif
 
 atkmm_build_dep = [glibmm_dep, atk_dep]
-atkmm_requires = ' '.join([
-  'glibmm-2.@0@'.format(glibmm_req_minor_ver), glibmm_req,
-  'atk', atk_req,
-])
-
 
 # Some dependencies are required only in maintainer mode and/or if
 # reference documentation shall be built.

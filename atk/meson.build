@@ -1,10 +1,9 @@
 # atk
 
 # Input: install_prefix, install_datadir, install_includedir,
-#        atkmm_pcname, atkmm_api_version, atkmm_requires,
-#        install_pkgconfigdir, install_libdir, build_deprecated_api,
-#        atkmm_major_version, atkmm_minor_version, atkmm_micro_version,
-#        msvc14x_toolset_ver
+#        atkmm_pcname, atkmm_api_version, install_pkgconfigdir,
+#        install_libdir, build_deprecated_api, atkmm_major_version,
+#        atkmm_minor_version, atkmm_micro_version, msvc14x_toolset_ver
 # Output: pkg_conf_data, install_includeconfigdir, atkmmconfig_h_meson
 
 pkg_conf_data = configuration_data()
