@@ -65,7 +65,7 @@ atkmm_files_extra_ph_int = $(atkmm_files_extra_ph:/=\)
 
 # We need to generate a temporary .bat file to generate $(OUTDIR\pangomm\attributes.h from a GIT checkout
 # so that we can use that to see whether we need to use gendef.exe, as the UNIXy tools might not be in %PATH%
-!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist $(OUTDIR)\%f (echo @echo off>$(GENERATE_CHECK_HEADER_BAT) & echo setlocal EnableDelayedExpansion>>$(GENERATE_CHECK_HEADER_BAT) & echo md $(OUTDIR)\atkmm\private>>$(GENERATE_CHECK_HEADER_BAT) & echo set "PATH=$(PATH);$(UNIX_TOOLS_BINDIR_CHECKED)">>$(GENERATE_CHECK_HEADER_BAT) & echo call $(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src $(OUTDIR:\=/)/atkmm>>$(GENERATE_CHECK_HEADER_BAT))]
+!if [for %f in (atkmm\action.h) do @if not exist ..\atk\%f if not exist ..\untracked\atk\%f if not exist $(OUTDIR)\%f (echo @echo off>$(GENERATE_CHECK_HEADER_BAT) & echo setlocal EnableDelayedExpansion>>$(GENERATE_CHECK_HEADER_BAT) & echo md $(OUTDIR)\atkmm\private>>$(GENERATE_CHECK_HEADER_BAT) & echo set "PATH=%PATH%;$(UNIX_TOOLS_BINDIR_CHECKED)">>$(GENERATE_CHECK_HEADER_BAT) & echo call $(PERL) -- $(GMMPROC_DIR)/gmmproc -I ../tools/m4 --defs ../atk/src action ../atk/src $(OUTDIR:\=/)/atkmm>>$(GENERATE_CHECK_HEADER_BAT))]
 !endif
 
 !if [if exist $(GENERATE_CHECK_HEADER_BAT) call $(GENERATE_CHECK_HEADER_BAT) & del $(GENERATE_CHECK_HEADER_BAT)]
