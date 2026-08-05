@@ -3,7 +3,9 @@
 # Input: atkmm_build_dep, atkmm_pcname, maintainer_mode, project_source_root,
 #        generate_binding_py, m4_files, atkmm_libversion, install_includedir,
 #        python3, atkmm_rc, dummy_header_py, gmmproc_dir, build_shared_libs_directly,
-#        msvc14x_toolset_ver, macos_darwin_versions
+#        msvc14x_toolset_ver, macos_darwin_versions, pkgconfig,
+#        atkmm_pkgconfig_vars, atkmm_pkgconfig_uninstalled_vars
+
 # Output: hg_ccg_basenames, extra_h_files, built_h_file_targets, built_files_root,
 #         atkmm_own_dep
 
@@ -270,4 +272,20 @@ atkmm_own_dep = declare_dependency(
   link_with: atkmm_library,
   include_directories: extra_include_dirs,
   dependencies: atkmm_build_dep
+)
+
+# Generate the pkg-config files
+pkgconfig.generate(
+  atkmm_library,
+  name: 'atkmm',
+  description: 'C++ binding for the ATK accessibility toolkit',
+  filebase: atkmm_pcname,
+  subdirs: atkmm_pcname,
+  url: 'https://gtkmm.gnome.org/',
+  extra_cflags: '-I${libdir}/@0@/include'.format(atkmm_pcname),
+  requires: atkmm_build_dep,
+  variables: atkmm_pkgconfig_vars,
+  uninstalled_variables: atkmm_pkgconfig_uninstalled_vars + [
+    'gmmprocdir=${prefix}/codegen/m4'
+  ]
 )
